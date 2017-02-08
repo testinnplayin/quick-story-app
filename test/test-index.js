@@ -6,7 +6,7 @@ import chai from 'chai';
 
 const should = chai.should();
 
-import MainContainer from '../js/components/main-container';
+import {MainContainer} from '../js/components/main-container';
 
 describe('MainContainer component', function() {
 	it('should render the overarching container', function() {

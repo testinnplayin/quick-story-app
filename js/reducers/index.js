@@ -10,7 +10,7 @@ const initialState = {
 
 export const storyReducer = (state=initialState, action) => {
 	switch(action.type) {
-		case type.GET_PHOTO_SUCCESS:
+		case types.GET_PHOTO_SUCCESS:
 			let photoSucc = action.photoSucc;
 
 			const newState_1 = update(state, {
@@ -21,7 +21,7 @@ export const storyReducer = (state=initialState, action) => {
 
 			console.log(newState_1);
 			return newState_1;
-		case type.GET_PHOTO_ERROR:
+		case types.GET_PHOTO_ERROR:
 			let photoErr = action.photoErr;
 
 			const newState_2 = update(state, {

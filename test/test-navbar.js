@@ -6,7 +6,7 @@ import chai from 'chai';
 
 const should = chai.should();
 
-import Navbar from '../js/components/navbar';
+import {Navbar} from '../js/components/navbar';
 
 describe('Navbar component', function() {
 	it('should render the appropriate compomnent', function() {

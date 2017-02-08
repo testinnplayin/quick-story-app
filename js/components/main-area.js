@@ -1,8 +1,11 @@
 'use strict';
 
 import React from 'react';
+import {connect} from 'react-redux';
 
-export default class MainArea extends React.Component {
+import PhotoButton from './photo-button';
+
+export class MainArea extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -10,8 +13,13 @@ export default class MainArea extends React.Component {
 	render() {
 		return (
 			<section className="mainArea">
-				<button className="get-photo-btn" type="button">Get New Photo</button>
+				<PhotoButton photo={this.props.photo} getPhoto={this.props.getPhoto} />
+				<div className="photoArea">
+					
+				</div>
 			</section>
 		);
 	}
 };
+
+export default connect()(MainArea);

@@ -30,5 +30,6 @@ const getPhoto = photoSucc => dispatch => {
 
 		return response;
 	})
-	.then(response => );
+	.then(response => response.json())
+	.then(data => dispatch(getPhotoSuccess(data.photoSucc)));
 };

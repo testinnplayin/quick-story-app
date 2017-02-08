@@ -2,11 +2,12 @@
 
 import React from 'react';
 import {Link} from 'react-router';
+import {connect} from 'react-redux';
 
 import Navbar from './navbar';
 import MainArea from './main-area';
 
-export default class MainContainer extends React.Component {
+export class MainContainer extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -27,3 +28,9 @@ export default class MainContainer extends React.Component {
 		);
 	}
 };
+
+const mapStateToProps = (state) => {
+	photo: state.photo
+};
+
+export default connect(mapStateToProps)(MainContainer);

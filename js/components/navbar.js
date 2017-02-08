@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import {connect} from 'react-redux';
 
 export default class Navbar extends React.Component {
 	constructor(props) {
@@ -20,3 +21,5 @@ export default class Navbar extends React.Component {
 		);
 	}
 };
+
+export default connect()(Navbar);

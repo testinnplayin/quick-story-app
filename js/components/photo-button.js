@@ -18,7 +18,7 @@ export class PhotoButton extends React.Component {
 
 	render() {
 		return (
-			<button className="get-photo-btn" type="button" onClick={this.handleGetPhotoClick}>Get New Photo</button>
+			<button className="photoButton" type="button" onClick={this.handleGetPhotoClick}>Get New Photo</button>
 		);
 	}
 };

@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/random-photo', (req, res) => {
-	res.sendFile(path.join(__dirname, '/data/free-stock-photo-accounts-pixmac1.jpg'));
+	res.json({photo: 'http://www.freedigitalphotos.net/images/img/homepage/394230.jpg'});
 });
 
 let server;

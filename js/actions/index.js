@@ -2,20 +2,20 @@
 
 import 'isomorphic-fetch';
 
-const GET_PHOTO_SUCCESS = 'GET_PHOTO_SUCCESS';
-const getPhotoSuccess = (photoSucc) => ({
+export const GET_PHOTO_SUCCESS = 'GET_PHOTO_SUCCESS';
+export const getPhotoSuccess = (photoSucc) => ({
 	type: GET_PHOTO_SUCCESS,
 	photoSucc
 });
 
-const GET_PHOTO_ERROR = 'GET_PHOTO_ERROR';
-const getPhotoError = (photoErr) => ({
+export const GET_PHOTO_ERROR = 'GET_PHOTO_ERROR';
+export const getPhotoError = (photoErr) => ({
 	type: GET_PHOTO_ERROR,
 	photoErr
 });
 
-const getPhoto = photoSucc => dispatch => {
-	let endpnt = '',
+export const getPhoto = photo => dispatch => {
+	let endpnt = '/random-photo',
 		reqOptions = {
 			method: 'GET'
 		},
@@ -31,5 +31,5 @@ const getPhoto = photoSucc => dispatch => {
 		return response;
 	})
 	.then(response => response.json())
-	.then(data => dispatch(getPhotoSuccess(data.photoSucc)));
+	.then(data => dispatch(getPhotoSuccess(data.photo)));
 };

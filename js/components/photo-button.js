@@ -3,6 +3,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import * as actions from '../actions/index';
+
 export class PhotoButton extends React.Component {
 	constructor(props) {
 		super(props);
@@ -12,8 +14,8 @@ export class PhotoButton extends React.Component {
 
 	handleGetPhotoClick(e) {
 		e.preventDefault();
-
-		this.props.dispatch(actions.getPhoto(this.props.photo));
+		let photo = this.props.photo;
+		this.props.dispatch(actions.getPhoto(photo));
 	}
 
 	render() {

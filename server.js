@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const path = require('path');
 
-const PORT = require('./config');
+// const PORT = require('./config');
 
 const app = express();
 
@@ -20,12 +20,18 @@ app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname, '/build/index.html'));
 });
 
+app.get('/random-photo', (req, res) => {
+	res.sendFile(path.join(__dirname, '/data/free-stock-photo-accounts-pixmac1.jpg'));
+});
+
 let server;
 
-function runServer(port = PORT) {
+function runServer() {
+	const port = process.env.PORT || 8080;
+
 	return new Promise((resolve, reject) => {
 		server = app.listen(port, function() {
-			console.log(`Server is listening on port ${PORT}`);
+			console.log(`Server is listening on port ${port}`);
 			resolve(server);
 		})
 		.on('error', function(err) {

@@ -24,7 +24,7 @@ describe('Random Photo', function() {
 		.then(function(res) {
 			res.should.have.status(200);
 			res.should.be.json;
-			
+			res.body.should.be.a('object');
 		});
 	});
 });

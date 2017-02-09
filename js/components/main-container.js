@@ -30,7 +30,8 @@ export class MainContainer extends React.Component {
 };
 
 const mapStateToProps = (state, props) => ({
-	photo: state.photo
+	photo: state.photo,
+	photoArea: false
 });
 
 export default connect(mapStateToProps)(MainContainer);

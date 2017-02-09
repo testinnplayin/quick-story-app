@@ -33,3 +33,9 @@ export const getPhoto = photo => dispatch => {
 	.then(response => response.json())
 	.then(data => dispatch(getPhotoSuccess(data.photo)));
 };
+
+export const SHOW_PHOTO_AREA = 'SHOW_PHOTO_AREA';
+export const showPhotoArea = (photoArea) => ({
+	type: SHOW_PHOTO_AREA,
+	photoArea
+});

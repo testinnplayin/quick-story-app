@@ -17,4 +17,16 @@ describe('story reducer', function() {
 
 		reducers.storyReducer(fakeState, noAction).should.eql({ photo : '' });
 	});
+
+	it('should switch photoArea bool on showPhotoArea', function() {
+		let fakeState = {
+			photoArea: false
+		},
+			showPhotoAreaAction = {
+				type: actions.SHOW_PHOTO_AREA,
+				photoArea: true
+			};
+
+		reducers.storyReducer(fakeState, showPhotoAreaAction).should.eql({ photoArea : true });
+	});
 });

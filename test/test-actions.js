@@ -44,13 +44,13 @@ const mockStore = configureMockStore(middlewares);
 
 
 describe('sync actions', function() {
-	it('should create an action to show photo area', function() {
-		let photoArea = true,
-			expectedAction = {
-				type: actions.SHOW_PHOTO_AREA,
-				photoArea
-			};
+	// it('should create an action to show photo area', function() {
+	// 	let photoArea = true,
+	// 		expectedAction = {
+	// 			type: actions.SHOW_PHOTO_AREA,
+	// 			photoArea
+	// 		};
 
-		actions.showPhotoArea(photoArea).should.be.eql(expectedAction);
-	});
+	// 	actions.showPhotoArea(photoArea).should.be.eql(expectedAction);
+	// });
 });

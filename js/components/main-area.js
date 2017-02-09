@@ -4,7 +4,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import PhotoButton from './photo-button';
-import PhotoArea from './photo-area';
+import StoryArea from './story-area';
 
 export class MainArea extends React.Component {
 	constructor(props) {
@@ -14,8 +14,8 @@ export class MainArea extends React.Component {
 	render() {
 		return (
 			<section className="mainArea">
-				<PhotoButton photo={this.props.photo} getPhoto={this.props.getPhoto} />
-				{ this.props.photoArea ? <PhotoArea photo={this.props.photo} photoArea={this.props.photoArea} /> : null }
+				<StoryArea photo={this.props.photo} photoArea={this.props.photoArea} getPhoto={this.props.getPhoto} /> 
+				<PhotoButton photo={this.props.photo} getPhoto={this.props.getPhoto} photoArea={this.props.photoArea} />
 			</section>
 		);
 	}

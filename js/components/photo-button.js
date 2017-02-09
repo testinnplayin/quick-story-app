@@ -18,7 +18,7 @@ export class PhotoButton extends React.Component {
 			photoArea = !(this.props.photoArea);
 			
 		this.props.dispatch(actions.getPhoto(photo));
-		this.props.dispatch(actions.showPhotoArea(photoArea));
+		// this.props.dispatch(actions.showPhotoArea(photoArea));
 	}
 
 	render() {

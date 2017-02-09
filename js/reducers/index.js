@@ -33,18 +33,6 @@ export const storyReducer = (state=initialState, action) => {
 			console.log(newState_2);
 
 			return newState_2;
-		case types.SHOW_PHOTO_AREA:
-			let photoArea = action.photoArea;
-
-			const newState_3 = update(state, {
-				photoArea: {
-					$set: photoArea
-				}
-			});
-
-			console.log(newState_3);
-			
-			return newState_3;
 		default:
 			return state;
 	}

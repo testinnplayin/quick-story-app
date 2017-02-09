@@ -6,15 +6,15 @@ import chai from 'chai';
 
 const should = chai.should();
 
-import {MainArea} from '../js/components/main-area';
+import {InitialMainArea} from '../js/components/initial-main-area';
 
-describe('MainArea component', function() {
+describe('InitialMainArea component', function() {
 	it('should render an element with the appropriate elements', function() {
 		const renderer = TestUtils.createRenderer();
-		renderer.render(<MainArea />);
+		renderer.render(<InitialMainArea />);
 
 		const result = renderer.getRenderOutput();
-		result.props.className.should.equal('mainArea');
+		result.props.className.should.equal('initialMainArea');
 		result.type.should.equal('section');
 		// result.props.children[0].should.be.a('object');
 	});

@@ -5,7 +5,7 @@ import {Link} from 'react-router';
 import {connect} from 'react-redux';
 
 import Navbar from './navbar';
-import MainArea from './main-area';
+import InitialMainArea from './initial-main-area';
 
 export class MainContainer extends React.Component {
 	constructor(props) {
@@ -22,7 +22,7 @@ export class MainContainer extends React.Component {
 						<span><strong>The random photo story app</strong></span>
 						<p>Clicking on <i>Get New Photo</i> will load a random photo from Upsplash. Write a story that the photo invokes or click on the button to get a new random photo.</p>
 					</section>
-					<MainArea />
+					<InitialMainArea />
 				</main>
 			</div>
 		);

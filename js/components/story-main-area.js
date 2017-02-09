@@ -4,8 +4,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import Photo from './photo';
+import Story from './story';
 
-export class StoryArea extends React.Component {
+export class StoryMainArea extends React.Component {
 	constructor(props) {
 		super(props);
 		console.log(this.props.photo);
@@ -13,11 +14,13 @@ export class StoryArea extends React.Component {
 
 	render() {
 		return (
-			<div className="storyArea">
-				<Photo photo={this.props.photo}  />
+			<div className="storyMainArea">
+				<h1>New Story</h1>
+				<Photo />
+				<Story />
 			</div>
 		);
 	}
 };
 
-export default connect()(StoryArea);
+export default connect()(StoryMainArea);

@@ -15,9 +15,7 @@ export class MainArea extends React.Component {
 		return (
 			<section className="mainArea">
 				<PhotoButton photo={this.props.photo} getPhoto={this.props.getPhoto} />
-				<div className="photo">
-					{ this.props.photoArea ? <PhotoArea photo={this.props.photo} /> : null }
-				</div>
+				{ this.props.photoArea ? <PhotoArea photo={this.props.photo} photoArea={this.props.photoArea} /> : null }
 			</section>
 		);
 	}

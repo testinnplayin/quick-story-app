@@ -16,10 +16,6 @@ describe('MainArea component', function() {
 		const result = renderer.getRenderOutput();
 		result.props.className.should.equal('mainArea');
 		result.type.should.equal('section');
-
-		let div = result.props.children[1];
-		div.type.should.equal('div');
-		div.props.className.should.equal('photo');
-		console.log(div);
+		result.props.children[0].should.be.a('object');
 	});
 });

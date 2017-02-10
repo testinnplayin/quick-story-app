@@ -17,8 +17,14 @@ describe('MainContainer component', function() {
 		result.type.should.equal('div');
 		result.props.className.should.equal('mainContainer');
 
-		let main = result.props.children;
+		console.log(result.props.children);
+
+		let funk = result.props.children[0];
+		funk.type.should.be.a('function');
+
+		let main = result.props.children[1];
 		main.type.should.equal('main');
+		
 
 		// let section = main.props.children;
 		// section.type.should.equal('section');

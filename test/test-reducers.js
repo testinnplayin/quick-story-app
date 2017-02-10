@@ -1,22 +1,22 @@
-'use strict';
+// 'use strict';
 
-import React from 'react';
-import chai from 'chai';
+// import React from 'react';
+// import chai from 'chai';
 
-const should = chai.should();
+// const should = chai.should();
 
-import * as reducers from '../js/reducers/index';
-import * as actions from '../js/actions/index';
+// import * as reducers from '../js/reducers/index';
+// import * as actions from '../js/actions/index';
 
-describe('story reducer', function() {
-	it('should return the initial state if undefined', function() {
-		let fakeState = {
-			photo: ''
-		},
-			noAction = { type : 'unknown' };
+// describe('story reducer', function() {
+// 	it('should return the initial state if undefined', function() {
+// 		let fakeState = {
+// 			photo: ''
+// 		},
+// 			noAction = { type : 'unknown' };
 
-		reducers.storyReducer(fakeState, noAction).should.eql({ photo : '' });
-	});
+// 		reducers.storyReducer(fakeState, noAction).should.eql({ photo : '' });
+// 	});
 
 	// it('should switch photoArea bool on showPhotoArea', function() {
 	// 	let fakeState = {
@@ -29,4 +29,4 @@ describe('story reducer', function() {
 
 	// 	reducers.storyReducer(fakeState, showPhotoAreaAction).should.eql({ photoArea : true });
 	// });
-});
+// });

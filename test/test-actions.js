@@ -1,18 +1,18 @@
-'use strict';
+// 'use strict';
 
-import React from 'react';
-import thunk from 'redux-thunk';
-import configureMockStore from 'redux-mock-store';
-// import chai from 'chai';
-import nock from 'nock';
+// import React from 'react';
+// import thunk from 'redux-thunk';
+// import configureMockStore from 'redux-mock-store';
+// // import chai from 'chai';
+// import nock from 'nock';
 
-// const should = chai.should();
+// // const should = chai.should();
 
-import * as actions from '../js/actions/index';
-import {app, runServer, closeServer} from '../server';
+// import * as actions from '../js/actions/index';
+// import {app, runServer, closeServer} from '../server';
 
-const middlewares = [ thunk ];
-const mockStore = configureMockStore(middlewares);
+// const middlewares = [ thunk ];
+// const mockStore = configureMockStore(middlewares);
 
 // describe('async actions', function() {
 // 	afterEach(function() {
@@ -43,14 +43,14 @@ const mockStore = configureMockStore(middlewares);
 // });
 
 
-describe('sync actions', function() {
-	// it('should create an action to show photo area', function() {
-	// 	let photoArea = true,
-	// 		expectedAction = {
-	// 			type: actions.SHOW_PHOTO_AREA,
-	// 			photoArea
-	// 		};
+// describe('sync actions', function() {
+// 	// it('should create an action to show photo area', function() {
+// 	// 	let photoArea = true,
+// 	// 		expectedAction = {
+// 	// 			type: actions.SHOW_PHOTO_AREA,
+// 	// 			photoArea
+// 	// 		};
 
-	// 	actions.showPhotoArea(photoArea).should.be.eql(expectedAction);
-	// });
-});
+// 	// 	actions.showPhotoArea(photoArea).should.be.eql(expectedAction);
+// 	// });
+// });

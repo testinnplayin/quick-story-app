@@ -21,3 +21,5 @@ export class MainContainer extends React.Component {
 		);
 	}
 };
+
+export default connect()(MainContainer);

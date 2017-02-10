@@ -11,7 +11,7 @@ import {NavBar} from '../js/components/navbar';
 describe('Navbar component', function() {
 	it('should draw a navbar with two links', function() {
 		const renderer = TestUtils.createRenderer();
-		renderer.render(<Navbar />);
+		renderer.render(<NavBar />);
 
 		const result = renderer.getRenderOutput();
 		result.type.should.equal('header');
@@ -32,4 +32,5 @@ describe('Navbar component', function() {
 
 		liArr[1].type.should.equal('li');
 		liArr[1].props.className.should.equal('storiesButton');
+	});
 });

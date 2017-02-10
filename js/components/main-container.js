@@ -16,7 +16,7 @@ export class MainContainer extends React.Component {
 			<div className="mainContainer">
 				<NavBar />
 				<main>
-					<MainTitle />
+					<MainTitle title={this.props.title} />
 				</main>
 			</div>
 		);

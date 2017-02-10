@@ -8,13 +8,18 @@ import {Provider} from 'react-redux';
 import store from './store';
 
 import MainContainer from './components/main-container';
-// <IndexRoute component={IntroComponent} />
+
+// <Route path='/story' component={StoryContainer}>
+						// <Route path='/new' component={TextArea} />
+					// </Route>
 
 document.addEventListener('DOMContentLoaded', () => {
 	ReactDOM.render(
 		<Provider store={store}>
 			<Router history={hashHistory}>
-				<Route path='/' component={MainContainer} />
+				<Route path='/' component={MainContainer}>
+					<IndexRoute component={IntroComponent} />
+				</Route>
 			</Router>
 		</Provider>,
 		document.getElementById('app'));

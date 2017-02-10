@@ -14,7 +14,6 @@ describe('MainTitle component', function() {
 		renderer.render(<MainTitle />);
 
 		const result = renderer.getRenderOutput();
-		console.log(result.props.children);
 		result.type.should.equal('section');
 		result.props.className.should.equal('mainTitle');
 

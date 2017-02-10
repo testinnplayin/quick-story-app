@@ -23,4 +23,8 @@ export class MainContainer extends React.Component {
 	}
 };
 
-export default connect()(MainContainer);
+const mapStateToProps = (state, props) => ({
+	title: state.title
+});
+
+export default connect(mapStateToProps)(MainContainer);

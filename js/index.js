@@ -16,8 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
 			<Router history={hashHistory}>
 				<Route path='/' component={MainContainer}>
 					<IndexRoute component={InitialMainArea} />
+					<Route path='story-new' component={StoryMainArea} />
 				</Route>
-				<Route path='/story/new' component={StoryMainArea} />
+				
 			</Router>
 		</Provider>,
 		document.getElementById('app'));

@@ -11,7 +11,7 @@ export class MainTitle extends React.Component {
 	render() {
 		return (
 			<section className="mainTitle">
-				<h1>Test Title</h1>
+				<h1>{this.props.title}</h1>
 			</section>
 		);
 	}

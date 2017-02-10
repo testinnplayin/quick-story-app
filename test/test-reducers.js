@@ -1,32 +1,32 @@
-// 'use strict';
+'use strict';
 
-// import React from 'react';
-// import chai from 'chai';
+import React from 'react';
+import chai from 'chai';
 
-// const should = chai.should();
+const should = chai.should();
 
-// import * as reducers from '../js/reducers/index';
-// import * as actions from '../js/actions/index';
+import * as reducers from '../js/reducers/index';
+import * as actions from '../js/actions/index';
 
-// describe('story reducer', function() {
-// 	it('should return the initial state if undefined', function() {
-// 		let fakeState = {
-// 			photo: ''
-// 		},
-// 			noAction = { type : 'unknown' };
-
-// 		reducers.storyReducer(fakeState, noAction).should.eql({ photo : '' });
-// 	});
-
-	// it('should switch photoArea bool on showPhotoArea', function() {
+describe('story reducer', function() {
+	// it('should return the initial state if undefined', function() {
 	// 	let fakeState = {
-	// 		photoArea: false
+	// 		photo: ''
 	// 	},
-	// 		showPhotoAreaAction = {
-	// 			type: actions.SHOW_PHOTO_AREA,
-	// 			photoArea: true
-	// 		};
+	// 		noAction = { type : 'unknown' };
 
-	// 	reducers.storyReducer(fakeState, showPhotoAreaAction).should.eql({ photoArea : true });
+	// 	reducers.storyReducer(fakeState, noAction).should.eql({ photo : '' });
 	// });
-// });
+
+	it('should switch titles', function() {
+		let fakeState = {
+			title: 'Quick Story'
+		},
+			changeAreaAction = {
+				type: actions.CHANGE_TITLE,
+				title: 'Thingamajiggy'
+			};
+
+		reducers.storyReducer(fakeState, changeAreaAction).should.eql({ title : 'Thingamajiggy' });
+	});
+});

@@ -4,7 +4,9 @@ import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import chai from 'chai';
 
-import NavBar from '../js/components/navbar';
+const should = chai.should();
+
+import {NavBar} from '../js/components/navbar';
 
 describe('Navbar component', function() {
 	it('should draw a navbar with two links', function() {
@@ -15,11 +17,14 @@ describe('Navbar component', function() {
 		result.type.should.equal('header');
 		result.props.className.should.equal('navBar');
 
-		let ul = result.props.children;
+		let nav = result.props.children;
+		nav.type.should.equal('nav');
+
+		let ul = nav.props.children;
 		ul.type.should.equal('ul');
-		ul.props.children.should.be.a('array');
 
 		let liArr = ul.props.children;
+		liArr.should.be.a('array');
 		liArr.should.have.lengthOf(2);
 
 		liArr[0].type.should.equal('li');
@@ -27,5 +32,4 @@ describe('Navbar component', function() {
 
 		liArr[1].type.should.equal('li');
 		liArr[1].props.className.should.equal('storiesButton');
-	});
 });

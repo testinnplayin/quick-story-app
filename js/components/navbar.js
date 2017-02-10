@@ -12,11 +12,15 @@ export class NavBar extends React.Component {
 	render() {
 		return (
 			<header className="navBar">
-				<ul>
-					<li className="homeButton"><Link to='/'>Home</Link></li>
-					<li className="storiesButton"><Link to='/stories'>Stories</Link></li>
-				</ul>
+				<nav>
+					<ul>
+						<li className="homeButton"><Link to='/'>Home</Link></li>
+						<li className="storiesButton"><Link to='/stories'>Stories</Link></li>
+					</ul>
+				</nav>
 			</header>
 		);
 	}
 };
+
+export default connect()(NavBar);

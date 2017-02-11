@@ -25,7 +25,8 @@ export class MainContainer extends React.Component {
 };
 
 const mapStateToProps = (state, props) => ({
-	title: state.title
+	title: state.title,
+	buttonName: state.buttonName
 });
 
 export default connect(mapStateToProps)(MainContainer);

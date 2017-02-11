@@ -14,7 +14,7 @@ export class TextAreaContainer extends React.Component {
 	render() {
 		return (
 			<div className="textAreaContainer">
-				<TextForm />
+				<TextForm buttonName={this.props.buttonName} />
 			</div>
 		);
 	}

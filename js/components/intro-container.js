@@ -15,7 +15,7 @@ export class IntroContainer extends React.Component {
 		return (
 			<section className="introContainer">
 				<PhotoAreaContainer />
-				<TextAreaContainer />
+				<TextAreaContainer buttonName={this.props.buttonName} />
 			</section>
 		);
 	}

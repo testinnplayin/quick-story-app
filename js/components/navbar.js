@@ -14,7 +14,7 @@ export class NavBar extends React.Component {
 			<header className="navBar">
 				<nav>
 					<ul>
-						<li className="homeButton"><Link to='/'>Home</Link></li>
+						<li className="homeButton btn btn-default"><Link to='/'>Home</Link></li>
 						<li className="storiesButton"><Link to='/stories'>Stories</Link></li>
 					</ul>
 				</nav>

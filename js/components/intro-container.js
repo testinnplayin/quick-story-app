@@ -3,6 +3,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import PhotoAreaContainer from './photo-area-container';
+import TextAreaContainer from './text-area-container';
+
 export class IntroContainer extends React.Component {
 	constructor(props) {
 		super(props);
@@ -11,8 +14,8 @@ export class IntroContainer extends React.Component {
 	render() {
 		return (
 			<section className="introContainer">
-				<div></div>
-				<div></div>
+				<PhotoAreaContainer />
+				<TextAreaContainer />
 			</section>
 		);
 	}

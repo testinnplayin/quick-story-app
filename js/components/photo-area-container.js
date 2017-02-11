@@ -11,7 +11,7 @@ export class PhotoAreaContainer extends React.Component {
 	render() {
 		return (
 			<div className="photoAreaContainer">
-				<p>Click on Get Random Photo button to begin!</p>
+				<p>{this.props.photoArea}</p>
 			</div>
 		);
 	}

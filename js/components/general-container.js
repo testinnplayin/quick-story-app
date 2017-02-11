@@ -19,7 +19,7 @@ export class GeneralContainer extends React.Component {
 			<main className="generalContainer">
 				<MainTitle title={this.props.title} />
 				<section className="generalArea">
-					<PhotoAreaContainer />
+					<PhotoAreaContainer photoArea={this.props.photoArea} />
 					<TextAreaContainer buttonName={this.props.buttonName} />
 				</section>
 			</main>
@@ -29,7 +29,8 @@ export class GeneralContainer extends React.Component {
 
 const mapStateToProps = (state, props) => ({
 	title: state.title,
-	buttonName: state.buttonName
+	buttonName: state.buttonName,
+	photoArea: state.photoArea
 });
 
 export default connect(mapStateToProps)(GeneralContainer);

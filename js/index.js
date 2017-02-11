@@ -8,7 +8,7 @@ import {Provider} from 'react-redux';
 import store from './store';
 
 import MainContainer from './components/main-container';
-import IntroContainer from './components/intro-container';
+import GeneralContainer from './components/general-container';
 
 // <Route path='/story' component={StoryContainer}>
 						// <Route path='/new' component={TextArea} />
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		<Provider store={store}>
 			<Router history={hashHistory}>
 				<Route path='/' component={MainContainer}>
-					<IndexRoute component={IntroContainer} />
+					<IndexRoute component={GeneralContainer} />
 				</Route>
 			</Router>
 		</Provider>,

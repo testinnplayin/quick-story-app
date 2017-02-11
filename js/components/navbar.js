@@ -2,24 +2,25 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router';
 
-export class Navbar extends React.Component {
+export class NavBar extends React.Component {
 	constructor(props) {
 		super(props);
 	}
 
 	render() {
 		return (
-			<header>
-				<nav className="navbar navbar-default">
+			<header className="navBar">
+				<nav>
 					<ul>
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Stories</a></li>
+						<li className="homeButton btn btn-default"><Link to='/'>Home</Link></li>
+						<li className="storiesButton"><Link to='/stories'>Stories</Link></li>
 					</ul>
 				</nav>
-		</header>
+			</header>
 		);
 	}
 };
 
-export default connect()(Navbar);
+export default connect()(NavBar);

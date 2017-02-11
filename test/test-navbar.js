@@ -6,29 +6,31 @@ import chai from 'chai';
 
 const should = chai.should();
 
-import {Navbar} from '../js/components/navbar';
+import {NavBar} from '../js/components/navbar';
 
 describe('Navbar component', function() {
-	it('should render the appropriate compomnent', function() {
+	it('should draw a navbar with two links', function() {
 		const renderer = TestUtils.createRenderer();
-		renderer.render(<Navbar />);
+		renderer.render(<NavBar />);
 
 		const result = renderer.getRenderOutput();
 		result.type.should.equal('header');
+		result.props.className.should.equal('navBar');
 
-		const nav = result.props.children;
+		let nav = result.props.children;
 		nav.type.should.equal('nav');
-		nav.props.className.should.equal('navbar navbar-default');
 
-		const ul = nav.props.children;
+		let ul = nav.props.children;
 		ul.type.should.equal('ul');
 
-		for (let i = 0; i < 1; i++) {
-			const li = ul.props.children[i];
-			li.type.should.equal('li');
-			li.props.children.type.should.equal('a');
-		}
-		
+		let liArr = ul.props.children;
+		liArr.should.be.a('array');
+		liArr.should.have.lengthOf(2);
 
+		liArr[0].type.should.equal('li');
+		liArr[0].props.className.should.equal('homeButton');
+
+		liArr[1].type.should.equal('li');
+		liArr[1].props.className.should.equal('storiesButton');
 	});
 });

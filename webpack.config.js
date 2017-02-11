@@ -16,6 +16,17 @@ module.exports = {
           exclude: /(node_modules)/,
           loader: 'babel',
         },
+        {
+          test: /\.css$/,
+          loader: "style-loader!css-loader"
+        }
       ]
-    }
+    },
+    plugins: [
+      new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery",
+        jquery: "jquery"
+      })
+    ]
 };

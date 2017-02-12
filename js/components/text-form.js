@@ -3,22 +3,29 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import * as actions from '../actions/index';
+
 export class TextForm extends React.Component {
 	constructor(props) {
 		super(props);
 
-		// this.handleSubmitEvent = this.handleSubmitEvent.bind(this);
+		this.handleGetPhoto = this.handleGetPhoto.bind(this);
 		// this.handleOnChangeEvent = this.handleOnChangeEvent.bind(this);
 	}
 
-	// handleSubmitEvent(e) {
-	// 	e.preventDefault();
-	// 	e.stopPropagation();
+	handleGetPhoto(e) {
+		e.preventDefault();
+		e.stopPropagation();
 
+		console.log('submit triggered');
 
+		let title = 'Write A Story';
 
-	// 	return false;
-	// }
+		this.props.dispatch(actions.getPhoto());
+		this.props.dispatch(actions.changeTitle(title));
+
+		return false;
+	}
 
 	// handleOnChangeEvent() {
 
@@ -31,7 +38,7 @@ export class TextForm extends React.Component {
 	render() {
 		return (
 			<form className="textForm">
-				<button type="button">{this.props.buttonName}</button>
+				<button type="button" onClick={this.handleGetPhoto}>{this.props.buttonName}</button>
 			</form>
 		);
 	}

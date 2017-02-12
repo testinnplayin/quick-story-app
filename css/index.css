@@ -4,6 +4,10 @@
     font-weight: bold;
     color: #eee; }
 
+.mainContainer {
+  background: #faa;
+  height: 1000px; }
+
 h1, p {
   text-align: center;
   color: #555; }

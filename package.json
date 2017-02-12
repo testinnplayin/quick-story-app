@@ -4,6 +4,7 @@
   "description": "A React template",
   "main": "js/index.js",
   "scripts": {
+    "build-css": "node-sass --include-path scss css/index.scss css/index.css",
     "start": "http-server -c-1 build",
     "dev": "run-p watch serve",
     "test": "mocha --recursive --compilers js:babel-core/register",
@@ -63,6 +64,7 @@
     "react-addons-test-utils": "^15.4.2",
     "redux-mock-store": "^1.2.2",
     "rimraf": "^2.5.4",
+    "sass-loader": "^5.0.1",
     "sinon": "^1.17.6",
     "sinon-chai": "^2.8.0",
     "style-loader": "^0.13.1",
@@ -70,11 +72,9 @@
   },
   "dependencies": {
     "body-parser": "^1.16.0",
-    "bootstrap": "^3.3.7",
     "express": "^4.14.1",
     "immutability-helper": "^2.1.1",
     "isomorphic-fetch": "^2.2.1",
-    "jquery": "^3.1.1",
     "mongoose": "^4.8.1",
     "morgan": "^1.8.0",
     "normalize.css": "^5.0.0",

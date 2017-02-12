@@ -20,7 +20,11 @@ describe('Navbar component', function() {
 		let nav = result.props.children;
 		nav.type.should.equal('nav');
 
-		let ul = nav.props.children;
+		let div = nav.props.children;
+		div.type.should.equal('div');
+		div.props.className.should.equal('container-fluid');
+
+		let ul = div.props.children;
 		ul.type.should.equal('ul');
 
 		let liArr = ul.props.children;

@@ -2,7 +2,7 @@ require('babel-polyfill');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Route, IndexRoute, hashHistory} from 'react-router';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import {Provider} from 'react-redux';
 
 import store from './store';
@@ -17,7 +17,7 @@ import GeneralContainer from './components/general-container';
 document.addEventListener('DOMContentLoaded', () => {
 	ReactDOM.render(
 		<Provider store={store}>
-			<Router history={hashHistory}>
+			<Router history={browserHistory}>
 				<Route path='/' component={MainContainer}>
 					<IndexRoute component={GeneralContainer} />
 				</Route>

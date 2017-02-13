@@ -17,9 +17,6 @@ describe('TextForm component', function() {
 		result.type.should.equal('form');
 		result.props.className.should.equal('textForm');
 
-		// let button = result.props.children;
-		// button.type.should.equal('button');
-		// button.props.type.should.equal('button');
-		// button.props.onClick.should.be.a('function');
+		
 	});
 });

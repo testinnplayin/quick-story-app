@@ -9,6 +9,7 @@ import store from './store';
 
 import MainContainer from './components/main-container';
 import GeneralContainer from './components/general-container';
+import StoryContainer from './components/story-container';
 
 // <Route path='/story' component={StoryContainer}>
 						// <Route path='/new' component={TextArea} />

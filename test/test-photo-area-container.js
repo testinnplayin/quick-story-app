@@ -17,7 +17,7 @@ describe('PhotoAreaContainer component', function() {
 		result.type.should.equal('section');
 		result.props.className.should.equal('photoAreaContainer');
 
-		console.log(result.props.children);
+		console.log(result);
 
 		// result.props.children.should.be.a('object');
 		

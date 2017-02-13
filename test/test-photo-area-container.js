@@ -19,7 +19,7 @@ describe('PhotoAreaContainer component', function() {
 
 		console.log(result);
 
-		// result.props.children.should.be.a('object');
+		result.props.children.should.be.a('object');
 		
 	});
 });

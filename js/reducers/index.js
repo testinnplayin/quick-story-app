@@ -28,7 +28,7 @@ export const storyReducer = (state=initialState, action) => {
 			let photoSucc = action.photoSucc;
 
 			const newState_2 = update(state, {
-				photo: {
+				photoArea: {
 					$set: photoSucc
 				}
 			});
@@ -39,7 +39,7 @@ export const storyReducer = (state=initialState, action) => {
 			let photoErr = action.photoErr;
 
 			const newState_3 = update(state, {
-				photo: {
+				photoArea: {
 					$set: photoErr
 				}
 			});

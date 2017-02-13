@@ -3,6 +3,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import Image from './image';
+
 export class PhotoAreaContainer extends React.Component {
 	constructor(props) {
 		super(props);
@@ -10,19 +12,13 @@ export class PhotoAreaContainer extends React.Component {
 	
 	componentDidMount() {
 		this.props.dispatch(actions.getPhoto());
+		this.props.setPhotoArea(actions.setPhotoArea);
 	}
-
-	// handleOnChangeEvent() {
-
-	// }
-
-	// <input type="textarea" onChange={handleOnChangeEvent} />
-					// <button type="submit">Submit</button>
 
 	render() {
 		return (
 			<section className="photoAreaContainer">
-				
+				<Image photoArea={this.props.photoArea} />
 			</section>
 		);
 	}

@@ -15,7 +15,7 @@ describe('InitPhotoAreaContainer component', function() {
 
 		const result = renderer.getRenderOutput();
 		result.type.should.equal('div');
-		result.props.className.should.equal('photoAreaContainer');
+		result.props.className.should.equal('initPhotoAreaContainer');
 
 		
 	});

@@ -7,7 +7,8 @@ import * as types from '../actions/index';
 const initialState = {
 	title: 'Quick Story',
 	buttonName: ['Get Random Photo'],
-	photoArea: 'Click on Get Random Photo button to begin!'
+	photoArea: 'Click on Get Random Photo button to begin!',
+	photo: ''
 };
 
 export const storyReducer = (state=initialState, action) => {
@@ -28,7 +29,7 @@ export const storyReducer = (state=initialState, action) => {
 			let photoSucc = action.photoSucc;
 
 			const newState_2 = update(state, {
-				photoArea: {
+				photo: {
 					$set: photoSucc
 				}
 			});
@@ -39,7 +40,7 @@ export const storyReducer = (state=initialState, action) => {
 			let photoErr = action.photoErr;
 
 			const newState_3 = update(state, {
-				photoArea: {
+				photo: {
 					$set: photoErr
 				}
 			});

@@ -10,15 +10,17 @@ export class PhotoAreaContainer extends React.Component {
 		super(props);
 	}
 	
-	componentDidMount() {
-		this.props.dispatch(actions.getPhoto());
-		this.props.setPhotoArea(actions.setPhotoArea);
-	}
+	// handleOnChangeEvent() {
+
+	// }
+
+	// <input type="textarea" onChange={handleOnChangeEvent} />
+					// <button type="submit">Submit</button>
 
 	render() {
 		return (
 			<section className="photoAreaContainer">
-				<Image photoArea={this.props.photoArea} />
+				<Image photo={this.props.photo}/>
 			</section>
 		);
 	}

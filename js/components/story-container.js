@@ -21,15 +21,17 @@ export class StoryContainer extends React.Component {
 			title = 'Write A Story';
 
 			this.props.dispatch(actions.changeTitle(title));
+			this.props.dispatch(actions.getPhoto());
 		}
 	}
+
 
 	render() {
 		return (
 			<main className="storyContainer">
 				<MainTitle title={this.props.title} />
 				<section className="storyAreaSection">
-					<PhotoAreaContainer />
+					<PhotoAreaContainer photo={this.props.photo} photoArea={this.props.photoArea} />
 				</section>
 			</main>
 		);
@@ -39,7 +41,8 @@ export class StoryContainer extends React.Component {
 const mapStateToProps = (state, props) => ({
 	title: state.title,
 	buttonName: state.buttonName,
-	photoArea: state.photoArea
+	photoArea: state.photoArea,
+	photo: state.photo
 });
 
 export default connect(mapStateToProps)(StoryContainer);

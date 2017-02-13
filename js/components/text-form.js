@@ -14,28 +14,6 @@ export class TextForm extends React.Component {
 		// this.handleOnChangeEvent = this.handleOnChangeEvent.bind(this);
 	}
 
-	// handleGetPhoto(e) {
-	// 	e.preventDefault();
-	// 	e.stopPropagation();
-
-	// 	console.log('submit triggered');
-
-	// 	let title = 'Write A Story';
-
-	// 	this.props.dispatch(actions.getPhoto());
-	// 	this.props.dispatch(actions.changeTitle(title));
-
-	// 	return false;
-	// }
-
-	// handleOnChangeEvent() {
-
-	// }
-
-	// <input type="textarea" onChange={handleOnChangeEvent} />
-					// <button type="submit">Submit</button>
-
-
 	render() {
 		return (
 			<form className="textForm">

@@ -4,8 +4,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import MainTitle from './main-title';
-import PhotoAreaContainer from './photo-area-container';
-import TextAreaContainer from './text-area-container';
+import InitPhotoAreaContainer from './init-photo-area-container';
+import InitTextAreaContainer from './init-text-area-container';
 
 export class GeneralContainer extends React.Component {
 	constructor(props) {
@@ -17,8 +17,8 @@ export class GeneralContainer extends React.Component {
 			<main className="generalContainer">
 				<MainTitle title={this.props.title} />
 				<section className="generalArea">
-					<PhotoAreaContainer photoArea={this.props.photoArea} />
-					<TextAreaContainer buttonName={this.props.buttonName} />
+					<InitPhotoAreaContainer photoArea={this.props.photoArea} />
+					<InitTextAreaContainer buttonName={this.props.buttonName} />
 				</section>
 			</main>
 		);

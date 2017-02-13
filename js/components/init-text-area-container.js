@@ -3,9 +3,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import TextForm from './text-form';
-
-export class TextAreaContainer extends React.Component {
+export class InitTextAreaContainer extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -13,11 +11,11 @@ export class TextAreaContainer extends React.Component {
 
 	render() {
 		return (
-			<div className="textAreaContainer">
+			<div className="initTextAreaContainer">
 				<TextForm buttonName={this.props.buttonName} getPhoto={this.props.getPhoto} />
 			</div>
 		);
 	}
 };
 
-export default connect()(TextAreaContainer);
+export default connect()(InitTextAreaContainer);

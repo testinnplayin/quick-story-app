@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			<Router history={browserHistory}>
 				<Route path='/' component={MainContainer}>
 					<IndexRoute component={GeneralContainer} />
+					<Route path='/story' component={StoryContainer} />
 				</Route>
 			</Router>
 		</Provider>,

@@ -17,9 +17,10 @@ describe('PhotoAreaContainer component', function() {
 		result.type.should.equal('section');
 		result.props.className.should.equal('photoAreaContainer');
 
-		console.log(result);
+		console.log(result.props.children);
 
 		result.props.children.should.be.a('object');
+		result.props.children.type.should.be.a('function');
 		
 	});
 });

@@ -14,9 +14,21 @@ describe('Image component', function() {
 		renderer.render(<Image />);
 
 		const result = renderer.getRenderOutput();
-		result.type.should.equal('img');
+
+		result.type.should.equal('div');
 		result.props.className.should.equal('image');
 
-		console.log(result);
+		const img = result.props.children;
+		img.type.should.equal('img');
+
+		let keys = Object.keys(img.props);
+		keys.should.have.lengthOf(2);
+
+		let expectedKeys = ['src', 'alt'];
+
+		for (let i = 0; i < keys.length; i++) {
+			keys[i].should.equal(expectedKeys[i]);
+		}
+
 	});
 });

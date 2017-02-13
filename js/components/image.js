@@ -10,7 +10,11 @@ export class Image extends React.Component {
 
 	render() {
 		return (
-			<img src={this.props.photoArea} alt='placeholder alt' />
+			<div className="image">
+				<img src={this.props.photoArea} alt='placeholder alt' />
+			</div>
 		);
 	}
 };
+
+export default connect()(Image);

@@ -12,7 +12,7 @@ export class IntermedTextAreaCont extends React.Component {
 	render() {
 		return (
 			<section className="intermedTextAreaCont">
-				<Link to='/story/new'>{this.props.buttonName}</Link>
+				<Link to='/story/new'>{this.props.photoBtn}</Link>
 			</section>
 		);
 	}

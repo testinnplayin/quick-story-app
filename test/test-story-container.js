@@ -25,8 +25,8 @@ describe('StoryContainer component', function() {
 		section.type.should.equal('section');
 		section.props.className.should.equal('storyAreaSection');
 
-		// const sectionArr = section.props.children;
-		// sectionArr.should.be.a('array');
-		// sectionArr.should.have.lengthOf(2);
+		const sectionArr = section.props.children;
+		sectionArr.should.be.a('array');
+		sectionArr.should.have.lengthOf(2);
 	});
 });

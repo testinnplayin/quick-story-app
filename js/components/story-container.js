@@ -7,7 +7,7 @@ import * as actions from '../actions/index';
 
 import MainTitle from './main-title';
 import PhotoAreaContainer from './photo-area-container';
-// import InitTextAreaContainer from './init-text-area-container';
+import IntermedTextAreaCont from './intermed-text-area-cont';
 
 export class StoryContainer extends React.Component {
 	constructor(props) {
@@ -20,7 +20,7 @@ export class StoryContainer extends React.Component {
 
 		if (title === 'Quick Story' && photoArea === 'Click on Get Random Photo button to begin!') {
 			title = 'Write A Story';
-			photoArea = 'Click on Get Random Photo button to begin!';
+			photoArea = 'Click on Write to begin writing or click on Get New Photo to get a new random photo';
 
 			this.props.dispatch(actions.changeTitle(title));
 			this.props.dispatch(actions.getPhoto());
@@ -35,6 +35,7 @@ export class StoryContainer extends React.Component {
 				<MainTitle title={this.props.title} />
 				<section className="storyAreaSection">
 					<PhotoAreaContainer photo={this.props.photo} photoArea={this.props.photoArea} />
+					<IntermedTextAreaCont />
 				</section>
 			</main>
 		);

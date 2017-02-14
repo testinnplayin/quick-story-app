@@ -9,13 +9,6 @@ export class PhotoAreaContainer extends React.Component {
 	constructor(props) {
 		super(props);
 	}
-	
-	// handleOnChangeEvent() {
-
-	// }
-
-	// <input type="textarea" onChange={handleOnChangeEvent} />
-					// <button type="submit">Submit</button>
 
 	render() {
 		return (

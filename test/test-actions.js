@@ -53,4 +53,14 @@ describe('sync actions', function() {
 
 		actions.changeTitle(title).should.be.eql(expectedAction);
 	});
+
+	it('should create an action to change the photo area', function() {
+		let photoArea = 'Omg! I\'m a photo area!',
+			whatExp = {
+				type: actions.CHANGE_PHOTO_AREA,
+				photoArea
+			};
+
+		actions.changePhotoArea(photoArea).should.be.eql(whatExp);
+	});
 });

@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import * as actions from '../actions/index';
 
 import MainTitle from './main-title';
-import PhotoAreaContainer from './init-photo-area-container';
+import PhotoAreaContainer from './photo-area-container';
 // import InitTextAreaContainer from './init-text-area-container';
 
 export class StoryContainer extends React.Component {

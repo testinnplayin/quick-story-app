@@ -10,7 +10,6 @@ export class TextForm extends React.Component {
 	constructor(props) {
 		super(props);
 
-		// this.handleGetPhoto = this.handleGetPhoto.bind(this);
 		// this.handleOnChangeEvent = this.handleOnChangeEvent.bind(this);
 	}
 

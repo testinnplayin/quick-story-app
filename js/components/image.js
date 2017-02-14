@@ -11,7 +11,7 @@ export class Image extends React.Component {
 	render() {
 		return (
 			<div className="image">
-				<img src={this.props.photoArea} alt='placeholder alt' />
+				<img src={this.props.photo} alt='placeholder alt' />
 			</div>
 		);
 	}

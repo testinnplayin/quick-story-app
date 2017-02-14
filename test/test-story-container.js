@@ -53,7 +53,7 @@ describe('StoryContainer component', function() {
 		
 
 		const funk2 = sectionArr[1],
-			expectedKeys2 = ['photoBtn', 'backBtn'];
+			expectedKeys2 = ['photoBtn', 'leftBtn', 'rightBtn'];
 
 		iterator(funk2, expectedKeys2);
 	});

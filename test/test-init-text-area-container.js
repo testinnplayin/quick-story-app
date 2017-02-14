@@ -6,15 +6,15 @@ import chai from 'chai';
 
 const should = chai.should();
 
-import {TextAreaContainer} from '../js/components/text-area-container';
+import {InitTextAreaContainer} from '../js/components/init-text-area-container';
 
-describe('TextAreaContainer component', function() {
+describe('InitTextAreaContainer component', function() {
 	it('should be a div', function() {
 		const renderer = TestUtils.createRenderer();
-		renderer.render(<TextAreaContainer />);
+		renderer.render(<InitTextAreaContainer />);
 
 		const result = renderer.getRenderOutput();
 		result.type.should.equal('div');
-		result.props.className.should.equal('textAreaContainer');
+		result.props.className.should.equal('initTextAreaContainer');
 	});
 });

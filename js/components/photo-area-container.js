@@ -3,6 +3,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import Image from './image';
+
 export class PhotoAreaContainer extends React.Component {
 	constructor(props) {
 		super(props);
@@ -10,9 +12,10 @@ export class PhotoAreaContainer extends React.Component {
 
 	render() {
 		return (
-			<div className="photoAreaContainer">
+			<section className="photoAreaContainer">
 				<p>{this.props.photoArea}</p>
-			</div>
+				<Image photo={this.props.photo}/>
+			</section>
 		);
 	}
 };

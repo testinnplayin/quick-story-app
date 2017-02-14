@@ -2,11 +2,22 @@
 
 import 'isomorphic-fetch';
 
+//sync actions
+
 export const CHANGE_TITLE = 'CHANGE_TITLE';
 export const changeTitle = (title) => ({
 	type: CHANGE_TITLE,
 	title
 });
+
+
+export const CHANGE_PHOTO_AREA = 'CHANGE_PHOTO_AREA';
+export const changePhotoArea = (photoArea) => ({
+	type: CHANGE_PHOTO_AREA,
+	photoArea
+});
+
+//async actions
 
 export const GET_PHOTO_SUCCESS = 'GET_PHOTO_SUCCESS';
 export const getPhotoSuccess = (photoSucc) => ({

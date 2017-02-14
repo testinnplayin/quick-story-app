@@ -4,14 +4,12 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import MainTitle from './main-title';
-import PhotoAreaContainer from './photo-area-container';
-import TextAreaContainer from './text-area-container';
+import InitPhotoAreaContainer from './init-photo-area-container';
+import InitTextAreaContainer from './init-text-area-container';
 
 export class GeneralContainer extends React.Component {
 	constructor(props) {
 		super(props);
-
-		console.log(props);
 	}
 
 	render() {
@@ -19,8 +17,8 @@ export class GeneralContainer extends React.Component {
 			<main className="generalContainer">
 				<MainTitle title={this.props.title} />
 				<section className="generalArea">
-					<PhotoAreaContainer photoArea={this.props.photoArea} />
-					<TextAreaContainer buttonName={this.props.buttonName} />
+					<InitPhotoAreaContainer photoArea={this.props.photoArea} />
+					<InitTextAreaContainer photoBtn={this.props.photoBtn} />
 				</section>
 			</main>
 		);
@@ -29,8 +27,9 @@ export class GeneralContainer extends React.Component {
 
 const mapStateToProps = (state, props) => ({
 	title: state.title,
-	buttonName: state.buttonName,
-	photoArea: state.photoArea
+	buttonNames: state.buttonNames,
+	photoArea: state.photoArea,
+	photoBtn: state.photoBtn
 });
 
 export default connect(mapStateToProps)(GeneralContainer);

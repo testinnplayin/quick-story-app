@@ -5,9 +5,11 @@ import update from 'immutability-helper';
 import * as types from '../actions/index';
 
 const initialState = {
-	title: 'Quick Story',
-	buttonName: ['Get Random Photo'],
-	photoArea: 'Click on Get Random Photo button to begin!'
+	title : 'Quick Story',
+	leftBtn: 'Back',
+	photoArea : 'Click on Get Random Photo button to begin!',
+	photo : '',
+	photoBtn: 'Get Random Photo'
 };
 
 export const storyReducer = (state=initialState, action) => {
@@ -47,6 +49,18 @@ export const storyReducer = (state=initialState, action) => {
 			console.log(newState_3);
 
 			return newState_3;
+		case types.CHANGE_PHOTO_AREA:
+			let photoArea = action.photoArea;
+
+			const newState_4 = update(state, {
+				photoArea: {
+					$set: photoArea
+				}
+			});
+
+			console.log(newState_4);
+
+			return newState_4;
 		default:
 			return state;
 	}

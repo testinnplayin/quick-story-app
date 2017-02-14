@@ -9,24 +9,44 @@ import * as reducers from '../js/reducers/index';
 import * as actions from '../js/actions/index';
 
 describe('story reducer', function() {
-	// it('should return the initial state if undefined', function() {
-	// 	let fakeState = {
-	// 		photo: ''
-	// 	},
-	// 		noAction = { type : 'unknown' };
+	it('should return the initial state if undefined', function() {
+		let fakeState = {
+				photo : '',
+				photoArea : 'Click on Get Random Photo button to begin!',
+				buttonName : ['Get Random Photo'],
+				title : 'Quick Story'
+			},
+			noAction = { type : 'unknown' };
 
-	// 	reducers.storyReducer(fakeState, noAction).should.eql({ photo : '' });
-	// });
+		reducers.storyReducer(fakeState, noAction).should.eql({ 
+			photo : '',
+			photoArea : 'Click on Get Random Photo button to begin!',
+			buttonName : ['Get Random Photo'],
+			title : 'Quick Story'
+		});
+	});
 
 	it('should switch titles', function() {
 		let fakeState = {
-			title: 'Quick Story'
-		},
+				title: 'Quick Story'
+			},
 			changeAreaAction = {
 				type: actions.CHANGE_TITLE,
 				title: 'Thingamajiggy'
 			};
 
 		reducers.storyReducer(fakeState, changeAreaAction).should.eql({ title : 'Thingamajiggy' });
+	});
+
+	it('should switch photo area strings', function() {
+		let fakeState = {
+			photoArea: 'Click on Get Random Photo button to begin!'
+		},
+			changePhotoArActn = {
+				type: actions.CHANGE_PHOTO_AREA,
+				photoArea: 'Stuff stuff stuff'
+			};
+
+		reducers.storyReducer(fakeState, changePhotoArActn).should.eql({ photoArea: 'Stuff stuff stuff' });
 	});
 });

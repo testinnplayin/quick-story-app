@@ -5,10 +5,10 @@ import update from 'immutability-helper';
 import * as types from '../actions/index';
 
 const initialState = {
-	title: 'Quick Story',
-	buttonName: ['Get Random Photo'],
-	photoArea: 'Click on Get Random Photo button to begin!',
-	photo: ''
+	title : 'Quick Story',
+	buttonName : ['Get Random Photo'],
+	photoArea : 'Click on Get Random Photo button to begin!',
+	photo : ''
 };
 
 export const storyReducer = (state=initialState, action) => {

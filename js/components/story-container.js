@@ -15,13 +15,16 @@ export class StoryContainer extends React.Component {
 	}
 
 	componentDidMount() {
-		let title = this.props.title;
+		let title = this.props.title,
+			photoArea = this.props.photoArea;
 
-		if (title === 'Quick Story') {
+		if (title === 'Quick Story' && photoArea === 'Click on Get Random Photo button to begin!') {
 			title = 'Write A Story';
+			photoArea = 'Click on Get Random Photo button to begin!';
 
 			this.props.dispatch(actions.changeTitle(title));
 			this.props.dispatch(actions.getPhoto());
+			this.props.dispatch(actions.changePhotoArea(photoArea));
 		}
 	}
 

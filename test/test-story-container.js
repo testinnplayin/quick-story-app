@@ -39,7 +39,6 @@ describe('StoryContainer component', function() {
 		sectionArr.should.be.a('array');
 		sectionArr.should.have.lengthOf(2);
 
-		console.log(sectionArr);
 		let lng = sectionArr.length;
 
 		for (let i = 0; i < lng; i++) {
@@ -54,7 +53,7 @@ describe('StoryContainer component', function() {
 		
 
 		const funk2 = sectionArr[1],
-			expectedKeys2 = ['photoBtn'];
+			expectedKeys2 = ['photoBtn', 'backBtn'];
 
 		iterator(funk2, expectedKeys2);
 	});

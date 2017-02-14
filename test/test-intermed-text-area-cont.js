@@ -17,10 +17,12 @@ describe('IntermedTextAreaCont component', function() {
 		result.type.should.equal('section');
 		result.props.className.should.equal('intermedTextAreaCont');
 
-		const aFunk = result.props.children;
-		aFunk.type.should.be.a('function');
-		aFunk.type.displayName.should.equal('Link');
-		aFunk.props.to.should.equal('/story/new');
+		const funkArr = result.props.children;
+		funkArr.should.be.a('array');
+		funkArr.should.have.lengthOf(2);
+
+		const back = funkArr[1];
+		console.log(back);
 
 	});
 });

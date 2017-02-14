@@ -36,7 +36,7 @@ export class StoryContainer extends React.Component {
 				<MainTitle title={this.props.title} />
 				<section className="storyAreaSection">
 					<PhotoAreaContainer photo={this.props.photo} photoArea={this.props.photoArea} />
-					<IntermedTextAreaCont photoBtn={this.props.photoBtn} />
+					<IntermedTextAreaCont photoBtn={this.props.photoBtn} backBtn={this.props.backBtn} />
 				</section>
 			</main>
 		);
@@ -45,6 +45,7 @@ export class StoryContainer extends React.Component {
 
 const mapStateToProps = (state, props) => ({
 	title: state.title,
+	backBtn: state.backBtn,
 	photoBtn: state.photoBtn,
 	photoArea: state.photoArea,
 	photo: state.photo

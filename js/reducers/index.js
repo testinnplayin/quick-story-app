@@ -8,6 +8,7 @@ const initialState = {
 	title : 'Quick Story',
 	leftBtn: 'Back',
 	photoArea : 'Click on Get Random Photo button to begin!',
+	rightBtn: 'Write',
 	photo : '',
 	photoBtn: 'Get Random Photo'
 };

@@ -6,9 +6,9 @@ import * as types from '../actions/index';
 
 const initialState = {
 	title : 'Quick Story',
-	buttonNames : ['Get Random Photo'],
 	photoArea : 'Click on Get Random Photo button to begin!',
-	photo : ''
+	photo : '',
+	photoBtn: 'Get Random Photo'
 };
 
 export const storyReducer = (state=initialState, action) => {

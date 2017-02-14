@@ -12,20 +12,13 @@ export class GeneralContainer extends React.Component {
 		super(props);
 	}
 
-	componentDidMount() {
-		let buttonNames = this.props.buttonNames,
-			buttonName = buttonNames[0];
-
-		console.log(buttonName);
-	}
-
 	render() {
 		return (
 			<main className="generalContainer">
 				<MainTitle title={this.props.title} />
 				<section className="generalArea">
 					<InitPhotoAreaContainer photoArea={this.props.photoArea} />
-					<InitTextAreaContainer buttonName={this.buttonName} />
+					<InitTextAreaContainer photoBtn={this.props.photoBtn} />
 				</section>
 			</main>
 		);
@@ -35,7 +28,8 @@ export class GeneralContainer extends React.Component {
 const mapStateToProps = (state, props) => ({
 	title: state.title,
 	buttonNames: state.buttonNames,
-	photoArea: state.photoArea
+	photoArea: state.photoArea,
+	photoBtn: state.photoBtn
 });
 
 export default connect(mapStateToProps)(GeneralContainer);

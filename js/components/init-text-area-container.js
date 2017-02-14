@@ -13,7 +13,7 @@ export class InitTextAreaContainer extends React.Component {
 	render() {
 		return (
 			<div className="initTextAreaContainer">
-				<Link to='/story'>{this.props.buttonName}</Link>
+				<Link to='/story'>{this.props.photoBtn}</Link>
 			</div>
 		);
 	}

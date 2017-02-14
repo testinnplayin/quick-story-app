@@ -10,6 +10,12 @@ export const changeTitle = (title) => ({
 	title
 });
 
+export const CHANGE_BUTTON_NAME = 'CHANGE_BUTTON_NAME';
+export const changeButtonName = (buttonName) => ({
+	type: CHANGE_BUTTON_NAME,
+	buttonName
+});
+
 export const CHANGE_PHOTO_AREA = 'CHANGE_PHOTO_AREA';
 export const changePhotoArea = (photoArea) => ({
 	type: CHANGE_PHOTO_AREA,

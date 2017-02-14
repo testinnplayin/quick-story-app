@@ -16,7 +16,8 @@ export class StoryContainer extends React.Component {
 
 	componentDidMount() {
 		let title = this.props.title,
-			photoArea = this.props.photoArea;
+			photoArea = this.props.photoArea,
+			buttonNames = this.props.buttonName;
 
 		if (title === 'Quick Story' && photoArea === 'Click on Get Random Photo button to begin!') {
 			title = 'Write A Story';
@@ -44,7 +45,7 @@ export class StoryContainer extends React.Component {
 
 const mapStateToProps = (state, props) => ({
 	title: state.title,
-	buttonName: state.buttonName,
+	buttonNames: state.buttonNames,
 	photoArea: state.photoArea,
 	photo: state.photo
 });

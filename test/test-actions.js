@@ -54,6 +54,14 @@ describe('sync actions', function() {
 		actions.changeTitle(title).should.be.eql(expectedAction);
 	});
 
+	it('should create an action to change a button\'s name', function() {
+		let buttonName = 'Click Me',
+			expectedAction = {
+				type: actions.CHANGE_BUTTON_NAME,
+				buttonName
+			};
+	});
+
 	it('should create an action to change the photo area', function() {
 		let photoArea = 'Omg! I\'m a photo area!',
 			whatExp = {

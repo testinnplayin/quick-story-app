@@ -6,7 +6,7 @@ import * as types from '../actions/index';
 
 const initialState = {
 	title : 'Quick Story',
-	buttonName : ['Get Random Photo'],
+	buttonNames : ['Get Random Photo'],
 	photoArea : 'Click on Get Random Photo button to begin!',
 	photo : ''
 };

@@ -16,9 +16,21 @@ describe('PhotoAreaContainer component', function() {
 		const result = renderer.getRenderOutput();
 		result.type.should.equal('section');
 		result.props.className.should.equal('photoAreaContainer');
+		
+		let sectionArr = result.props.children;
+		sectionArr.should.be.a('array');
+		sectionArr.should.have.lengthOf(2);
 
-		result.props.children.should.be.a('object');
-		result.props.children.type.should.be.a('function');
+		const p = sectionArr[0];
+		p.type.should.equal('p');
+
+		const funkObj = sectionArr[1];
+		funkObj.type.should.be.a('function');
+
+		let key = 'photo';
+		let funkKey = Object.keys(funkObj.props);
+
+		funkKey[0].should.equal(key);
 		
 	});
 });

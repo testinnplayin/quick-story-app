@@ -20,6 +20,7 @@ export class PhotoAreaContainer extends React.Component {
 	render() {
 		return (
 			<section className="photoAreaContainer">
+				<p>{this.props.photoArea}</p>
 				<Image photo={this.props.photo}/>
 			</section>
 		);

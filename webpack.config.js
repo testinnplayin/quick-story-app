@@ -3,21 +3,18 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-    entry: path.resolve(__dirname, 'js/index.js'),
-    output: {
-        path: path.resolve(__dirname, 'build/js'),
-        filename: 'index.js',
-    },
-    devtool: 'inline-source-map',
-    module: {
-      loaders: [
-        {
-          test: /\.js$/,
-          exclude: /(node_modules)/,
-          loader: 'babel',
-        },
-      ],
-      rules: [{
+  entry: path.resolve(__dirname, 'js/index.js'),
+  output: {
+      path: path.resolve(__dirname, 'build/js'),
+      filename: 'index.js',
+  },
+  devtool: 'inline-source-map',
+  module: {
+    loaders: [
+      
+    ],
+    rules: [
+      {
         test: /\.scss$/,
         use: [{
           loader: "style-loader"
@@ -27,7 +24,12 @@ module.exports = {
         {
           loader: "sass-loader"
         }]
-      }]
-    },
-    plugins: []
+      },
+      {
+        use: 'babel-loader',
+        test: /\.js$/,
+        exclude: /node_modules/
+      }
+    ]
+  }
 };

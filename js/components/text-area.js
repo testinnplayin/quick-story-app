@@ -3,17 +3,17 @@
 import React from 'react';
 import {connect} from 'react-redux'
 
-export class TextAreaContainer extends React.Component {
+export class TextArea extends React.Component {
 	constructor(props) {
 		super(props);
 	}
 
 	render() {
 		return (
-			<div className="textAreaContainer"></div>
+			<div className="textArea"><p>Puppies</p></div>
 		);	
 	}
 	
 };
 
-export default connect()(TextAreaContainer);
+export default connect()(TextArea);

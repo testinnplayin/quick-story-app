@@ -7,7 +7,7 @@ import * as actions from '../actions/index';
 
 import MainTitle from './main-title';
 import PhotoAreaContainer from './photo-area-container';
-import IntermedTextAreaCont from './intermed-text-area-cont';
+import ButtonArea from './button-area';
 
 export class StoryContainer extends React.Component {
 	constructor(props) {
@@ -30,12 +30,12 @@ export class StoryContainer extends React.Component {
 		} 
 	}
 
-	componentDidUpdate(prevProps, prevState) {
-		let photoArea = this.props.photoArea;
+	// componentDidUpdate(prevProps, prevState) {
+	// 	let photoArea = this.props.photoArea;
 
-		console.log('!!!!!!!!!!!!');
-		console.log(photoArea);
-	}
+	// 	console.log('!!!!!!!!!!!!');
+	// 	console.log(photoArea);
+	// }
 
 	render() {
 		return (
@@ -43,7 +43,8 @@ export class StoryContainer extends React.Component {
 				<MainTitle title={this.props.title} />
 				<section className="storyAreaSection">
 					<PhotoAreaContainer photo={this.props.photo} photoArea={this.props.photoArea} />
-					<IntermedTextAreaCont photoBtn={this.props.photoBtn} leftBtn={this.props.leftBtn} rightBtn={this.props.rightBtn} />
+					{this.props.children}
+					<ButtonArea photoBtn={this.props.photoBtn} leftBtn={this.props.leftBtn} rightBtn={this.props.rightBtn} />
 				</section>
 			</main>
 		);

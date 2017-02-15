@@ -49,4 +49,16 @@ describe('story reducer', function() {
 
 		reducers.storyReducer(fakeState, changePhotoArActn).should.eql({ photoArea: 'Stuff stuff stuff' });
 	});
+
+	it('should switch right button strings', function() {
+		let fakeState = {
+				rightBtn: 'Write'
+			},
+			changeRightBtnActn = {
+				type: actions.CHANGE_RIGHT_BTN_NAME,
+				rightBtn: 'Click Me'
+			};
+
+		reducers.storyReducer(fakeState, changeRightBtnActn).should.eql({ rightBtn : 'Click Me' });
+	});
 });

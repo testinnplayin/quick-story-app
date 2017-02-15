@@ -63,4 +63,14 @@ describe('sync actions', function() {
 
 		actions.changePhotoArea(photoArea).should.be.eql(whatExp);
 	});
+
+	it('should create an action to change the name on the righthand button', function() {
+		let rightBtn = 'Click Me',
+			whatExp = {
+				type: actions.CHANGE_RIGHT_BTN_NAME,
+				rightBtn
+			};
+
+		actions.changeRightBtnName(rightBtn).should.be.eql(whatExp);
+	});
 });

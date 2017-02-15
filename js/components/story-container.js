@@ -17,7 +17,6 @@ export class StoryContainer extends React.Component {
 	componentDidMount() {
 		let title = this.props.title,
 			photoArea = this.props.photoArea,
-			buttonNames = this.props.buttonName,
 			rightBtn = this.props.rightBtn;
 
 		if (title === 'Quick Story' && photoArea === 'Click on Get Random Photo button to begin!') {
@@ -30,13 +29,6 @@ export class StoryContainer extends React.Component {
 		} 
 	}
 
-	componentDidUpdate(prevProps, prevState) {
-		let photoArea = this.props.photoArea;
-
-		console.log('!!!!!!!!!!!!');
-		console.log(photoArea);
-	}
-
 	render() {
 		return (
 			<main className="storyContainer">
@@ -44,7 +36,7 @@ export class StoryContainer extends React.Component {
 				<section className="storyAreaSection">
 					<PhotoAreaContainer photo={this.props.photo} photoArea={this.props.photoArea} />
 					{this.props.children}
-					<ButtonArea photoBtn={this.props.photoBtn} leftBtn={this.props.leftBtn} rightBtn={this.props.rightBtn} />
+					<ButtonArea photoBtn={this.props.photoBtn} leftBtn={this.props.leftBtn} rightBtn={this.props.rightBtn} handleWriteClick={this.props.handleWriteClick} />
 				</section>
 			</main>
 		);

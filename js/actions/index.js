@@ -17,6 +17,12 @@ export const changePhotoArea = (photoArea) => ({
 	photoArea
 });
 
+export const CHANGE_RIGHT_BTN_NAME = 'CHANGE_RIGHT_BTN_NAME';
+export const changeRightBtnName = (rightBtn) => ({
+	type: CHANGE_RIGHT_BTN_NAME,
+	rightBtn
+});
+
 //async actions
 
 export const GET_PHOTO_SUCCESS = 'GET_PHOTO_SUCCESS';

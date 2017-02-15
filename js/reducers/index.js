@@ -10,7 +10,8 @@ const initialState = {
 	photoArea : 'Click on Get Random Photo button to begin!',
 	rightBtn: 'Write',
 	photo : '',
-	photoBtn: 'Get Random Photo'
+	photoBtn: 'Get Random Photo',
+	submitBtnName: 'Save'
 };
 
 export const storyReducer = (state=initialState, action) => {
@@ -62,6 +63,18 @@ export const storyReducer = (state=initialState, action) => {
 			console.log(newState_4);
 
 			return newState_4;
+		case types.CHANGE_RIGHT_BTN_NAME:
+			let rightBtn = action.rightBtn;
+
+			const newState_5 = update(state, {
+				rightBtn: {
+					$set: rightBtn
+				} 
+			});
+
+			console.log(newState_5);
+
+			return newState_5;
 		default:
 			return state;
 	}

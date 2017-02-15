@@ -11,7 +11,9 @@ export class TextArea extends React.Component {
 	render() {
 		return (
 			<form className="textArea">
-				<input type="textarea" />
+				<label htmlFor="story-area">Write story below:</label>
+				<input type="textarea" id="story-area" name="story-area" />
+				<button type="submit">{this.props.submitBtnName}</button>
 			</form>
 		);
 	}

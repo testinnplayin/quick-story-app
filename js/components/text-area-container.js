@@ -13,11 +13,15 @@ export class TextAreaContainer extends React.Component {
 	render() {
 		return (
 			<div className="textAreaContainer">
-				<TextArea />
+				<TextArea submitBtnName={this.props.submitBtnName} />
 			</div>
 		);	
 	}
 	
 };
 
-export default connect()(TextAreaContainer);
+const mapStateToProps = (state, props) => ({
+	submitBtnName: state.submitBtnName
+});
+
+export default connect(mapStateToProps)(TextAreaContainer);

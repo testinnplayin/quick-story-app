@@ -47,9 +47,8 @@ describe('StoryContainer component', function() {
 			
 		iterator(funk1, expectedKeys1);
 		
-
 		const funk2 = sectionArr[2],
-			expectedKeys2 = ['photoBtn', 'leftBtn', 'rightBtn'];
+			expectedKeys2 = ['photoBtn', 'leftBtn', 'rightBtn', 'handleWriteClick'];
 
 		iterator(funk2, expectedKeys2);
 	});

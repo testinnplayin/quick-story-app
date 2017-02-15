@@ -30,12 +30,12 @@ export class StoryContainer extends React.Component {
 		} 
 	}
 
-	// componentDidUpdate(prevProps, prevState) {
-	// 	let photoArea = this.props.photoArea;
+	componentDidUpdate(prevProps, prevState) {
+		let photoArea = this.props.photoArea;
 
-	// 	console.log('!!!!!!!!!!!!');
-	// 	console.log(photoArea);
-	// }
+		console.log('!!!!!!!!!!!!');
+		console.log(photoArea);
+	}
 
 	render() {
 		return (

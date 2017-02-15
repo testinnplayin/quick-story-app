@@ -35,7 +35,6 @@ export class StoryContainer extends React.Component {
 
 		console.log('!!!!!!!!!!!!');
 		console.log(photoArea);
-		console.log(prevProps.photoArea);
 	}
 
 	render() {

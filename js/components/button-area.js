@@ -4,6 +4,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
 
+import * as actions from '../actions/index';
+
 export class ButtonArea extends React.Component {
 	constructor(props) {
 		super(props);
@@ -12,8 +14,6 @@ export class ButtonArea extends React.Component {
 	}
 
 	handleWriteClick(e) {
-		e.preventDefault();
-
 		let rightBtn = this.props.rightBtn;
 		console.log(rightBtn);
 

@@ -10,7 +10,7 @@ import store from './store';
 import MainContainer from './components/main-container';
 import GeneralContainer from './components/general-container';
 import StoryContainer from './components/story-container';
-import TextArea from './components/text-area';
+import TextAreaContainer from './components/text-area-container';
 
 document.addEventListener('DOMContentLoaded', () => {
 	ReactDOM.render(
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				<Route path='/' component={MainContainer}>
 					<IndexRoute component={GeneralContainer} />
 					<Route path='/story' component={StoryContainer}>
-						<Route path='/story/new' component={TextArea} />
+						<Route path='/story/new' component={TextAreaContainer} />
 					</Route>
 				</Route>
 			</Router>

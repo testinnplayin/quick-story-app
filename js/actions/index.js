@@ -29,6 +29,12 @@ export const getTitleInput = (userTitle) => ({
 	userTitle
 });
 
+export const GET_STORY_INPUT = 'GET_STORY_INPUT';
+export const getStoryInput = (userStory) => ({
+	type: GET_STORY_INPUT,
+	userStory
+});
+
 //async actions
 
 export const GET_PHOTO_SUCCESS = 'GET_PHOTO_SUCCESS';

@@ -83,4 +83,13 @@ describe('sync actions', function() {
 
 		actions.getTitleInput(userTitle).should.be.eql(whatExp);
 	});
+
+	it('should create an action to store the user\'s story input', function() {
+		let userStory = 'Yabba dabba do! Trop de blah blah! Yippity yap, don\'t come back! Yippy skippy!',
+			whatExp = {
+				type: actions.GET_STORY_INPUT,
+				userStory
+			};
+		actions.getStoryInput(userStory).should.be.eql(whatExp);
+	});
 });

@@ -12,7 +12,8 @@ const initialState = {
 	photo : '',
 	photoBtn: 'Get Random Photo',
 	submitBtnName: 'Save',
-	userTitle: ''
+	userTitle: '',
+	userStory: ''
 };
 
 export const storyReducer = (state=initialState, action) => {

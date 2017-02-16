@@ -10,6 +10,7 @@ export class TextArea extends React.Component {
 		super(props);
 
 		this.handleTitleChange = this.handleTitleChange.bind(this);
+		this.handleStoryChange = this.handleStoryChange.bind(this);
 	}
 
 	handleTitleChange(e) {
@@ -18,13 +19,19 @@ export class TextArea extends React.Component {
 		this.props.dispatch(actions.getTitleInput(userTitle));
 	}
 
+	handleStoryChange(e) {
+		let userStory = e.target.value;
+
+		this.props.dispatch(actions.getStoryInput(userStory));
+	}
+
 	render() {
 		return (
 			<form className="textArea">
 				<label htmlFor="title-input">Title:</label>
 				<input type="text" id="title-input" name="title-input" onChange={this.handleTitleChange} />
 				<label htmlFor="story-area">Write story below:</label>
-				<input type="textarea" id="story-area" name="story-area" />
+				<input type="textarea" id="story-area" name="story-area" onChange={this.handleStoryChange} />
 				<label htmlFor="author-input">By:</label>
 				<input type="text" id="author-input" name="author-input" />
 				<button type="submit">{this.props.submitBtnName}</button>

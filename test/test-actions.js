@@ -4,9 +4,11 @@ import React from 'react';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import chai from 'chai';
+import chaiHTTP from 'chai-http';
 import nock from 'nock';
 
 const should = chai.should();
+chai.use(chaiHTTP);
 
 import * as actions from '../js/actions/index';
 import {app, runServer, closeServer} from '../server';
@@ -41,6 +43,50 @@ const mockStore = configureMockStore(middlewares);
 // 			});
 // 	});
 // });
+
+describe('Node async actions', function() {
+	before(function() {
+		return runServer();
+	})
+
+	after(function() {
+		return closeServer();
+	})
+
+	describe('should create an action to save a user\'s story', function() {
+		let storyObj = {
+			title: 'This is Cool',
+			photo: 'http://www.example.com/photo.jpg',
+			story: 'Stuff stuff stuff',
+			author: {
+				firstName: 'John',
+				lastName: 'Doe'
+			}
+		},
+		whatExp = [
+			{ type : actions.SAVE_STORY_SUCCESS, storySucc },
+			{ type: actions.SAVE_STORY, story }
+		],
+		store = mockStore({
+			title: '',
+			photo: '',
+			story: '',
+			author: {
+				firstName: '',
+				lastName: ''
+			}
+		});
+
+		return chai.request(app)
+			.post('/story/new')
+			.send(storyObj)
+			.then(function(res) {
+				res.should.have.status(200);
+				res.should.be.json;
+				res.body.title.should.equal('')
+			});
+	});
+});
 
 
 describe('sync actions', function() {

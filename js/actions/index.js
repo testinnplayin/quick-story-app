@@ -74,3 +74,47 @@ export const getPhoto = photo => dispatch => {
 	.then(response => response.json())
 	.then(data => dispatch(getPhotoSuccess(data.photo)));
 };
+
+export const SAVE_STORY_SUCCESS = 'SAVE_STORY_SUCCESS';
+export const saveStorySuccess = (storySucc) => ({
+	type: SAVE_STORY_SUCCESS,
+	storySucc
+});
+
+export const SAVE_STORY_ERROR = 'SAVE_STORY_ERROR';
+export const saveStoryError = (storyErr) => ({
+	type: SAVE_STORY_ERROR,
+	storyErr
+});
+
+export const SAVE_STORY = story => dispatch => {
+	let endpnt = '/story/new',
+		reqOptions = {
+			method: 'POST',
+			headers: {
+				'Content-Type' : 'application/json'
+			},
+			body: JSON.stringify({
+				title: story.title,
+				photo: story.photo,
+				story: story.story,
+				author: {
+					firstName: story.author.firstName,
+					lastName: story.author.lastName
+				}
+			});
+		},
+		postReq = new Request(endpnt, reqOptions);
+
+		fetch(postReq)
+		.then(response => {
+			if (!response.ok) {
+				const error = new Error(response.statusText);
+			}
+
+			return response;
+		})
+		.then(response => response.json())
+		.then(data => dispatch(saveStorySuccess(data.story)))
+		.catch(storyErr => dispatch(saveStoryError(storyErr)));
+};

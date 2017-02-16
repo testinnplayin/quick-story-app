@@ -13,7 +13,8 @@ const initialState = {
 	photoBtn: 'Get Random Photo',
 	submitBtnName: 'Save',
 	userTitle: '',
-	userStory: ''
+	userStory: '',
+	user: ''
 };
 
 export const storyReducer = (state=initialState, action) => {
@@ -101,6 +102,18 @@ export const storyReducer = (state=initialState, action) => {
 			console.log(newState_7);
 
 			return newState_7;
+		case types.GET_USER_NAME:
+			let user = action.user;
+
+			const newState_8 = update(state, {
+				user: {
+					$set: user
+				}
+			});
+
+			console.log(newState_8);
+
+			return newState_8;
 		default:
 			return state;
 	}

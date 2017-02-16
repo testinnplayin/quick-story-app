@@ -13,7 +13,7 @@ export class TextAreaContainer extends React.Component {
 	render() {
 		return (
 			<div className="textAreaContainer">
-				<TextArea submitBtnName={this.props.submitBtnName} />
+				<TextArea submitBtnName={this.props.submitBtnName} getTitleInput={this.props.getTitleInput} />
 			</div>
 		);	
 	}

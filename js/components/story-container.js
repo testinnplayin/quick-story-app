@@ -49,9 +49,7 @@ const mapStateToProps = (state, props) => ({
 	photoBtn: state.photoBtn,
 	rightBtn: state.rightBtn,
 	photoArea: state.photoArea,
-	photo: state.photo,
-	userTitle: state.userTitle,
-	userStory: state.userStory
+	photo: state.photo
 });
 
 export default connect(mapStateToProps)(StoryContainer);

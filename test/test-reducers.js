@@ -61,4 +61,16 @@ describe('story reducer', function() {
 
 		reducers.storyReducer(fakeState, changeRightBtnActn).should.eql({ rightBtn : 'Click Me' });
 	});
+
+	it('should set story title to user\'s input', function() {
+		let fakeState = {
+			userTitle: ''
+		},
+		getTitleInputActn = {
+			type: actions.GET_TITLE_INPUT,
+			userTitle: 'I Like Pie'
+		};
+
+		reducers.storyReducer(fakeState, getTitleInputActn).should.eql({ userTitle : 'I Like Pie' });
+	});
 });

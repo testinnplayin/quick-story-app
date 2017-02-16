@@ -16,6 +16,8 @@ app.use(express.static('build'));
 
 app.use(morgan('common'));
 
+//GET requests
+
 app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname, '/build/index.html'));
 });
@@ -23,6 +25,9 @@ app.get('/', (req, res) => {
 app.get('/random-photo', (req, res) => {
 	res.json({photo: 'http://www.freedigitalphotos.net/images/img/homepage/394230.jpg'});
 });
+
+
+//POST requests
 
 let server;
 

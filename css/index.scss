@@ -6,3 +6,16 @@ h1, p {
 	text-align: $t-center;
 	color: $t-2-color;
 }
+
+h1 {
+	font-weight: $t-weight;
+	font-size: 40px;
+}
+
+p {
+	font-size: $normal-size;
+}
+
+.mainTitle {
+	margin-bottom: $marg-1;
+}

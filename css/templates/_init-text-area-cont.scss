@@ -9,7 +9,12 @@
 		border: $bor-rule-1;
 		padding: $pad-1;
 		border-radius: $bor-rad;
-		background: $bckgrd-3-color;
-		color: $t-2-color;
+		background: $bckgrd-2-color;
+		color: $t-1-color;
+		@media screen and (min-width: $break-small) {
+			padding: $pad-3;
+			width: $dim-5;
+			margin: $m-auto;
+		}
 	}
 }

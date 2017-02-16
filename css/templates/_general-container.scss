@@ -2,9 +2,12 @@
 
 .generalContainer {
 	.generalArea {
-		background: $bckgrd-1-color;
+		background: $bckgrd-3-color;
 		height: $dim-2;
 		width: $dim-3;
 		margin: $m-auto;
+		.initPhotoAreaContainer {
+			padding: $pad-2;
+		}
 	}
 }

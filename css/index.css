@@ -10,10 +10,12 @@
   margin-bottom: 15px; }
 
 .generalContainer .generalArea {
-  background: #555;
+  background: #eee;
   height: 450px;
   width: 80%;
   margin: 0 auto; }
+  .generalContainer .generalArea .initPhotoAreaContainer {
+    padding: 15px 0 0; }
 
 .initTextAreaContainer {
   margin: 20px auto;
@@ -24,8 +26,13 @@
     border: solid 1px #eee;
     padding: 10px 0;
     border-radius: 5px;
-    background: #eee;
-    color: #555; }
+    background: #faa;
+    color: #eee; }
+    @media screen and (min-width: 750px) {
+      .initTextAreaContainer .init-photo-btn {
+        padding: 10px 15px;
+        width: 25%;
+        margin: 0 auto; } }
 
 h1, p {
   text-align: center;

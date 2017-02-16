@@ -11,7 +11,8 @@ const initialState = {
 	rightBtn: 'Write',
 	photo : '',
 	photoBtn: 'Get Random Photo',
-	submitBtnName: 'Save'
+	submitBtnName: 'Save',
+	userTitle: ''
 };
 
 export const storyReducer = (state=initialState, action) => {
@@ -75,6 +76,18 @@ export const storyReducer = (state=initialState, action) => {
 			console.log(newState_5);
 
 			return newState_5;
+		case types.GET_TITLE_INPUT:
+			let userTitle = action.userTitle;
+
+			const newState_6 = update(state, {
+				userTitle: {
+					$set: userTitle
+				}
+			});
+
+			console.log(newState_6);
+
+			return newState_6;
 		default:
 			return state;
 	}

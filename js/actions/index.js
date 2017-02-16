@@ -23,6 +23,12 @@ export const changeRightBtnName = (rightBtn) => ({
 	rightBtn
 });
 
+export const GET_TITLE_INPUT = 'GET_TITLE_INPUT';
+export const getTitleInput = (userTitle) => ({
+	type: GET_TITLE_INPUT,
+	userTitle
+});
+
 //async actions
 
 export const GET_PHOTO_SUCCESS = 'GET_PHOTO_SUCCESS';

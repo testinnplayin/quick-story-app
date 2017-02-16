@@ -61,9 +61,13 @@ app.post('/story/new', (req, res) => {
 		});
 });
 
+//Generic requests
+
 app.use('*', (req, res) => {
 	res.status(404).json({ message : 'Not found' });
 });
+
+//server stuff
 
 let server;
 

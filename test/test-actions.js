@@ -73,4 +73,14 @@ describe('sync actions', function() {
 
 		actions.changeRightBtnName(rightBtn).should.be.eql(whatExp);
 	});
+
+	it('should create an action to change the title of the story based on user input', function() {
+		let userTitle = 'Fun is Fun!',
+			whatExp = {
+				type: actions.GET_TITLE_INPUT,
+				userTitle
+			};
+
+		actions.getTitleInput(userTitle).should.be.eql(whatExp);
+	});
 });

@@ -6,8 +6,44 @@
 
 .mainContainer {
   background: #faa;
-  height: 1000px; }
+  height: 900px;
+  margin-bottom: 15px; }
+
+.generalContainer .generalArea {
+  background: #eee;
+  height: 450px;
+  width: 80%;
+  margin: 0 auto; }
+  .generalContainer .generalArea .initPhotoAreaContainer {
+    padding: 15px 0 0; }
+
+.initTextAreaContainer {
+  margin: 20px auto;
+  width: 70%; }
+  .initTextAreaContainer .init-photo-btn {
+    text-align: center;
+    display: block;
+    border: solid 1px #eee;
+    padding: 10px 0;
+    border-radius: 5px;
+    background: #faa;
+    color: #eee; }
+    @media screen and (min-width: 750px) {
+      .initTextAreaContainer .init-photo-btn {
+        padding: 10px 15px;
+        width: 25%;
+        margin: 0 auto; } }
 
 h1, p {
   text-align: center;
   color: #555; }
+
+h1 {
+  font-weight: bold;
+  font-size: 40px; }
+
+p {
+  font-size: 16px; }
+
+.mainTitle {
+  margin-bottom: 15px; }

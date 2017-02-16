@@ -6,8 +6,37 @@
 
 .mainContainer {
   background: #faa;
-  height: 1000px; }
+  height: 900px;
+  margin-bottom: 15px; }
+
+.generalContainer .generalArea {
+  background: #555;
+  height: 450px;
+  width: 80%;
+  margin: 0 auto; }
+
+.initTextAreaContainer {
+  margin: 20px auto;
+  width: 70%; }
+  .initTextAreaContainer .init-photo-btn {
+    text-align: center;
+    display: block;
+    border: solid 1px #eee;
+    padding: 10px 0;
+    border-radius: 5px;
+    background: #eee;
+    color: #555; }
 
 h1, p {
   text-align: center;
   color: #555; }
+
+h1 {
+  font-weight: bold;
+  font-size: 40px; }
+
+p {
+  font-size: 16px; }
+
+.mainTitle {
+  margin-bottom: 15px; }

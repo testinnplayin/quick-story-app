@@ -1,0 +1,10 @@
+@import '../_mix-n-var';
+
+.generalContainer {
+	.generalArea {
+		background: $bckgrd-1-color;
+		height: $dim-2;
+		width: $dim-3;
+		margin: $m-auto;
+	}
+}

@@ -1,7 +1,15 @@
-@import '_mix-n-var';
+@import '../_mix-n-var';
 
 .initTextAreaContainer {
+	margin: $marg-2;
+	width: $dim-4;
 	.init-photo-btn {
 		text-align: $t-center;
+		display: block;
+		border: $bor-rule-1;
+		padding: $pad-1;
+		border-radius: $bor-rad;
+		background: $bckgrd-3-color;
+		color: $t-2-color;
 	}
 }

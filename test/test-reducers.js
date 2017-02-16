@@ -73,4 +73,16 @@ describe('story reducer', function() {
 
 		reducers.storyReducer(fakeState, getTitleInputActn).should.eql({ userTitle : 'I Like Pie' });
 	});
+
+	it('should set story to user\'s input', function() {
+		let fakeState = {
+			userStory: ''
+		},
+		getStoryInputActn = {
+			type: actions.GET_STORY_INPUT,
+			userStory: 'Blah blah blah blah'
+		};
+
+		reducers.storyReducer(fakeState, getStoryInputActn).should.eql({ userStory : 'Blah blah blah blah' });
+	});
 });

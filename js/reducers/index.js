@@ -89,6 +89,18 @@ export const storyReducer = (state=initialState, action) => {
 			console.log(newState_6);
 
 			return newState_6;
+		case types.GET_STORY_INPUT:
+			let userStory = action.userStory;
+
+			const newState_7 = update(state, {
+				userStory: {
+					$set: userStory
+				}
+			});
+
+			console.log(newState_7);
+
+			return newState_7;
 		default:
 			return state;
 	}

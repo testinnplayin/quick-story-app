@@ -19,5 +19,15 @@ describe('TextAreaContainer component', function() {
 
 		result.props.children.should.be.a('object');
 		result.props.children.type.should.be.a('function');
+
+		let expectedKeys = ['submitBtnName', 'getTitleInput'],
+			lng = expectedKeys.length;
+
+		const resultChildren = result.props.children,
+			keys = Object.keys(resultChildren.props);
+
+		for (let i = 0; i < lng; i++) {
+			expectedKeys[i].should.equal(keys[i]);
+		}
 	});
 });

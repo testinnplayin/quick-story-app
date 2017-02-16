@@ -30,6 +30,7 @@ describe('TextArea component', function() {
 		input1.type.should.equal('input');
 		input1.props.type.should.equal('text');
 		input1.props.id.should.equal('title-input');
+		input1.props.onChange.should.be.a('function');
 
 		const label2 = formArr[2];
 		label2.type.should.equal('label');

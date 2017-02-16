@@ -35,6 +35,12 @@ export const getStoryInput = (userStory) => ({
 	userStory
 });
 
+export const GET_USER_NAME = 'GET_USER_NAME';
+export const getUserName = (user) => ({
+	type: GET_USER_NAME,
+	user
+});
+
 //async actions
 
 export const GET_PHOTO_SUCCESS = 'GET_PHOTO_SUCCESS';

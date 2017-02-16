@@ -92,4 +92,14 @@ describe('sync actions', function() {
 			};
 		actions.getStoryInput(userStory).should.be.eql(whatExp);
 	});
+
+	it('should create an action to store the user\'s name', function() {
+		let user = "John Smith",
+			whatExp = {
+				type: actions.GET_USER_NAME,
+				user
+			};
+
+		actions.getUserName(user).should.be.eql(whatExp);
+	});
 });

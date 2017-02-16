@@ -41,6 +41,8 @@ describe('TextArea component', function() {
 		input2.type.should.equal('input');
 		input2.props.type.should.equal('textarea');
 		input2.props.id.should.equal('story-area');
+		input1.props.onChange.should.be.a('function');
+
 
 		const label3 = formArr[4];
 		label3.type.should.equal('label');
@@ -51,6 +53,8 @@ describe('TextArea component', function() {
 		input3.type.should.equal('input');
 		input3.props.type.should.equal('text');
 		input3.props.id.should.equal('author-input');
+		input1.props.onChange.should.be.a('function');
+
 
 		const button = formArr[6];
 		button.type.should.equal('button');

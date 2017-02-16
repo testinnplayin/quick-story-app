@@ -2,10 +2,7 @@
 
 .generalContainer {
 	.generalArea {
-		background: $bckgrd-3-color;
-		height: $dim-2;
-		width: $dim-3;
-		margin: $m-auto;
+		@include sub-main-section($bckgrd-3-color, $dim-2, $dim-3, $m-auto);
 		.initPhotoAreaContainer {
 			padding: $pad-2;
 		}

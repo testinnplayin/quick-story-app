@@ -1,3 +1,21 @@
+@mixin link-btn($t-center, $bor-rule-1, $pad-1, $bor-rad, $bckgrd-color, $t-color) {
+	text-align: $t-center;
+	display: block;
+	border: $bor-rule-1;
+	padding: $pad-1;
+	border-radius: $bor-rad;
+	background: $bckgrd-color;
+	color: $t-color;
+}
+
+@mixin sub-main-section($bckgrd-3-color, $dim-2, $dim-3, $m-auto) {
+	background: $bckgrd-3-color;
+	height: $dim-2;
+	width: $dim-3;
+	margin: $m-auto;
+}
+
+
 $t-center: center;
 $t-weight: bold;
 $normal-size: 16px;

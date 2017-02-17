@@ -1,0 +1,23 @@
+@import "_mix-n-var";
+@import "templates/_navbar.scss";
+@import "templates/_main-container";
+@import "templates/_general-container";
+@import 'templates/_init-text-area-cont';
+
+h1, p {
+	text-align: $t-center;
+	color: $t-2-color;
+}
+
+h1 {
+	font-weight: $t-weight;
+	font-size: 40px;
+}
+
+p {
+	font-size: $normal-size;
+}
+
+.mainTitle {
+	margin-bottom: $marg-1;
+}

@@ -44,8 +44,6 @@ export class TextArea extends React.Component {
 		e.preventDefault();
 		e.stopPropagation();
 
-		// let userTitle = this.props.userTitle;
-
 		let story = {
 			userTitle : this.props.userTitle,
 			photo : this.props.photo,

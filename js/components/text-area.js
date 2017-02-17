@@ -12,6 +12,7 @@ export class TextArea extends React.Component {
 		this.handleTitleChange = this.handleTitleChange.bind(this);
 		this.handleStoryChange = this.handleStoryChange.bind(this);
 		this.handleAuthorChange = this.handleAuthorChange.bind(this);
+		this.handleSubmitEvent = this.handleSubmitEvent.bind(this);
 	}
 
 	handleTitleChange(e) {
@@ -36,15 +37,30 @@ export class TextArea extends React.Component {
 				lastName : lastName
 			};
 
-		console.log(author);
-
-
 		this.props.dispatch(actions.getUserName(author));
+	}
+
+	handleSubmitEvent(e) {
+		e.preventDefault();
+		e.stopPropagation();
+
+		// let userTitle = this.props.userTitle;
+
+		let story = {
+			userTitle : this.props.userTitle,
+			photo : this.props.photo,
+			userStory : this.props.userStory,
+			author : this.props.author,
+		};
+
+		console.log(story);
+
+		this.props.dispatch(actions.saveStory(story));
 	}
 
 	render() {
 		return (
-			<form className="textArea">
+			<form className="textArea" onSubmit={this.handleSubmitEvent}>
 				<label htmlFor="title-input">Title:</label>
 				<input type="text" id="title-input" name="title-input" onChange={this.handleTitleChange} />
 				<label htmlFor="story-area">Write story below:</label>

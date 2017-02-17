@@ -13,7 +13,9 @@ export class TextAreaContainer extends React.Component {
 	render() {
 		return (
 			<div className="textAreaContainer">
-				<TextArea submitBtnName={this.props.submitBtnName} getTitleInput={this.props.getTitleInput} getStoryInput={this.props.getStoryInput} getUserName={this.props.getUserName} />
+				<TextArea submitBtnName={this.props.submitBtnName} getTitleInput={this.props.getTitleInput} getStoryInput={this.props.getStoryInput}
+				 getUserName={this.props.getUserName} saveStory={this.props.saveStory} userTitle={this.props.userTitle} userStory={this.props.userStory}
+				 author={this.props.author} photo={this.props.photo} />
 			</div>
 		);	
 	}
@@ -27,7 +29,8 @@ const mapStateToProps = (state, props) => ({
 	author: {
 		firstName: state.firstName,
 		lastName: state.lastName
-	}
+	},
+	photo: state.photo
 });
 
 export default connect(mapStateToProps)(TextAreaContainer);

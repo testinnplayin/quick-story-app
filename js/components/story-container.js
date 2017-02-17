@@ -36,7 +36,8 @@ export class StoryContainer extends React.Component {
 				<section className="storyAreaSection">
 					<PhotoAreaContainer photo={this.props.photo} photoArea={this.props.photoArea} />
 					{this.props.children}
-					<ButtonArea photoBtn={this.props.photoBtn} leftBtn={this.props.leftBtn} rightBtn={this.props.rightBtn} handleWriteClick={this.props.handleWriteClick} />
+					<ButtonArea photoBtn={this.props.photoBtn} leftBtn={this.props.leftBtn} rightBtn={this.props.rightBtn} handleWriteClick={this.props.handleWriteClick}
+					 handleLeftClick={this.props.handleLeftClick} title={this.props.title} photoArea={this.props.photoArea} />
 				</section>
 			</main>
 		);

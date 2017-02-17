@@ -15,7 +15,6 @@ export class ButtonArea extends React.Component {
 
 	handleWriteClick(e) {
 		let rightBtn = this.props.rightBtn;
-		console.log(rightBtn);
 
 		if (rightBtn === 'Write') {
 			rightBtn = '';
@@ -23,11 +22,22 @@ export class ButtonArea extends React.Component {
 		}
 	}
 
+	handleLeftClick(e) {
+		let title = this.props.title,
+			rightBtn = this.props.rightBtn,
+			photoArea = this.props.photoArea;
+
+		if (rightBtn === 'Write') {
+			this.props.dispatch(actions.changeTitle(title));
+			this.props.dispatch(actions.changePhotoArea(photoArea));
+		}
+	}
+
 	render() {
 		return (
 			<section className="buttonArea">
 				<ul>
-					<li><Link to='/'>{this.props.leftBtn}</Link></li>
+					<li><Link to='/' onClick={this.handleLeftClick}>{this.props.leftBtn}</Link></li>
 					<li><Link to='/story'>{this.props.photoBtn}</Link></li>
 					<li><Link to='/story/new' onClick={this.handleWriteClick} >{this.props.rightBtn}</Link></li>
 				</ul>

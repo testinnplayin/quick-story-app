@@ -3,9 +3,9 @@
 const mongoose = require('mongoose');
 
 const storySchema = mongoose.Schema({
-	title : { type : String, required : true },
+	userTitle : { type : String, required : true },
 	photo : { type : String, required : true },
-	story : String,
+	userStory : String,
 	author : {
 		firstName : String,
 		lastName : String
@@ -19,9 +19,9 @@ storySchema.virtual('nameString').get(function() {
 storySchema.methods.apiRepr = function() {
 	return {
 		id : this._id,
-		title : this.title,
+		userTitle : this.userTitle,
 		photo : this.photo,
-		story : this.story,
+		userStory : this.userStory,
 		author : this.nameString
 	}
 };

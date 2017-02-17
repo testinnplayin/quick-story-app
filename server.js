@@ -34,7 +34,7 @@ app.get('/random-photo', (req, res) => {
 //POST requests
 
 app.post('/story/new', (req, res) => {
-	const requiredFields = ['title', 'photo', 'story', 'author'];
+	const requiredFields = ['userTitle', 'photo', 'userStory', 'author'];
 
 	requiredFields.forEach(function(field) {
 		if(!(field in req.body && req.body[field])) {
@@ -44,9 +44,9 @@ app.post('/story/new', (req, res) => {
 
 	Story
 		.create({
-			title : req.body.title,
+			userTitle : req.body.userTitle,
 			photo : req.body.photo,
-			story : req.body.story,
+			userStory : req.body.userStory,
 			author : {
 				firstName : req.body.author.firstName,
 				lastName : req.body.author.lastName

@@ -36,9 +36,9 @@ export const getStoryInput = (userStory) => ({
 });
 
 export const GET_USER_NAME = 'GET_USER_NAME';
-export const getUserName = (user) => ({
+export const getUserName = (author) => ({
 	type: GET_USER_NAME,
-	user
+	author
 });
 
 //async actions
@@ -87,7 +87,7 @@ export const saveStoryError = (storyErr) => ({
 	storyErr
 });
 
-export const SAVE_STORY = story => dispatch => {
+export const saveStory = story => dispatch => {
 	let endpnt = '/story/new',
 		reqOptions = {
 			method: 'POST',
@@ -95,14 +95,14 @@ export const SAVE_STORY = story => dispatch => {
 				'Content-Type' : 'application/json'
 			},
 			body: JSON.stringify({
-				title: story.title,
+				userTitle: story.userTitle,
 				photo: story.photo,
-				story: story.story,
+				userStory: story.userStory,
 				author: {
 					firstName: story.author.firstName,
 					lastName: story.author.lastName
 				}
-			});
+			})
 		},
 		postReq = new Request(endpnt, reqOptions);
 

@@ -53,37 +53,39 @@ describe('Node async actions', function() {
 		return closeServer();
 	})
 
-	describe('should create an action to save a user\'s story', function() {
-		let storyObj = {
-			title: 'This is Cool',
+	it('should create an action to save a user\'s story', function() {
+		let story = {
+			userTitle: 'This is Cool',
 			photo: 'http://www.example.com/photo.jpg',
-			story: 'Stuff stuff stuff',
+			userStory: 'Stuff stuff stuff',
 			author: {
 				firstName: 'John',
 				lastName: 'Doe'
 			}
 		},
 		whatExp = [
-			{ type : actions.SAVE_STORY_SUCCESS, storySucc },
-			{ type: actions.SAVE_STORY, story }
-		],
-		store = mockStore({
-			title: '',
-			photo: '',
-			story: '',
-			author: {
-				firstName: '',
-				lastName: ''
+			{ 
+				type : actions.SAVE_STORY_SUCCESS, 
+				body : {
+					userTitle: 'This is Cool',
+					photo: 'http://www.example.com/photo.jpg',
+					userStory: 'Stuff stuff stuff',
+					author: 'Doe, John'
+				}
 			}
-		});
+		];
 
 		return chai.request(app)
 			.post('/story/new')
-			.send(storyObj)
+			.send(story)
 			.then(function(res) {
-				res.should.have.status(200);
+				console.log('!!!');
+				res.should.have.status(201);
 				res.should.be.json;
-				res.body.title.should.equal('')
+				res.body.userTitle.should.equal(whatExp[0].body.userTitle);
+				res.body.photo.should.equal(whatExp[0].body.photo);
+				res.body.userStory.should.equal(whatExp[0].body.userStory);
+				res.body.author.should.equal(whatExp[0].body.author);
 			});
 	});
 });
@@ -140,12 +142,15 @@ describe('sync actions', function() {
 	});
 
 	it('should create an action to store the user\'s name', function() {
-		let user = "John Smith",
+		let author = {
+			firstName : "John",
+			lastName : 'Smith'
+		},
 			whatExp = {
 				type: actions.GET_USER_NAME,
-				user
+				author
 			};
 
-		actions.getUserName(user).should.be.eql(whatExp);
+		actions.getUserName(author).should.be.eql(whatExp);
 	});
 });

@@ -15,9 +15,9 @@ chai.use(chaiHTTP);
 
 function generateStoryData() {
 	return {
-		title: faker.lorem.sentence(),
+		userTitle: faker.lorem.sentence(),
 		photo: faker.image.imageUrl(),
-		story: faker.lorem.paragraph(),
+		userStory: faker.lorem.paragraph(),
 		author: {
 			firstName: faker.name.firstName(),
 			lastName: faker.name.lastName()
@@ -93,22 +93,22 @@ describe('setting up an API environment for testing Story', function() {
 
 					res.should.have.status(201);
 					res.should.be.json;
-					res.body.should.include.keys('id', 'title', 'photo', 'story', 'author');
+					res.body.should.include.keys('id', 'userTitle', 'photo', 'userStory', 'author');
 					res.body.id.should.not.be.null;
-					res.body.title.should.not.be.null;
+					res.body.userTitle.should.not.be.null;
 					res.body.photo.should.not.be.null;
-					res.body.title.should.equal(newStory.title);
+					res.body.userTitle.should.equal(newStory.userTitle);
 					res.body.photo.should.equal(newStory.photo);
-					res.body.story.should.equal(newStory.story);
+					res.body.userStory.should.equal(newStory.userStory);
 					authArr[1].should.equal(newStory.author.firstName);
 					authArr[0].should.equal(newStory.author.lastName);
 
 					return Story.findById(res.body.id);
 				})
 				.then(function(story) {
-					story.title.should.equal(newStory.title);
+					story.userTitle.should.equal(newStory.userTitle);
 					story.photo.should.equal(newStory.photo);
-					story.story.should.equal(newStory.story);
+					story.userStory.should.equal(newStory.userStory);
 					story.author.firstName.should.equal(newStory.author.firstName);
 					story.author.lastName.should.equal(newStory.author.lastName);
 				});

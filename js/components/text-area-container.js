@@ -24,7 +24,10 @@ const mapStateToProps = (state, props) => ({
 	submitBtnName: state.submitBtnName,
 	userTitle: state.userTitle,
 	userStory: state.userStory,
-	user: state.user
+	author: {
+		firstName: state.firstName,
+		lastName: state.lastName
+	}
 });
 
 export default connect(mapStateToProps)(TextAreaContainer);

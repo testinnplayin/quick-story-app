@@ -27,9 +27,19 @@ export class TextArea extends React.Component {
 	}
 
 	handleAuthorChange(e) {
-		let user = e.target.value;
+		let user = e.target.value,
+			userArr = user.split(' '),
+			firstName = userArr[0],
+			lastName = userArr[1],
+			author = {
+				firstName : firstName,
+				lastName : lastName
+			};
 
-		this.props.dispatch(actions.getUserName(user));
+		console.log(author);
+
+
+		this.props.dispatch(actions.getUserName(author));
 	}
 
 	render() {

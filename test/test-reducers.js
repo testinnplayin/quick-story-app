@@ -88,13 +88,19 @@ describe('story reducer', function() {
 
 	it('should set user to user\'s input', function() {
 		let fakeState = {
-			user: ''
+			author: {
+				firstName : '',
+				lastName : ''
+			}
 		},
 		getUserNameActn = {
 			type: actions.GET_USER_NAME,
-			user: 'Stephen King'
+			author : {
+				firstName : 'Stephen',
+				lastName : 'King'
+			}
 		};
 
-		reducers.storyReducer(fakeState, getUserNameActn).should.eql({ user : 'Stephen King' });
+		reducers.storyReducer(fakeState, getUserNameActn).should.eql({ author : { firstName : 'Stephen', lastName : 'King'} });
 	});
 });

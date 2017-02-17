@@ -103,11 +103,11 @@ export const storyReducer = (state=initialState, action) => {
 
 			return newState_7;
 		case types.GET_USER_NAME:
-			let user = action.user;
+			let author = action.author;
 
 			const newState_8 = update(state, {
-				user: {
-					$set: user
+				author: {
+					$set: author
 				}
 			});
 

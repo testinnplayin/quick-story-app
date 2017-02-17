@@ -7,7 +7,7 @@ import * as actions from '../actions/index';
 
 import MainTitle from './main-title';
 import PhotoAreaContainer from './photo-area-container';
-import IntermedTextAreaCont from './intermed-text-area-cont';
+import ButtonArea from './button-area';
 
 export class StoryContainer extends React.Component {
 	constructor(props) {
@@ -17,7 +17,7 @@ export class StoryContainer extends React.Component {
 	componentDidMount() {
 		let title = this.props.title,
 			photoArea = this.props.photoArea,
-			buttonNames = this.props.buttonName;
+			rightBtn = this.props.rightBtn;
 
 		if (title === 'Quick Story' && photoArea === 'Click on Get Random Photo button to begin!') {
 			title = 'Write A Story';
@@ -26,9 +26,8 @@ export class StoryContainer extends React.Component {
 			this.props.dispatch(actions.changeTitle(title));
 			this.props.dispatch(actions.getPhoto());
 			this.props.dispatch(actions.changePhotoArea(photoArea));
-		}
+		} 
 	}
-
 
 	render() {
 		return (
@@ -36,7 +35,8 @@ export class StoryContainer extends React.Component {
 				<MainTitle title={this.props.title} />
 				<section className="storyAreaSection">
 					<PhotoAreaContainer photo={this.props.photo} photoArea={this.props.photoArea} />
-					<IntermedTextAreaCont photoBtn={this.props.photoBtn} leftBtn={this.props.leftBtn} rightBtn={this.props.rightBtn} />
+					{this.props.children}
+					<ButtonArea photoBtn={this.props.photoBtn} leftBtn={this.props.leftBtn} rightBtn={this.props.rightBtn} handleWriteClick={this.props.handleWriteClick} />
 				</section>
 			</main>
 		);

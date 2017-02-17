@@ -4,8 +4,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const path = require('path');
+const mongoose = require('mongoose');
 
-// const PORT = require('./config');
+const {PORT, DATABASE_URL} = require('./config');
+const {Story} = require('./models');
 
 const app = express();
 
@@ -16,6 +18,10 @@ app.use(express.static('build'));
 
 app.use(morgan('common'));
 
+mongoose.Promise = global.Promise;
+
+//GET requests
+
 app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname, '/build/index.html'));
 });
@@ -24,35 +30,81 @@ app.get('/random-photo', (req, res) => {
 	res.json({photo: 'http://www.freedigitalphotos.net/images/img/homepage/394230.jpg'});
 });
 
+
+//POST requests
+
+app.post('/story/new', (req, res) => {
+	const requiredFields = ['userTitle', 'photo', 'userStory', 'author'];
+
+	requiredFields.forEach(function(field) {
+		if(!(field in req.body && req.body[field])) {
+			return res.status(400).json({ message : `Please specify a value for ${field}` });
+		}
+	});
+
+	Story
+		.create({
+			userTitle : req.body.userTitle,
+			photo : req.body.photo,
+			userStory : req.body.userStory,
+			author : {
+				firstName : req.body.author.firstName,
+				lastName : req.body.author.lastName
+			}
+		})
+		.then(function(story) {
+			res.status(201).json(story.apiRepr());
+		})
+		.catch(function(err) {
+			console.error(err);
+			res.status(500).json({ message : 'Internal server error, cannot create story' });
+		});
+});
+
+//Generic requests
+
+app.use('*', (req, res) => {
+	res.status(404).json({ message : 'Not found' });
+});
+
+//server stuff
+
 let server;
 
-function runServer() {
-	const port = process.env.PORT || 8080;
+function runServer(databaseUrl=DATABASE_URL, port=PORT) {
 
 	return new Promise((resolve, reject) => {
-		server = app.listen(port, function() {
-			console.log(`Server is listening on port ${port}`);
-			resolve(server);
-		})
-		.on('error', function(err) {
-			reject(err);
+		mongoose.connect(databaseUrl, function(err) {
+			if (err) {
+				return reject(err);
+			}
+
+			server = app.listen(port, function() {
+				console.log(`Your app is listening on port ${port}`);
+				resolve();
+			})
+			.on('error', function(err) {
+				mongoose.disconnect();
+				reject(err);
+			});
 		});
 	});
 }
 
 function closeServer() {
-	return new Promise((resolve, reject) => {
-		console.log('Closing server');
-		server.close(function(err) {
-			if (err) {
-				reject(err);
+	return mongoose.disconnect()
+		.then(() => {
+			return new Promise((resolve, reject) => {
+				console.log('Closing server');
+				server.close(function(err) {
+					if (err) {
+						return reject(err);
+					}
 
-				return;
-			}
-
-			resolve();
+					resolve();
+				});
+			});
 		});
-	});
 }
 
 if (require.main === module) {

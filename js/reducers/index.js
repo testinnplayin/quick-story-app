@@ -8,8 +8,13 @@ const initialState = {
 	title : 'Quick Story',
 	leftBtn: 'Back',
 	photoArea : 'Click on Get Random Photo button to begin!',
+	rightBtn: 'Write',
 	photo : '',
-	photoBtn: 'Get Random Photo'
+	photoBtn: 'Get Random Photo',
+	submitBtnName: 'Save',
+	userTitle: '',
+	userStory: '',
+	user: ''
 };
 
 export const storyReducer = (state=initialState, action) => {
@@ -61,6 +66,54 @@ export const storyReducer = (state=initialState, action) => {
 			console.log(newState_4);
 
 			return newState_4;
+		case types.CHANGE_RIGHT_BTN_NAME:
+			let rightBtn = action.rightBtn;
+
+			const newState_5 = update(state, {
+				rightBtn: {
+					$set: rightBtn
+				} 
+			});
+
+			console.log(newState_5);
+
+			return newState_5;
+		case types.GET_TITLE_INPUT:
+			let userTitle = action.userTitle;
+
+			const newState_6 = update(state, {
+				userTitle: {
+					$set: userTitle
+				}
+			});
+
+			console.log(newState_6);
+
+			return newState_6;
+		case types.GET_STORY_INPUT:
+			let userStory = action.userStory;
+
+			const newState_7 = update(state, {
+				userStory: {
+					$set: userStory
+				}
+			});
+
+			console.log(newState_7);
+
+			return newState_7;
+		case types.GET_USER_NAME:
+			let author = action.author;
+
+			const newState_8 = update(state, {
+				author: {
+					$set: author
+				}
+			});
+
+			console.log(newState_8);
+
+			return newState_8;
 		default:
 			return state;
 	}

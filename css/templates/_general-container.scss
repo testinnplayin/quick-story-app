@@ -1,0 +1,10 @@
+@import '../_mix-n-var';
+
+.generalContainer {
+	.generalArea {
+		@include sub-main-section($bckgrd-3-color, $dim-2, $dim-3, $m-auto);
+		.initPhotoAreaContainer {
+			padding: $pad-2;
+		}
+	}
+}

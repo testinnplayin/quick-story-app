@@ -14,6 +14,9 @@ describe('StoryContainer component', function() {
 		let keys = Object.keys(funk.props),
 			lng = keys.length;
 
+		funk.type.should.be.a('function');
+		funk.should.be.a('object');
+
 		for (let i = 0; i < lng; i++) {
 			keys[i].should.equal(expectedKeys[i]);
 		}
@@ -37,23 +40,15 @@ describe('StoryContainer component', function() {
 
 		const sectionArr = section.props.children;
 		sectionArr.should.be.a('array');
-		sectionArr.should.have.lengthOf(2);
-
-		let lng = sectionArr.length;
-
-		for (let i = 0; i < lng; i++) {
-			sectionArr[i].should.be.a('object');
-			sectionArr[i].type.should.be.a('function');
-		}
+		sectionArr.should.have.lengthOf(3);
 
 		const funk1 = sectionArr[0],
 			expectedKeys1 = ['photo', 'photoArea'];
 			
 		iterator(funk1, expectedKeys1);
 		
-
-		const funk2 = sectionArr[1],
-			expectedKeys2 = ['photoBtn', 'leftBtn', 'rightBtn'];
+		const funk2 = sectionArr[2],
+			expectedKeys2 = ['photoBtn', 'leftBtn', 'rightBtn', 'handleWriteClick'];
 
 		iterator(funk2, expectedKeys2);
 	});

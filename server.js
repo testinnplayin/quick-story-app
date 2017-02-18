@@ -6,6 +6,8 @@ const morgan = require('morgan');
 const path = require('path');
 const mongoose = require('mongoose');
 
+mongoose.Promise = global.Promise;
+
 const {PORT, DATABASE_URL} = require('./config');
 const {Story} = require('./models');
 
@@ -17,8 +19,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static('build'));
 
 app.use(morgan('common'));
-
-mongoose.Promise = global.Promise;
 
 //GET requests
 

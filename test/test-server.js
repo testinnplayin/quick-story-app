@@ -1,13 +1,15 @@
 'use strict';
 
+const {app, runServer, closeServer} = require('../server');
+const {Story} = require('../models');
+const {TEST_DATABASE_URL} = require('../config');
+
 const chai = require('chai');
 const chaiHTTP = require('chai-http');
 const faker = require('faker');
 const mongoose = require('mongoose');
 
-const {app, runServer, closeServer} = require('../server');
-const {Story} = require('../models');
-const {TEST_DATABASE_URL} = require('../config');
+mongoose.Promise = global.Promise;
 
 const should = chai.should();
 

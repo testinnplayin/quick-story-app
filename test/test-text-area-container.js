@@ -20,7 +20,7 @@ describe('TextAreaContainer component', function() {
 		result.props.children.should.be.a('object');
 		result.props.children.type.should.be.a('function');
 
-		let expectedKeys = ['submitBtnName', 'getTitleInput', 'getStoryInput', 'getUserName'],
+		let expectedKeys = ['submitBtnName', 'getTitleInput', 'getStoryInput', 'getUserName', 'saveStory', 'userTitle', 'userStory', 'author', 'photo'],
 			lng = expectedKeys.length;
 
 		const resultChildren = result.props.children,

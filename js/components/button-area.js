@@ -11,11 +11,12 @@ export class ButtonArea extends React.Component {
 		super(props);
 
 		this.handleWriteClick = this.handleWriteClick.bind(this);
+		this.handleLeftClick = this.handleLeftClick.bind(this);
+		this.handleMiddleClick = this.handleMiddleClick.bind(this);
 	}
 
 	handleWriteClick(e) {
 		let rightBtn = this.props.rightBtn;
-		console.log(rightBtn);
 
 		if (rightBtn === 'Write') {
 			rightBtn = '';
@@ -23,13 +24,37 @@ export class ButtonArea extends React.Component {
 		}
 	}
 
+	handleMiddleClick(e) {
+		let rightBtn = this.props.rightBtn;
+		console.log('handleMiddleClick');
+
+		this.props.dispatch(actions.getPhoto());
+
+		if (rightBtn === '') {
+			rightBtn = 'Write';
+			this.props.dispatch(actions.changeRightBtnName(rightBtn));
+		}
+
+	}
+
+	handleLeftClick(e) {
+		let title = this.props.title,
+			rightBtn = this.props.rightBtn,
+			photoArea = this.props.photoArea;
+
+		if (rightBtn === 'Write') {
+			this.props.dispatch(actions.changeTitle(title));
+			this.props.dispatch(actions.changePhotoArea(photoArea));
+		}
+	}
+
 	render() {
 		return (
 			<section className="buttonArea">
-				<ul>
-					<li><Link to='/'>{this.props.leftBtn}</Link></li>
-					<li><Link to='/story'>{this.props.photoBtn}</Link></li>
-					<li><Link to='/story/new' onClick={this.handleWriteClick} >{this.props.rightBtn}</Link></li>
+				<ul className="nav nav-pills btn-group btn-group-justified" role="group">
+					<li role="presentation"><Link className="btn" to='/' onClick={this.handleLeftClick}>{this.props.leftBtn}</Link></li>
+					<li role="presentation"><Link className="btn" to='/story' onClick={this.handleMiddleClick}>{this.props.photoBtn}</Link></li>
+					<li role="presentation"><Link className="btn" to='/story/new' onClick={this.handleWriteClick} >{this.props.rightBtn}</Link></li>
 				</ul>
 			</section>
 		);

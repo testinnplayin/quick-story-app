@@ -11,6 +11,8 @@ export class ButtonArea extends React.Component {
 		super(props);
 
 		this.handleWriteClick = this.handleWriteClick.bind(this);
+		this.handleLeftClick = this.handleLeftClick.bind(this);
+		this.handleMiddleClick = this.handleMiddleClick.bind(this);
 	}
 
 	handleWriteClick(e) {
@@ -20,6 +22,19 @@ export class ButtonArea extends React.Component {
 			rightBtn = '';
 			this.props.dispatch(actions.changeRightBtnName(rightBtn));
 		}
+	}
+
+	handleMiddleClick(e) {
+		let rightBtn = this.props.rightBtn;
+		console.log('handleMiddleClick');
+
+		this.props.dispatch(actions.getPhoto());
+
+		if (rightBtn === '') {
+			rightBtn = 'Write';
+			this.props.dispatch(actions.changeRightBtnName(rightBtn));
+		}
+
 	}
 
 	handleLeftClick(e) {
@@ -38,7 +53,7 @@ export class ButtonArea extends React.Component {
 			<section className="buttonArea">
 				<ul>
 					<li><Link to='/' onClick={this.handleLeftClick}>{this.props.leftBtn}</Link></li>
-					<li><Link to='/story'>{this.props.photoBtn}</Link></li>
+					<li><Link to='/story' onClick={this.handleMiddleClick}>{this.props.photoBtn}</Link></li>
 					<li><Link to='/story/new' onClick={this.handleWriteClick} >{this.props.rightBtn}</Link></li>
 				</ul>
 			</section>

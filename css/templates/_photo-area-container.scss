@@ -1,9 +1,7 @@
 @import '../_mix-n-var';
 
 .photoAreaContainer {
-	p {
-		margin: $marg-4;
-	}
+	padding: $pad-2;
 
 	.image {
 		width: $dim-6;

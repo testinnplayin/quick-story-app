@@ -40,14 +40,13 @@
         width: 25%;
         margin: 0 auto; } }
 
-.photoAreaContainer p {
-  margin: 15px 0; }
-
-.photoAreaContainer .image {
-  width: 95%;
-  margin: 0 auto; }
-  .photoAreaContainer .image img {
-    width: 100%; }
+.photoAreaContainer {
+  padding: 15px 0 0; }
+  .photoAreaContainer .image {
+    width: 95%;
+    margin: 0 auto; }
+    .photoAreaContainer .image img {
+      width: 100%; }
 
 h1, p {
   text-align: center;

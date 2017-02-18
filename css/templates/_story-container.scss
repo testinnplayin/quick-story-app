@@ -2,6 +2,6 @@
 
 .storyContainer {
 	.storyAreaSection {
-		@include sub-main-section($bckgrd-3-color, $dim-2, $dim-6, $m-auto);
+		@include sub-main-section($bckgrd-3-color, $auto, $dim-6, $m-auto);
 	}	
 }

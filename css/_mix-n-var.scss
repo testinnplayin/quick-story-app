@@ -1,6 +1,5 @@
 @mixin link-btn($t-center, $bor-rule-1, $pad-1, $bor-rad, $bckgrd-color, $t-color) {
 	text-align: $t-center;
-	display: block;
 	border: $bor-rule-1;
 	padding: $pad-1;
 	border-radius: $bor-rad;
@@ -37,16 +36,22 @@ $dim-4: 70%;
 $dim-5: 25%;
 $dim-6: 95%;
 $full: 100%;
+$auto: auto;
 
 $m-auto: 0 auto;
 $marg-1: 15px;
 $marg-2: 20px auto;
 $marg-3: 10px;
-// $marg-4: 15px 0;
+$marg-4: 20px 0;
 
 $pad-1: 10px 0;
 $pad-2: 15px 0 0;
 $pad-3: 10px 15px;
+$pad-4: 40px;
+$pad-5: 150px;
+$pad-6: 70px;
 
 
+$break-smallest: 540px;
 $break-small: 750px;
+$break-med: 1000px;

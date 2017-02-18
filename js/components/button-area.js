@@ -51,10 +51,10 @@ export class ButtonArea extends React.Component {
 	render() {
 		return (
 			<section className="buttonArea">
-				<ul>
-					<li><Link to='/' onClick={this.handleLeftClick}>{this.props.leftBtn}</Link></li>
-					<li><Link to='/story' onClick={this.handleMiddleClick}>{this.props.photoBtn}</Link></li>
-					<li><Link to='/story/new' onClick={this.handleWriteClick} >{this.props.rightBtn}</Link></li>
+				<ul className="nav nav-pills btn-group btn-group-justified" role="group">
+					<li role="presentation"><Link className="btn" to='/' onClick={this.handleLeftClick}>{this.props.leftBtn}</Link></li>
+					<li role="presentation"><Link className="btn" to='/story' onClick={this.handleMiddleClick}>{this.props.photoBtn}</Link></li>
+					<li role="presentation"><Link className="btn" to='/story/new' onClick={this.handleWriteClick} >{this.props.rightBtn}</Link></li>
 				</ul>
 			</section>
 		);

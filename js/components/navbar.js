@@ -12,7 +12,7 @@ export class NavBar extends React.Component {
 	render() {
 		return (
 			<header className="navBar">
-				<nav className="navbar navbar-default">
+				<nav className="navbar navbar-default" role="navigation">
 					<div className="container-fluid">
 						<ul className="nav navbar-nav nav-pills">
 							<li className="homeButton"><Link to='/'>Home</Link></li>

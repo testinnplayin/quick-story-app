@@ -114,6 +114,18 @@ export const storyReducer = (state=initialState, action) => {
 			console.log(newState_8);
 
 			return newState_8;
+		case types.CHANGE_LEFT_BTN_NAME:
+			let leftBtn = action.leftBtn;
+
+			const newState_9 = update(state, {
+				leftBtn: {
+					$set: leftBtn
+				}
+			});
+
+			console.log(newState_9);
+
+			return newState_9;
 		default:
 			return state;
 	}

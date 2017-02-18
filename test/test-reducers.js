@@ -62,6 +62,18 @@ describe('story reducer', function() {
 		reducers.storyReducer(fakeState, changeRightBtnActn).should.eql({ rightBtn : 'Click Me' });
 	});
 
+	it('should switch left button strings', function() {
+		let fakeState = {
+			leftBtn: 'Back'
+		},
+		changeLeftBtnActn = {
+			type: actions.CHANGE_LEFT_BTN_NAME,
+			leftBtn: 'Click Me'
+		};
+
+		reducers.storyReducer(fakeState, changeLeftBtnActn).should.eql({ leftBtn : 'Click Me' });
+	});
+
 	it('should set story title to user\'s input', function() {
 		let fakeState = {
 			userTitle: ''

@@ -1,0 +1,15 @@
+@import '../_mix-n-var';
+
+.photoAreaContainer {
+	p {
+		margin: $marg-4;
+	}
+
+	.image {
+		width: $dim-6;
+		margin: $m-auto;
+		img {
+			width: $full;
+		}
+	}
+}

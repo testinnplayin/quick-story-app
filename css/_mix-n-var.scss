@@ -8,10 +8,10 @@
 	color: $t-color;
 }
 
-@mixin sub-main-section($bckgrd-3-color, $dim-2, $dim-3, $m-auto) {
+@mixin sub-main-section($bckgrd-3-color, $dim, $another-dim, $m-auto) {
 	background: $bckgrd-3-color;
-	height: $dim-2;
-	width: $dim-3;
+	height: $dim;
+	width: $another-dim;
 	margin: $m-auto;
 }
 
@@ -35,10 +35,14 @@ $dim-2: 450px;
 $dim-3: 80%;
 $dim-4: 70%;
 $dim-5: 25%;
+$dim-6: 95%;
+$full: 100%;
 
 $m-auto: 0 auto;
 $marg-1: 15px;
 $marg-2: 20px auto;
+$marg-3: 10px;
+$marg-4: 15px 0;
 
 $pad-1: 10px 0;
 $pad-2: 15px 0 0;

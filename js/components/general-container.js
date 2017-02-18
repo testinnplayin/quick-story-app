@@ -14,7 +14,7 @@ export class GeneralContainer extends React.Component {
 
 	render() {
 		return (
-			<main className="generalContainer">
+			<main className="generalContainer container-fluid">
 				<MainTitle title={this.props.title} />
 				<section className="generalArea">
 					<InitPhotoAreaContainer photoArea={this.props.photoArea} />

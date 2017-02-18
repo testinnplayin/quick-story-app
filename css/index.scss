@@ -2,7 +2,9 @@
 @import "templates/_navbar.scss";
 @import "templates/_main-container";
 @import "templates/_general-container";
+@import "templates/_story-container";
 @import 'templates/_init-text-area-cont';
+@import "templates/_photo-area-container";
 
 h1, p {
 	text-align: $t-center;

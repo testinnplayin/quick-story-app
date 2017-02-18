@@ -31,7 +31,7 @@ export class StoryContainer extends React.Component {
 
 	render() {
 		return (
-			<main className="storyContainer">
+			<main className="storyContainer container-fluid">
 				<MainTitle title={this.props.title} />
 				<section className="storyAreaSection">
 					<PhotoAreaContainer photo={this.props.photo} photoArea={this.props.photoArea} />

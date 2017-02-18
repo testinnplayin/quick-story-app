@@ -49,11 +49,29 @@ export class TextArea extends React.Component {
 			photo : this.props.photo,
 			userStory : this.props.userStory,
 			author : this.props.author,
-		};
+		},
+			title = this.props.title,
+			rightBtn = this.props.rightBtn,
+			leftBtn = this.props.leftBtn;
 
 		console.log(story);
 
 		this.props.dispatch(actions.saveStory(story));
+
+		if (title === 'Write A Story') {
+			title = 'Your Story';
+			this.props.dispatch(actions.changeTitle(title));
+		}
+
+		if (rightBtn === 'Write') {
+			rightBtn = 'Edit';
+			this.props.dispatch(actions.changeRightBtnName(rightBtn));
+		}
+
+		if (leftBtn === 'Back') {
+			leftBtn = 'Delete';
+			this.props.dispatch(actions.changeLeftBtnName(leftBtn));
+		}
 	}
 
 	render() {

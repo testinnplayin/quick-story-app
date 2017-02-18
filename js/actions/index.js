@@ -23,6 +23,12 @@ export const changeRightBtnName = (rightBtn) => ({
 	rightBtn
 });
 
+export const CHANGE_LEFT_BTN_NAME = 'CHANGE_LEFT_BTN_NAME';
+export const changeLeftBtnName = (leftBtn) => ({
+	type: CHANGE_LEFT_BTN_NAME,
+	leftBtn
+});
+
 export const GET_TITLE_INPUT = 'GET_TITLE_INPUT';
 export const getTitleInput = (userTitle) => ({
 	type: GET_TITLE_INPUT,

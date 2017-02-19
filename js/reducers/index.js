@@ -14,7 +14,8 @@ const initialState = {
 	submitBtnName: 'Save',
 	userTitle: '',
 	userStory: '',
-	user: ''
+	user: '',
+	stories: []
 };
 
 export const storyReducer = (state=initialState, action) => {

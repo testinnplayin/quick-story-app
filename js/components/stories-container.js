@@ -4,6 +4,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import MainTitle from './main-title';
+import StoriesList from './stories-list';
 
 export class StoriesContainer extends React.Component {
 	constructor(props) {
@@ -14,12 +15,14 @@ export class StoriesContainer extends React.Component {
 		return (
 			<main className="storiesContainer">
 				<MainTitle title={this.props.title} />
-				<section className="storiesAreaSection">
-
-				</section>
+				<StoriesList />
 			</main>
 		);
 	}
 };
 
-export default connect()(StoriesContainer);
+const mapStateToProps = (state, props) => ({
+	stories: state
+});
+
+export default connect(mapStateToProps)(StoriesContainer);

@@ -57,21 +57,6 @@ export class TextArea extends React.Component {
 		console.log(story);
 
 		this.props.dispatch(actions.saveStory(story));
-
-		if (title === 'Write A Story') {
-			title = 'Your Story';
-			this.props.dispatch(actions.changeTitle(title));
-		}
-
-		if (rightBtn === 'Write') {
-			rightBtn = 'Edit';
-			this.props.dispatch(actions.changeRightBtnName(rightBtn));
-		}
-
-		if (leftBtn === 'Back') {
-			leftBtn = 'Delete';
-			this.props.dispatch(actions.changeLeftBtnName(leftBtn));
-		}
 	}
 
 	render() {
@@ -83,7 +68,7 @@ export class TextArea extends React.Component {
 				</div>
 				<div className="form-group">
 					<label htmlFor="story-area">Write story below:</label>
-					<textarea className="form-control" rows="3"></textarea>
+					<textarea className="form-control" rows="3" onChange={this.handleStoryChange}></textarea>
 				</div>
 				<div className="form-group">
 					<label htmlFor="author-input">By:</label>

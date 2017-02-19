@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					<Route path='/story' component={StoryContainer}>
 						<Route path='/story/new' component={TextAreaContainer} />
 					</Route>
+					<Route path='/stories' component={StoriesContainer} />
 				</Route>
 			</Router>
 		</Provider>,

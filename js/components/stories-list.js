@@ -8,7 +8,11 @@ export default function StoriesList(props) {
 
 	const story = stories.map((content, i) => {
 		return (
-			<li><Link to={'/story/' + props.stories[i]}><img src={props.stories.photo} />Title: {props.stories.title[i]} Author: {props.stories.author[i]}</Link></li>
+			<li key={i}><Link to={'/story/' + props.stories.id[i]} value={props.stories.id[i]}><img src={props.stories[i].photo} />Title: {props.stories[i].title} Author: {props.stories[i].author}</Link></li>
 		);
 	});
+
+	return (
+		<ul className="storiesList">{story}</ul>
+	);
 };

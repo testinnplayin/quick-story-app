@@ -15,14 +15,16 @@ export class StoriesContainer extends React.Component {
 		return (
 			<main className="storiesContainer">
 				<MainTitle title={this.props.title} />
-				<StoriesList />
+				<section className="storyListArea">
+					<StoriesList stories={this.props.stories} />
+				</section>
 			</main>
 		);
 	}
 };
 
 const mapStateToProps = (state, props) => ({
-	stories: state
+	stories: state.stories
 });
 
 export default connect(mapStateToProps)(StoriesContainer);

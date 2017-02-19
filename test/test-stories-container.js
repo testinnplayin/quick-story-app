@@ -17,5 +17,7 @@ describe('StoriesContainer component', function() {
 		result.type.should.equal('main');
 		result.props.className.should.equal('storiesContainer');
 
+		result.props.children[1].type.should.equal('section');
+		result.props.children[1].props.className.should.equal('storyListArea');
 	});
 });

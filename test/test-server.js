@@ -82,6 +82,21 @@ describe('setting up an API environment for testing Story', function() {
 		return closeServer();
 	});
 
+	describe('GET verb at /stories', function() {
+		it('should return a list of five or less stories', function() {
+			let res;
+
+			return chai.request(app)
+				.get('/stories')
+				.then(function(_res) {
+					res = _res;
+					res.should.have.status(200);
+					res.body.stories.should.have.length.of.at.least(1);
+					res.body.stories.should.have.length.below(6);
+				});
+		});
+	});
+
 	describe('POST verb at /story/new', function() {
 		it('should create a story with the right fields', function() {
 			let newStory = generateStoryData();

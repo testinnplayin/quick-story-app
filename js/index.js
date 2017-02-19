@@ -11,6 +11,7 @@ import MainContainer from './components/main-container';
 import GeneralContainer from './components/general-container';
 import StoryContainer from './components/story-container';
 import TextAreaContainer from './components/text-area-container';
+import StoriesContainer from './components/stories-container';
 
 document.addEventListener('DOMContentLoaded', () => {
 	ReactDOM.render(

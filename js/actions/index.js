@@ -23,6 +23,12 @@ export const changeRightBtnName = (rightBtn) => ({
 	rightBtn
 });
 
+export const CHANGE_LEFT_BTN_NAME = 'CHANGE_LEFT_BTN_NAME';
+export const changeLeftBtnName = (leftBtn) => ({
+	type: CHANGE_LEFT_BTN_NAME,
+	leftBtn
+});
+
 export const GET_TITLE_INPUT = 'GET_TITLE_INPUT';
 export const getTitleInput = (userTitle) => ({
 	type: GET_TITLE_INPUT,
@@ -117,4 +123,36 @@ export const saveStory = story => dispatch => {
 		.then(response => response.json())
 		.then(data => dispatch(saveStorySuccess(data.story)))
 		.catch(storyErr => dispatch(saveStoryError(storyErr)));
+};
+
+export const FETCH_STORIES_SUCCESS = 'FETCH_STORIES_SUCCESS';
+export const fetchStoriesSuccess = (storiesSucc) => ({
+	type: FETCH_STORIES_SUCCESS,
+	storiesSucc
+});
+
+export const FETCH_STORIES_ERROR = 'FETCH_STORIES_ERROR';
+export const fetchStoriesError = (storiesErr) => ({
+	type: FETCH_STORIES_ERROR,
+	storiesErr
+});
+
+export const fetchStories = stories => dispatch => {
+	let endpnt = '/stories',
+		reqOptions = {
+			method: 'GET'
+		},
+		getReq = new Request(endpnt, reqOptions);
+
+		fetch(getReq)
+		.then(response => {
+			if (!response.ok) {
+				const error = new Error(response.statusText);
+			}
+
+			return response;
+		})
+		.then(response => response.json())
+		.then(data => dispatch(fetchStoriesSuccess(data.stories)))
+		.catch(storiesErr => dispatch(fetchStoriesError(storiesErr)));
 };

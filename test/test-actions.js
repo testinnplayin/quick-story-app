@@ -122,6 +122,16 @@ describe('sync actions', function() {
 		actions.changeRightBtnName(rightBtn).should.be.eql(whatExp);
 	});
 
+	it('should create an action to change the name on the lefthand button', function() {
+		let leftBtn = 'Click Me',
+			whatExp = {
+				type: actions.CHANGE_LEFT_BTN_NAME,
+				leftBtn
+			};
+
+		actions.changeLeftBtnName(leftBtn).should.be.eql(whatExp);
+	});
+
 	it('should create an action to change the title of the story based on user input', function() {
 		let userTitle = 'Fun is Fun!',
 			whatExp = {

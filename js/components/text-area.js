@@ -48,10 +48,11 @@ export class TextArea extends React.Component {
 			userTitle : this.props.userTitle,
 			photo : this.props.photo,
 			userStory : this.props.userStory,
-			author : this.props.author,
-		};
-
-		console.log(story);
+			author : this.props.author
+		},
+			title = this.props.title,
+			rightBtn = this.props.rightBtn,
+			leftBtn = this.props.leftBtn;
 
 		this.props.dispatch(actions.saveStory(story));
 	}
@@ -65,7 +66,7 @@ export class TextArea extends React.Component {
 				</div>
 				<div className="form-group">
 					<label htmlFor="story-area">Write story below:</label>
-					<textarea className="form-control" rows="3"></textarea>
+					<textarea className="form-control" rows="3" onChange={this.handleStoryChange}></textarea>
 				</div>
 				<div className="form-group">
 					<label htmlFor="author-input">By:</label>

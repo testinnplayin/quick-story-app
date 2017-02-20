@@ -28,7 +28,7 @@ describe('StoryContainer component', function() {
 
 		const result = renderer.getRenderOutput();
 		result.type.should.equal('main');
-		result.props.className.should.equal('storyContainer');
+		result.props.className.should.equal('storyContainer container-fluid');
 
 		const mainArr = result.props.children;
 		mainArr.should.be.a('array');

@@ -8,6 +8,8 @@ import TextArea from './text-area';
 export class TextAreaContainer extends React.Component {
 	constructor(props) {
 		super(props);
+
+		console.log(this.props.author);
 	}
 
 	render() {
@@ -26,10 +28,7 @@ const mapStateToProps = (state, props) => ({
 	submitBtnName: state.submitBtnName,
 	userTitle: state.userTitle,
 	userStory: state.userStory,
-	author: {
-		firstName: state.firstName,
-		lastName: state.lastName
-	},
+	author: state.author,
 	photo: state.photo
 });
 

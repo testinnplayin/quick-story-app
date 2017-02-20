@@ -26,7 +26,13 @@ export class StoryContainer extends React.Component {
 			this.props.dispatch(actions.changeTitle(title));
 			this.props.dispatch(actions.getPhoto());
 			this.props.dispatch(actions.changePhotoArea(photoArea));
-		} 
+		} else if (title === 'List of Stories' && photoArea === 'Click on a story below to edit or delete it') {
+			title = 'Your Story',
+			photoArea = '';
+
+			this.props.dispatch(actions.changeTitle(title));
+			this.props.dispatch(actions.changePhotoArea(photoArea));
+		}
 	}
 
 	render() {

@@ -17,7 +17,8 @@ describe('StoryAreaContainer component', function() {
 		result.type.should.equal('div');
 		result.props.className.should.equal('storyAreaContainer');
 
-		console.log(result.props.children);
+		const obj = result.props.children;
+		obj.should.be.a('object');
 	});
 
 });

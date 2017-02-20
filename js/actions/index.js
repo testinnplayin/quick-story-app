@@ -153,6 +153,6 @@ export const fetchStories = stories => dispatch => {
 			return response;
 		})
 		.then(response => response.json())
-		.then(data => {console.log(data.stories); dispatch(fetchStoriesSuccess(data.stories))})
+		.then(data => dispatch(fetchStoriesSuccess(data.stories)))
 		.catch(storiesErr => dispatch(fetchStoriesError(storiesErr)));
 };

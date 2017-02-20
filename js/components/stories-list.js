@@ -4,7 +4,6 @@ import React from 'react';
 import {Link} from 'react-router';
 
 export default function StoriesList(props) {
-	console.log(props.stories);
 	const stories = props.stories;
 
 	const story = stories.map((content, i) => {

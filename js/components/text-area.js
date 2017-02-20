@@ -48,13 +48,11 @@ export class TextArea extends React.Component {
 			userTitle : this.props.userTitle,
 			photo : this.props.photo,
 			userStory : this.props.userStory,
-			author : this.props.author,
+			author : this.props.author
 		},
 			title = this.props.title,
 			rightBtn = this.props.rightBtn,
 			leftBtn = this.props.leftBtn;
-
-		console.log(story);
 
 		this.props.dispatch(actions.saveStory(story));
 	}

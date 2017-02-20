@@ -26,7 +26,6 @@ export class StoriesContainer extends React.Component {
 		}
 
 		this.props.dispatch(actions.fetchStories());
-		let stories = this.props.stories;
 	}
 
 	render() {

@@ -14,8 +14,12 @@ const initialState = {
 	submitBtnName: 'Save',
 	userTitle: '',
 	userStory: '',
-	user: '',
-	stories: []
+	author: {
+		firstName: '',
+		lastName: ''
+	},
+	stories: [],
+	story: {}
 };
 
 export const storyReducer = (state=initialState, action) => {
@@ -105,10 +109,16 @@ export const storyReducer = (state=initialState, action) => {
 			return newState_7;
 		case types.GET_USER_NAME:
 			let author = action.author;
+			console.log(author);
 
 			const newState_8 = update(state, {
 				author: {
-					$set: author
+					firstName: {
+						$set: author.firstName
+					},
+					lastName: {
+						$set: author.lastName
+					}
 				}
 			});
 
@@ -151,6 +161,30 @@ export const storyReducer = (state=initialState, action) => {
 			console.log(newState_11);
 
 			return newState_11;
+		case types.SAVE_STORY_SUCCESS:
+			let storySucc = action.storySucc;
+
+			const newState_12 = update(state, {
+				story: {
+					$set: storySucc
+				}
+			});
+
+			console.log(newState_12);
+
+			return newState_12;
+		case types.SAVE_STORY_ERROR:
+			let storyErr = action.storyErr;
+
+			const newState_13 = update(state, {
+				story: {
+					$set: storyErr
+				}
+			});
+
+			console.log(newState_13);
+
+			return newState_13;
 		default:
 			return state;
 	}

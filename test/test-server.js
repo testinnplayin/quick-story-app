@@ -97,6 +97,30 @@ describe('setting up an API environment for testing Story', function() {
 		});
 	});
 
+	describe('GET verb at /story/:id', function() {
+		it('should return a specific story', function() {
+			let story = {};
+
+			return Story
+				.findOne()
+				.exec()
+				.then(function(_story) {
+					story.id = _story.id;
+
+					return chai.request(app).get(`/story/${story.id}`);
+				})
+				.then(function(res) {
+					res.should.have.status(200);
+					res.should.be.json;
+					res.body.should.be.a('object');
+					res.body.should.include.keys('id', 'userTitle', 'userStory', 'photo', 'author');
+					res.body.id.should.be.equal(story.id);
+
+					return Story.findById(story.id);
+				});
+		});
+	});
+
 	describe('POST verb at /story/new', function() {
 		it('should create a story with the right fields', function() {
 			let newStory = generateStoryData();

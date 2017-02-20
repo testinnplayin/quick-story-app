@@ -46,6 +46,26 @@ app.get('/stories', (req, res) => {
 		});
 });
 
+app.get('/story/:id', (req, res) => {
+	if(!req.params.id) {
+		const msg = `Request parameter path ${req.params.id} and request body id ${req.body.id} do not match`;
+
+		res.status(400).json({ message : msg });
+	}
+
+	Story
+		.findById(req.params.id)
+		.exec()
+		.then(function(story) {
+			res.json(story.apiRepr())
+		})
+		.catch(function(err) {
+			console.error(err);
+
+			res.status(500).json({ message : 'Internal server error, can\'t fetch story'});
+		});
+});
+
 
 //POST requests
 

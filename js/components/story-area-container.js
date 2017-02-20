@@ -13,7 +13,7 @@ export class StoryAreaContainer extends React.Component {
 	render() {
 		return (
 			<div className="storyAreaContainer">
-				<StoryArea userTitle={this.props.userTitle} userStory={this.props.userStory} author={this.props.author} storyId={this.props.storyId} />
+				<StoryArea userTitle={this.props.userTitle} userStory={this.props.userStory} author={this.props.author} />
 			</div>
 		);
 	}
@@ -22,8 +22,7 @@ export class StoryAreaContainer extends React.Component {
 const mapStateToProps = (state, props) => ({
 	userTitle: state.userTitle,
 	userStory: state.userStory,
-	author: state.author,
-	storyId: state.storyId
+	author: state.author
 });
 
 export default connect()(StoryAreaContainer);

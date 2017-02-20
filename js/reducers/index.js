@@ -127,6 +127,30 @@ export const storyReducer = (state=initialState, action) => {
 			console.log(newState_9);
 
 			return newState_9;
+		case types.FETCH_STORIES_SUCCESS:
+			let storiesSucc = action.storiesSucc;
+
+			const newState_10 = update(state, {
+				stories: {
+					$push: [storiesSucc]
+				}
+			});
+
+			console.log(newState_10);
+
+			return newState_10;
+		case types.FETCH_STORIES_ERROR:
+			let storiesErr = action.storiesErr;
+
+			const newState_11 = update(state, {
+				stories: {
+					$push: [storiesErr]
+				}
+			});
+
+			console.log(newState_11);
+
+			return newState_11;
 		default:
 			return state;
 	}

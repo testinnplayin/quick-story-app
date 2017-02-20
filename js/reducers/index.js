@@ -132,7 +132,7 @@ export const storyReducer = (state=initialState, action) => {
 
 			const newState_10 = update(state, {
 				stories: {
-					$push: [storiesSucc]
+					$set: storiesSucc
 				}
 			});
 
@@ -144,7 +144,7 @@ export const storyReducer = (state=initialState, action) => {
 
 			const newState_11 = update(state, {
 				stories: {
-					$push: [storiesErr]
+					$set: storiesErr
 				}
 			});
 

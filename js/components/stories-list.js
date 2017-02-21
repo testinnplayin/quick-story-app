@@ -1,9 +1,12 @@
 'use strict';
 
 import React from 'react';
+import {connect} from 'react-redux';
 import {Link} from 'react-router';
 
-export default function StoriesList(props) {
+import * as actions from '../actions/index';
+
+export function StoriesList(props) {
 	const stories = props.stories;
 
 	const story = stories.map((content, i) => {
@@ -18,3 +21,5 @@ export default function StoriesList(props) {
 		</ul>
 	);
 };
+
+export default connect()(StoriesList);

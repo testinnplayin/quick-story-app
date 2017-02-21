@@ -138,7 +138,12 @@ export const storyReducer = (state=initialState, action) => {
 
 			return newState_9;
 		case types.FETCH_STORIES_SUCCESS:
-			let storiesSucc = action.storiesSucc;
+			let storiesSucc = action.storiesSucc,
+				storiesLng = storiesSucc.length;
+
+			if (storiesLng < 1) {
+				throw new Error('Couldn\'t find stories');
+			}
 
 			const newState_10 = update(state, {
 				stories: {
@@ -185,6 +190,39 @@ export const storyReducer = (state=initialState, action) => {
 			console.log(newState_13);
 
 			return newState_13;
+		case types.FETCH_STORY_SUCCESS:
+			let storySucc2 = action.storySucc2;
+
+			const newState_14 = update(state, {
+				userTitle: {
+					$set: storySucc2.userTitle
+				},
+				photo: {
+					$set: storySucc2.photo
+				},
+				userStory: {
+					$set: storySucc2.userStory
+				},
+				author: {
+					$set: author
+				}
+			});
+
+			console.log(newState_14);
+
+			return newState_14;
+		case types.FETCH_STORY_ERROR:
+			let storyErr2 = action.storyErr2;
+
+			const newState_15 = update(state, {
+				story: {
+					$set: storyErr2
+				}
+			});
+
+			console.log(newState_15);
+
+			return newState_15;
 		default:
 			return state;
 	}

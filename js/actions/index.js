@@ -47,6 +47,8 @@ export const getUserName = (author) => ({
 	author
 });
 
+
+
 //async actions
 
 export const GET_PHOTO_SUCCESS = 'GET_PHOTO_SUCCESS';
@@ -116,6 +118,9 @@ export const saveStory = story => dispatch => {
 		.then(response => {
 			if (!response.ok) {
 				const error = new Error(response.statusText);
+				error.response = response;
+
+				throw error;
 			}
 
 			return response;
@@ -148,6 +153,9 @@ export const fetchStories = stories => dispatch => {
 		.then(response => {
 			if (!response.ok) {
 				const error = new Error(response.statusText);
+				error.response = response;
+
+				throw error;
 			}
 
 			return response;
@@ -155,4 +163,39 @@ export const fetchStories = stories => dispatch => {
 		.then(response => response.json())
 		.then(data => dispatch(fetchStoriesSuccess(data.stories)))
 		.catch(storiesErr => dispatch(fetchStoriesError(storiesErr)));
+};
+
+export const FETCH_STORY_SUCCESS = 'FETCH_STORY_SUCCESS';
+export const fetchStorySuccess = (storySucc2) => ({
+	type: FETCH_STORY_SUCCESS,
+	storySucc2
+});
+
+export const FETCH_STORY_ERROR = 'FETCH_STORY_ERROR';
+export const fetchStoryError = (storyErr2) => ({
+	type: FETCH_STORY_ERROR,
+	storyErr2
+});
+
+export const fetchStory = (storyId) => (dispatch) => {
+	let endpnt = `/story/${storyId}`,
+		reqOptions = {
+			method: 'GET'
+		},
+		getReq = new Request(endpnt, reqOptions);
+
+		fetch(getReq)
+		.then(response => {
+			if (!response.ok) {
+				const error = new Error(response.statusText);
+				error.response = response;
+
+				throw error;
+			}
+
+			return response;
+		})
+		.then(response => response.json())
+		.then(data => {console.log(data); dispatch(fetchStorySuccess(data))})
+		.catch(storyErr2 => dispatch(fetchStoryError(storyErr2)));
 };

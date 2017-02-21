@@ -2,6 +2,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
+import {browserHistory} from 'react-router';
 
 import * as actions from '../actions/index';
 
@@ -55,6 +56,7 @@ export class TextArea extends React.Component {
 			leftBtn = this.props.leftBtn;
 
 		this.props.dispatch(actions.saveStory(story));
+		browserHistory.push('/stories');
 	}
 
 	render() {

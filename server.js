@@ -90,6 +90,7 @@ app.post('/story/new', (req, res) => {
 		})
 		.then(function(story) {
 			res.status(201).json(story.apiRepr());
+			// $("window").location.href = '/stories';
 		})
 		.catch(function(err) {
 			console.error(err);

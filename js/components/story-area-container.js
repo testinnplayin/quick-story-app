@@ -17,18 +17,12 @@ export class StoryAreaContainer extends React.Component {
 			id = pathArr[2];
 
 		this.props.dispatch(actions.fetchStory(id));
-
-		console.log(this.props.story);
-
-		let userTitle = this.props.story.userTitle;
-		console.log(userTitle);
-		this.props.dispatch(actions.getTitleInput(userTitle));
 	}
 
 	render() {
 		return (
 			<div className="storyAreaContainer container-fluid">
-				<StoryArea userTitle={this.props.userTitle} userStory={this.props.userStory} author={this.props.author} story={this.props.story} />
+				<StoryArea userTitle={this.props.userTitle} userStory={this.props.userStory} newAuthor={this.props.newAuthor} story={this.props.story} />
 			</div>
 		);
 	}
@@ -38,7 +32,8 @@ const mapStateToProps = (state, props) => ({
 	userTitle: state.userTitle,
 	userStory: state.userStory,
 	author: state.author,
-	story: state.story
+	story: state.story,
+	newAuthor: state.newAuthor
 });
 
 export default connect(mapStateToProps)(StoryAreaContainer);

@@ -18,6 +18,7 @@ const initialState = {
 		firstName: '',
 		lastName: ''
 	},
+	newAuthor: '',
 	stories: [],
 	story: {}
 };
@@ -191,7 +192,10 @@ export const storyReducer = (state=initialState, action) => {
 
 			return newState_13;
 		case types.FETCH_STORY_SUCCESS:
-			let storySucc2 = action.storySucc2;
+			let storySucc2 = action.storySucc2,
+				redoAuthor = storySucc2.author.split(', '),
+				firstName = redoAuthor[1],
+				lastName = redoAuthor[0];
 
 			const newState_14 = update(state, {
 				userTitle: {
@@ -204,7 +208,15 @@ export const storyReducer = (state=initialState, action) => {
 					$set: storySucc2.userStory
 				},
 				author: {
-					$set: author
+					firstName: {
+						$set: firstName,
+					},
+					lastName: {
+						$set: lastName
+					}
+				},
+				newAuthor: {
+					$set: storySucc2.author
 				}
 			});
 

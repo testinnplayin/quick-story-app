@@ -18,7 +18,7 @@ export class ButtonArea extends React.Component {
 	handleWriteClick(e) {
 		let rightBtn = this.props.rightBtn;
 
-		if (rightBtn === 'Write') {
+		if (rightBtn === 'Write' && this.props.location.pathname === 'localhost:8080/story') {
 			rightBtn = '';
 			this.props.dispatch(actions.changeRightBtnName(rightBtn));
 		}

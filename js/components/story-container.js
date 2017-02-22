@@ -17,7 +17,8 @@ export class StoryContainer extends React.Component {
 	componentDidMount() {
 		let title = this.props.title,
 			photoArea = this.props.photoArea,
-			rightBtn = this.props.rightBtn;
+			rightBtn = this.props.rightBtn,
+			leftBtn = this.props.leftBtn;
 
 		if (title === 'Quick Story' && photoArea === 'Click on Get Random Photo button to begin!') {
 			title = 'Write A Story';
@@ -28,10 +29,24 @@ export class StoryContainer extends React.Component {
 			this.props.dispatch(actions.changePhotoArea(photoArea));
 		} else if (title === 'List of Stories' && photoArea === 'Click on a story below to edit or delete it') {
 			title = 'Your Story',
-			photoArea = '';
+			photoArea = '',
+			rightBtn = 'Edit',
+			leftBtn = 'Delete';
 
 			this.props.dispatch(actions.changeTitle(title));
 			this.props.dispatch(actions.changePhotoArea(photoArea));
+			this.props.dispatch(actions.changeRightBtnName(rightBtn));
+			this.props.dispatch(actions.changeLeftBtnName(leftBtn));
+		} else {
+			title = 'Quick Story',
+			photoArea = 'Click on Get Random Photo button to begin!',
+			rightBtn = 'Write',
+			leftBtn = 'Back';
+
+			this.props.dispatch(actions.changeTitle(title));
+			this.props.dispatch(actions.changePhotoArea(photoArea));
+			this.props.dispatch(actions.changeRightBtnName(rightBtn));
+			this.props.dispatch(actions.changeLeftBtnName(leftBtn));
 		}
 	}
 

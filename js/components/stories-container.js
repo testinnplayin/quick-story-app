@@ -34,7 +34,7 @@ export class StoriesContainer extends React.Component {
 				<MainTitle title={this.props.title} />
 				<section className="storyListArea">
 					<p>{this.props.photoArea}</p>
-					<StoriesList stories={this.props.stories} id={this.props.id} />
+					<StoriesList stories={this.props.stories} id={this.props.id} title={this.props.title} photoArea={this.props.photoArea} handleLinkClick={this.props.handleLinkClick} />
 				</section>
 			</main>
 		);

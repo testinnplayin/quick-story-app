@@ -7,8 +7,10 @@ import * as types from '../actions/index';
 const initialState = {
 	title : 'Quick Story',
 	leftBtn: 'Back',
+	leftBtnAddr: '/',
 	photoArea : 'Click on Get Random Photo button to begin!',
 	rightBtn: 'Write',
+	rightBtnAddr: '/story/new',
 	photo : '',
 	photoBtn: 'Get Random Photo',
 	submitBtnName: 'Save',

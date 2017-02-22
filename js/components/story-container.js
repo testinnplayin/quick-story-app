@@ -57,8 +57,9 @@ export class StoryContainer extends React.Component {
 				<section className="storyAreaSection">
 					<PhotoAreaContainer photo={this.props.photo} photoArea={this.props.photoArea} />
 					{this.props.children}
-					<ButtonArea photoBtn={this.props.photoBtn} leftBtn={this.props.leftBtn} rightBtn={this.props.rightBtn} handleWriteClick={this.props.handleWriteClick}
-					 handleLeftClick={this.props.handleLeftClick} handleMiddleClick={this.props.handleMiddleClick} title={this.props.title} photoArea={this.props.photoArea} />
+					<ButtonArea photoBtn={this.props.photoBtn} leftBtn={this.props.leftBtn} leftBtnAddr={this.props.leftBtnAddr} rightBtn={this.props.rightBtn} rightBtnAddr={this.props.rightBtnAddr}
+					 handleWriteClick={this.props.handleWriteClick} handleLeftClick={this.props.handleLeftClick} handleMiddleClick={this.props.handleMiddleClick} title={this.props.title} 
+					 photoArea={this.props.photoArea} />
 				</section>
 			</main>
 		);
@@ -68,8 +69,10 @@ export class StoryContainer extends React.Component {
 const mapStateToProps = (state, props) => ({
 	title: state.title,
 	leftBtn: state.leftBtn,
+	leftBtnAddr: state.leftBtnAddr,
 	photoBtn: state.photoBtn,
 	rightBtn: state.rightBtn,
+	rightBtnAddr: state.rightBtnAddr,
 	photoArea: state.photoArea,
 	photo: state.photo
 });

@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					<IndexRoute component={GeneralContainer} />
 					<Route path='/story' component={StoryContainer}>
 						<Route path='/story/new' component={TextAreaContainer} />
+						<Route path='/story/edit' component={TextAreaContainer} />
 						<Route path='/story/:id' component={StoryAreaContainer} />
 					</Route>
 					<Route path='/stories' component={StoriesContainer} />

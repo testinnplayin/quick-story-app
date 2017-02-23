@@ -29,7 +29,7 @@ export class StoryContainer extends React.Component {
 			this.props.dispatch(actions.changePhotoArea(photoArea));
 		} else if (title === 'List of Stories' && photoArea === 'Click on a story below to edit or delete it') {
 			title = 'Your Story',
-			photoArea = '',
+			photoArea = 'Click on Edit to edit your story, Delete to delete it or get a new random photo!',
 			rightBtn = 'Edit',
 			leftBtn = 'Delete';
 

@@ -13,7 +13,7 @@ export class MainContainer extends React.Component {
 	render() {
 		return (
 			<div className="mainContainer">
-				<NavBar title={this.props.title} photoArea={this.props.photoArea} handleHomeClick={this.props.handleHomeClick} handleStoriesClick={this.props.handleStoriesClick} />
+				<NavBar title={this.props.title} photoArea={this.props.photoArea} handleHomeClick={this.props.handleHomeClick} />
 				{this.props.children}	
 			</div>
 		);

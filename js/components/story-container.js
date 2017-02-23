@@ -30,12 +30,15 @@ export class StoryContainer extends React.Component {
 			this.props.dispatch(actions.getPhoto());
 			this.props.dispatch(actions.changePhotoArea(photoArea));
 		} else if (title === 'List of Stories' && photoArea === 'Click on a story below to edit or delete it') {
+			let pathArr = this.props.location.pathname.split('/'),
+				id = pathArr[2];
+				
 			title = 'Your Story',
 			photoArea = 'Click on Edit to edit your story, Delete to delete it or get a new random photo!',
 			rightBtn = 'Edit',
 			leftBtn = 'Delete',
-			rightBtnAddr = '/story/edit/:id',
-			leftBtnAddr = '/story/delete/:id';
+			rightBtnAddr = `/story/edit/${id}`,
+			leftBtnAddr = `/story/delete/${id}`;
 
 			this.props.dispatch(actions.changeTitle(title));
 			this.props.dispatch(actions.changePhotoArea(photoArea));

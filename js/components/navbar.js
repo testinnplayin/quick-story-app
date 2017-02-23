@@ -31,8 +31,8 @@ export class NavBar extends React.Component {
 			photoArea = this.props.photoArea;
 
 		if (title === 'Write A Story' && photoArea === 'Click on Write to begin writing or click on Get New Photo to get a new random photo') {
-			title = 'Your Story',
-			photoArea = '';
+			title = 'List of Stories',
+			photoArea = 'Click on a story below to edit or delete it';
 
 			this.props.dispatch(actions.changeTitle(title));
 			this.props.dispatch(actions.changePhotoArea(photoArea));

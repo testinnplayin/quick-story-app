@@ -18,8 +18,10 @@ export class StoriesList extends React.Component {
 		let title = this.props.title,
 			photoArea = this.props.photoArea;
 
+		console.log('triggered');
+
 		title = 'Your Story',
-		photoArea = '';
+		photoArea = 'Click on Edit to edit your story, Delete to delete it or get a new random photo!';
 
 		this.props.dispatch(actions.changeTitle(title));
 		this.props.dispatch(actions.changePhotoArea(photoArea));

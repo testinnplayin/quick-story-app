@@ -17,13 +17,12 @@ export class StoriesContainer extends React.Component {
 		let title = this.props.title,
 			photoArea = this.props.photoArea;
 
-		if (title === 'Quick Story' && photoArea === 'Click on Get Random Photo button to begin!') {
-			title = 'List of Stories';
-			photoArea = 'Click on a story below to edit or delete it';
+		title = 'List of Stories';
+		photoArea = 'Click on a story below to edit or delete it';
 
-			this.props.dispatch(actions.changeTitle(title));
-			this.props.dispatch(actions.changePhotoArea(photoArea));
-		}
+		this.props.dispatch(actions.changeTitle(title));
+		this.props.dispatch(actions.changePhotoArea(photoArea));
+		
 
 		this.props.dispatch(actions.fetchStories());
 	}
@@ -34,7 +33,7 @@ export class StoriesContainer extends React.Component {
 				<MainTitle title={this.props.title} />
 				<section className="storyListArea">
 					<p>{this.props.photoArea}</p>
-					<StoriesList stories={this.props.stories} id={this.props.id} />
+					<StoriesList stories={this.props.stories} id={this.props.id} title={this.props.title} photoArea={this.props.photoArea} handleLinkClick={this.props.handleLinkClick} />
 				</section>
 			</main>
 		);

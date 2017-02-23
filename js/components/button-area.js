@@ -18,7 +18,7 @@ export class ButtonArea extends React.Component {
 	handleWriteClick(e) {
 		let rightBtn = this.props.rightBtn;
 
-		if (rightBtn === 'Write') {
+		if (rightBtn === 'Write' || rightBtn === 'Edit') {
 			rightBtn = '';
 			this.props.dispatch(actions.changeRightBtnName(rightBtn));
 		}

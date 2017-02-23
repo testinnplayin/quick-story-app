@@ -51,11 +51,10 @@ export class TextArea extends React.Component {
 			userStory : this.props.userStory,
 			author : this.props.author
 		},
-			title = this.props.title,
-			rightBtn = this.props.rightBtn,
-			leftBtn = this.props.leftBtn;
+			title = this.props.title;
 
-		this.props.dispatch(actions.saveStory(story));
+		(title === 'Write A Story') ? this.props.dispatch(actions.saveStory(story)) : this.props.dispatch(actions.updateStory(story));			
+
 		browserHistory.push('/stories');
 	}
 

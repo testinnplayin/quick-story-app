@@ -47,6 +47,13 @@ export const getUserName = (author) => ({
 	author
 });
 
+export const CHANGE_BTN_ADDR = 'CHANGE_BTN_ADDR';
+export const changeBtnAddr = (rightBtnAddr, leftBtnAddr) => ({
+	type: CHANGE_BTN_ADDR,
+	rightBtnAddr,
+	leftBtnAddr
+});
+
 
 
 //async actions

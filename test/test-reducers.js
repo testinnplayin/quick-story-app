@@ -115,4 +115,18 @@ describe('story reducer', function() {
 
 		reducers.storyReducer(fakeState, getUserNameActn).should.eql({ author : { firstName : 'Stephen', lastName : 'King'} });
 	});
+
+	it('should set the address for link buttons', function() {
+		let fakeState = {
+			rightBtnAddr: '/',
+			leftBtnAddr: '/story/new'
+		},
+		changeBtnAddrActn = {
+			type: actions.CHANGE_BTN_ADDR,
+			rightBtnAddr: '/nowhere',
+			leftBtnAddr: '/nowhere/else'
+		};
+
+		reducers.storyReducer(fakeState, changeBtnAddrActn).should.eql({ rightBtnAddr : '/nowhere', leftBtnAddr : '/nowhere/else' });
+	});
 });

@@ -237,6 +237,22 @@ export const storyReducer = (state=initialState, action) => {
 			console.log(newState_15);
 
 			return newState_15;
+		case types.CHANGE_BTN_ADDR:
+			let rightBtnAddr = action.rightBtnAddr,
+				leftBtnAddr = action.leftBtnAddr;
+
+			const newState_16 = update(state, {
+				rightBtnAddr: {
+					$set: rightBtnAddr
+				},
+				leftBtnAddr: {
+					$set: leftBtnAddr
+				}
+			});
+
+			console.log(newState_16);
+
+			return newState_16;
 		default:
 			return state;
 	}

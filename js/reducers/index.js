@@ -22,7 +22,8 @@ const initialState = {
 	},
 	newAuthor: '',
 	stories: [],
-	story: {}
+	story: {},
+	id: ''
 };
 
 export const storyReducer = (state=initialState, action) => {
@@ -276,6 +277,18 @@ export const storyReducer = (state=initialState, action) => {
 			console.log(newState_18);
 
 			return newState_18;
+		case types.CHANGE_ID:
+			let id = action.id;
+
+			const newState_19 = update(state, {
+				id: {
+					$set: id
+				}
+			});
+
+			console.log(newState_19);
+
+			return newState_19;
 		default:
 			return state;
 	}

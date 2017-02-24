@@ -45,6 +45,7 @@ export class StoryContainer extends React.Component {
 			this.props.dispatch(actions.changeRightBtnName(rightBtn));
 			this.props.dispatch(actions.changeLeftBtnName(leftBtn));
 			this.props.dispatch(actions.changeBtnAddr(rightBtnAddr, leftBtnAddr));
+			this.props.dispatch(actions.changeId(id));
 		} else {
 			title = 'Quick Story',
 			photoArea = 'Click on Get Random Photo button to begin!',
@@ -82,7 +83,8 @@ const mapStateToProps = (state, props) => ({
 	rightBtn: state.rightBtn,
 	rightBtnAddr: state.rightBtnAddr,
 	photoArea: state.photoArea,
-	photo: state.photo
+	photo: state.photo,
+	id: state.id
 });
 
 export default connect(mapStateToProps)(StoryContainer);

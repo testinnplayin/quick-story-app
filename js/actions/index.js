@@ -54,6 +54,12 @@ export const changeBtnAddr = (rightBtnAddr, leftBtnAddr) => ({
 	leftBtnAddr
 });
 
+export const CHANGE_ID = 'CHANGE_ID';
+export const changeId = (id) => ({
+	type: CHANGE_ID,
+	id
+});
+
 
 
 //async actions
@@ -225,14 +231,15 @@ export const updateStoryError = (updateErr) => ({
 	updateErr
 });
 
-export const updateStory = (updateStory) => dispatch => {
-	let endpnt = `/story/${updateStory.id}`,
+export const updateStory = (updateStory, id) => dispatch => {
+	let endpnt = `/story/${id}`,
 		reqOptions = {
 			method: 'PUT',
 			headers: {
 				'Content-Type' : 'application/json'
 			},
 			body: JSON.stringify({
+				id: id,
 				userTitle: updateStory.userTitle,
 				userStory: updateStory.userStory,
 				author: {

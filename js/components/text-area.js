@@ -51,9 +51,10 @@ export class TextArea extends React.Component {
 			userStory : this.props.userStory,
 			author : this.props.author
 		},
-			title = this.props.title;
+			title = this.props.title,
+			id = this.props.id;
 
-		(title === 'Write A Story') ? this.props.dispatch(actions.saveStory(story)) : this.props.dispatch(actions.updateStory(story));			
+		(title === 'Write A Story') ? this.props.dispatch(actions.saveStory(story)) : this.props.dispatch(actions.updateStory(story, id));			
 
 		browserHistory.push('/stories');
 	}

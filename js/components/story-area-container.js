@@ -33,7 +33,8 @@ const mapStateToProps = (state, props) => ({
 	userStory: state.userStory,
 	author: state.author,
 	story: state.story,
-	newAuthor: state.newAuthor
+	newAuthor: state.newAuthor,
+	id: state.id
 });
 
 export default connect(mapStateToProps)(StoryAreaContainer);

@@ -62,7 +62,7 @@ app.get('/story/:id', (req, res) => {
 		.catch(function(err) {
 			console.error(err);
 
-			res.status(500).json({ message : 'Internal server error, can\'t fetch story'});
+			res.status(500).json({ message : 'Internal server error, cannot fetch story'});
 		});
 });
 

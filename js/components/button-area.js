@@ -16,11 +16,18 @@ export class ButtonArea extends React.Component {
 	}
 
 	handleWriteClick(e) {
-		let rightBtn = this.props.rightBtn;
+		let rightBtn = this.props.rightBtn,
+			leftBtn = this.props.leftBtn;
 
 		if (rightBtn === 'Write' || rightBtn === 'Edit') {
 			rightBtn = '';
 			this.props.dispatch(actions.changeRightBtnName(rightBtn));
+		}
+
+		if (rightBtn === '') {
+			leftBtn = 'Back';
+
+			this.props.dispatch(actions.changeLeftBtnName(leftBtn));
 		}
 	}
 

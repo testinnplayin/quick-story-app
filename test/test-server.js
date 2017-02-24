@@ -155,4 +155,30 @@ describe('setting up an API environment for testing Story', function() {
 				});
 		});
 	});
+
+	describe('PUT verb at /story/:id', function() {
+		it('should update a story with the right fields', function() {
+			let updatedStory = {
+				userTitle: 'This is the Best Title Ever'
+			};
+
+			return Story
+				.findOne()
+				.exec()
+				.then(function(story) {
+					updatedStory.id = story.id;
+
+					return chai.request(app)
+						.put(`/story/${story.id}`)
+						.send(updatedStory);
+				})
+				.then(function(res) {
+					res.should.have.status(204);
+					return Story.findById(updatedStory.id).exec();
+				})
+				.then(function(story) {
+					story.userTitle.should.equal(updatedStory.userTitle);
+				});
+		});
+	});
 });

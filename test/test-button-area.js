@@ -30,13 +30,6 @@ describe('ButtonArea component', function() {
 		liArr.should.be.a('array');
 		liArr.should.have.lengthOf(3);
 
-		let lng = liArr.length,
-			expectedVals = ['/', '/story', '/story/new'];
-
-		for (let i = 0; i < lng; i++) {
-			liArr[i].type.should.equal('li');
-			liArr[i].props.children.type.should.be.a('function');
-			liArr[i].props.children.props.to.should.equal(expectedVals[i]);
-		}
+		
 	});
 });

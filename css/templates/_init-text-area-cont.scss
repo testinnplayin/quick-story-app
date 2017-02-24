@@ -5,6 +5,7 @@
 	width: $dim-4;
 	.init-photo-btn {
 		@include link-btn($t-center, $bor-rule-1, $pad-1, $bor-rad, $bckgrd-2-color, $t-1-color);
+		display: block;
 		@media screen and (min-width: $break-small) {
 			padding: $pad-3;
 			width: $dim-5;

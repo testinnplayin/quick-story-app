@@ -15,7 +15,7 @@ describe('GeneralContainer component', function() {
 
 		const result = renderer.getRenderOutput();
 		result.type.should.equal('main');
-		result.props.className.should.equal('generalContainer');
+		result.props.className.should.equal('generalContainer container-fluid');
 		
 		const mainArr = result.props.children;
 		mainArr.should.be.a('array');

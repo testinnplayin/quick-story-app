@@ -1,0 +1,7 @@
+@import '../_mix-n-var';
+
+.storyContainer {
+	.storyAreaSection {
+		@include sub-main-section($bckgrd-3-color, $auto, $dim-6, $m-auto);
+	}	
+}

@@ -22,9 +22,9 @@ describe('Image component', function() {
 		img.type.should.equal('img');
 
 		let keys = Object.keys(img.props);
-		keys.should.have.lengthOf(2);
+		keys.should.have.lengthOf(3);
 
-		let expectedKeys = ['src', 'alt'];
+		let expectedKeys = ['src', 'className', 'alt'];
 
 		for (let i = 0; i < keys.length; i++) {
 			keys[i].should.equal(expectedKeys[i]);

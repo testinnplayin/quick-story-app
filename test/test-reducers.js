@@ -62,6 +62,18 @@ describe('story reducer', function() {
 		reducers.storyReducer(fakeState, changeRightBtnActn).should.eql({ rightBtn : 'Click Me' });
 	});
 
+	it('should switch left button strings', function() {
+		let fakeState = {
+			leftBtn: 'Back'
+		},
+		changeLeftBtnActn = {
+			type: actions.CHANGE_LEFT_BTN_NAME,
+			leftBtn: 'Click Me'
+		};
+
+		reducers.storyReducer(fakeState, changeLeftBtnActn).should.eql({ leftBtn : 'Click Me' });
+	});
+
 	it('should set story title to user\'s input', function() {
 		let fakeState = {
 			userTitle: ''
@@ -102,5 +114,19 @@ describe('story reducer', function() {
 		};
 
 		reducers.storyReducer(fakeState, getUserNameActn).should.eql({ author : { firstName : 'Stephen', lastName : 'King'} });
+	});
+
+	it('should set the address for link buttons', function() {
+		let fakeState = {
+			rightBtnAddr: '/',
+			leftBtnAddr: '/story/new'
+		},
+		changeBtnAddrActn = {
+			type: actions.CHANGE_BTN_ADDR,
+			rightBtnAddr: '/nowhere',
+			leftBtnAddr: '/nowhere/else'
+		};
+
+		reducers.storyReducer(fakeState, changeBtnAddrActn).should.eql({ rightBtnAddr : '/nowhere', leftBtnAddr : '/nowhere/else' });
 	});
 });

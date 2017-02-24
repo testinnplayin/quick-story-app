@@ -28,7 +28,7 @@ describe('StoryContainer component', function() {
 
 		const result = renderer.getRenderOutput();
 		result.type.should.equal('main');
-		result.props.className.should.equal('storyContainer');
+		result.props.className.should.equal('storyContainer container-fluid');
 
 		const mainArr = result.props.children;
 		mainArr.should.be.a('array');
@@ -48,7 +48,7 @@ describe('StoryContainer component', function() {
 		iterator(funk1, expectedKeys1);
 		
 		const funk2 = sectionArr[2],
-			expectedKeys2 = ['photoBtn', 'leftBtn', 'rightBtn', 'handleWriteClick'];
+			expectedKeys2 = ['photoBtn', 'leftBtn', 'leftBtnAddr', 'rightBtn', 'rightBtnAddr', 'handleWriteClick', 'handleLeftClick', 'handleMiddleClick', 'title', 'photoArea'];
 
 		iterator(funk2, expectedKeys2);
 	});

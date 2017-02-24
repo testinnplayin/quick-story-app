@@ -1,0 +1,17 @@
+@import '../_mix-n-var';
+
+.buttonArea {
+	
+	margin: $marg-4;
+	width: $full;
+	ul {
+		@media screen and (min-width: $break-smallest) {
+		}
+
+		li {
+			a {
+				@include link-btn($t-center, $bor-rule-1, $pad-1, $bor-rad, $bckgrd-2-color, $t-1-color);
+			}
+		}
+	}
+}

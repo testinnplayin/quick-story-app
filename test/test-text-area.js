@@ -3,60 +3,44 @@
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import chai from 'chai';
+import sinon from 'sinon';
+import sinonChai from 'sinon-chai';
 
 const should = chai.should();
+chai.use(sinonChai);
 
 import {TextArea} from '../js/components/text-area';
 
 describe('TextArea component', function() {
-	it('should render a form with labels, two text inputs, one text area input and a button', function() {
+	it('should render a form with divs, labels and a button', function() {
 		const renderer = TestUtils.createRenderer();
 		renderer.render(<TextArea />);
 
 		const result = renderer.getRenderOutput();
 		result.type.should.equal('form');
 		result.props.className.should.equal('textArea');
+		result.props.onSubmit.should.be.a('function');
 
 		const formArr = result.props.children;
 		formArr.should.be.a('array');
-		formArr.should.have.lengthOf(7);
+		formArr.should.have.lengthOf(4);
 
-		const label1 = formArr[0];
-		label1.type.should.equal('label');
-		label1.props.htmlFor.should.equal('title-input')
-		label1.props.children.should.equal('Title:');
+		let lng = formArr.length;
 
-		const input1 = formArr[1];
-		input1.type.should.equal('input');
-		input1.props.type.should.equal('text');
-		input1.props.id.should.equal('title-input');
-		input1.props.onChange.should.be.a('function');
+		for (let i = 0; i < lng -1; i++) {
+			let div = formArr[i];
 
-		const label2 = formArr[2];
-		label2.type.should.equal('label');
-		label2.props.htmlFor.should.equal('story-area');
-		label2.props.children.should.equal('Write story below:');
+			div.type.should.equal('div');
+			div.props.className.should.equal('form-group');
 
-		const input2 = formArr[3];
-		input2.type.should.equal('input');
-		input2.props.type.should.equal('textarea');
-		input2.props.id.should.equal('story-area');
-		input1.props.onChange.should.be.a('function');
+			let divArr = div.props.children;
+			divArr.should.be.a('array');
+			divArr.should.have.lengthOf(2);
+			divArr[0].type.should.equal('label');
 
+		}
 
-		const label3 = formArr[4];
-		label3.type.should.equal('label');
-		label3.props.htmlFor.should.equal('author-input');
-		label3.props.children.should.equal('By:')
-
-		const input3 = formArr[5];
-		input3.type.should.equal('input');
-		input3.props.type.should.equal('text');
-		input3.props.id.should.equal('author-input');
-		input1.props.onChange.should.be.a('function');
-
-
-		const button = formArr[6];
+		const button = formArr[3];
 		button.type.should.equal('button');
 		button.props.type.should.equal('submit');
 

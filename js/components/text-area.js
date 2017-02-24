@@ -63,15 +63,15 @@ export class TextArea extends React.Component {
 			<form className="textArea" onSubmit={this.handleSubmitEvent}>
 				<div className="form-group">
 					<label htmlFor="title-input">Title:</label>
-					<input type="text" id="title-input" name="title-input" onChange={this.handleTitleChange} className="form-control" />
+					<input type="text" id="title-input" name="title-input" onChange={this.handleTitleChange} className="form-control" placeholder={this.props.userTitle} />
 				</div>
 				<div className="form-group">
 					<label htmlFor="story-area">Write story below:</label>
-					<textarea className="form-control" rows="3" onChange={this.handleStoryChange}></textarea>
+					<textarea className="form-control" rows="3" onChange={this.handleStoryChange} placeholder={this.props.userStory}></textarea>
 				</div>
 				<div className="form-group">
 					<label htmlFor="author-input">By:</label>
-					<input type="text" id="author-input" name="author-input" onChange={this.handleAuthorChange} className="form-control" />
+					<input type="text" id="author-input" name="author-input" onChange={this.handleAuthorChange} className="form-control" placeholder={this.props.newAuthor} />
 				</div>
 				<button type="submit">{this.props.submitBtnName}</button>
 			</form>

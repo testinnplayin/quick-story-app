@@ -58,6 +58,8 @@ export const changeBtnAddr = (rightBtnAddr, leftBtnAddr) => ({
 
 //async actions
 
+//get actions
+
 export const GET_PHOTO_SUCCESS = 'GET_PHOTO_SUCCESS';
 export const getPhotoSuccess = (photoSucc) => ({
 	type: GET_PHOTO_SUCCESS,
@@ -88,53 +90,6 @@ export const getPhoto = photo => dispatch => {
 	})
 	.then(response => response.json())
 	.then(data => dispatch(getPhotoSuccess(data.photo)));
-};
-
-export const SAVE_STORY_SUCCESS = 'SAVE_STORY_SUCCESS';
-export const saveStorySuccess = (storySucc) => ({
-	type: SAVE_STORY_SUCCESS,
-	storySucc
-});
-
-export const SAVE_STORY_ERROR = 'SAVE_STORY_ERROR';
-export const saveStoryError = (storyErr) => ({
-	type: SAVE_STORY_ERROR,
-	storyErr
-});
-
-export const saveStory = story => dispatch => {
-	let endpnt = '/story/new',
-		reqOptions = {
-			method: 'POST',
-			headers: {
-				'Content-Type' : 'application/json'
-			},
-			body: JSON.stringify({
-				userTitle: story.userTitle,
-				photo: story.photo,
-				userStory: story.userStory,
-				author: {
-					firstName: story.author.firstName,
-					lastName: story.author.lastName
-				}
-			})
-		},
-		postReq = new Request(endpnt, reqOptions);
-
-		fetch(postReq)
-		.then(response => {
-			if (!response.ok) {
-				const error = new Error(response.statusText);
-				error.response = response;
-
-				throw error;
-			}
-
-			return response;
-		})
-		.then(response => response.json())
-		.then(data => dispatch(saveStorySuccess(data.story)))
-		.catch(storyErr => dispatch(saveStoryError(storyErr)));
 };
 
 export const FETCH_STORIES_SUCCESS = 'FETCH_STORIES_SUCCESS';
@@ -205,4 +160,102 @@ export const fetchStory = (storyId) => (dispatch) => {
 		.then(response => response.json())
 		.then(data => {console.log(data); dispatch(fetchStorySuccess(data))})
 		.catch(storyErr2 => dispatch(fetchStoryError(storyErr2)));
+};
+
+//POST actions
+
+export const SAVE_STORY_SUCCESS = 'SAVE_STORY_SUCCESS';
+export const saveStorySuccess = (storySucc) => ({
+	type: SAVE_STORY_SUCCESS,
+	storySucc
+});
+
+export const SAVE_STORY_ERROR = 'SAVE_STORY_ERROR';
+export const saveStoryError = (storyErr) => ({
+	type: SAVE_STORY_ERROR,
+	storyErr
+});
+
+export const saveStory = story => dispatch => {
+	let endpnt = '/story/new',
+		reqOptions = {
+			method: 'POST',
+			headers: {
+				'Content-Type' : 'application/json'
+			},
+			body: JSON.stringify({
+				userTitle: story.userTitle,
+				photo: story.photo,
+				userStory: story.userStory,
+				author: {
+					firstName: story.author.firstName,
+					lastName: story.author.lastName
+				}
+			})
+		},
+		postReq = new Request(endpnt, reqOptions);
+
+	fetch(postReq)
+	.then(response => {
+		if (!response.ok) {
+			const error = new Error(response.statusText);
+			error.response = response;
+
+			throw error;
+		}
+
+		return response;
+	})
+	.then(response => response.json())
+	.then(data => dispatch(saveStorySuccess(data.story)))
+	.catch(storyErr => dispatch(saveStoryError(storyErr)));
+};
+
+//PUT actions
+
+export const UPDATE_STORY_SUCCESS = 'UPDATE_STORY_SUCCESS';
+export const updateStorySuccess = (updateSucc) => ({
+	type: UPDATE_STORY_SUCCESS,
+	updateSucc
+});
+
+export const UPDATE_STORY_ERROR = 'UPDATE_STORY_ERROR';
+export const updateStoryError = (updateErr) => ({
+	type: UPDATE_STORY_ERROR,
+	updateErr
+});
+
+export const updateStory = (updateStory) => dispatch => {
+	let endpnt = `/story/${updateStory.id}`,
+		reqOptions = {
+			method: 'PUT',
+			headers: {
+				'Content-Type' : 'application/json'
+			},
+			body: JSON.stringify({
+				userTitle: updateStory.userTitle,
+				userStory: updateStory.userStory,
+				author: {
+					firstName: updateStory.author.firstName,
+					lastName: updateStory.author.lastName
+				}
+			})
+		},
+		postReq = new Request(endpnt, reqOptions);
+
+	fetch(postReq)
+	.then(response => {
+		if(!response.ok) {
+			const error = new Error(response.statusText);
+			error.response = response;
+
+			throw error;
+		}
+
+		return response;
+	})
+	.then(response => response.json())
+	.then(data => {console.log(data); dispatch(updateStorySuccess(data.story))})
+	.catch(updateErr => dispatch(updateStoryError(updateErr)));
+
 };

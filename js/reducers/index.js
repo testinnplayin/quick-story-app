@@ -112,7 +112,6 @@ export const storyReducer = (state=initialState, action) => {
 			return newState_7;
 		case types.GET_USER_NAME:
 			let author = action.author;
-			console.log(author);
 
 			const newState_8 = update(state, {
 				author: {
@@ -253,6 +252,30 @@ export const storyReducer = (state=initialState, action) => {
 			console.log(newState_16);
 
 			return newState_16;
+		case types.UPDATE_STORY_SUCCESS:
+			let updateSucc = action.updateSucc;
+
+			const newState_17 = update(state, {
+				story: {
+					$set: updateSucc
+				}
+			});
+
+			console.log(newState_17);
+
+			return newState_17;
+		case types.UPDATE_STORY_ERROR:
+			let updateErr = action.updateErr;
+
+			const newState_18 = update(state, {
+				story: {
+					$set: updateErr
+				}
+			});
+
+			console.log(newState_18);
+
+			return newState_18;
 		default:
 			return state;
 	}

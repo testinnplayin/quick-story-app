@@ -26,7 +26,7 @@ export class ButtonArea extends React.Component {
 			this.props.dispatch(actions.changeRightBtnName(rightBtn));
 		}
 
-		if (rightBtn === '') {
+		if (rightBtn === '' && title === 'Your Story') {
 			let leftBtnAddr = this.props.leftBtnAddr,
 				rightBtnAddr = this.props.rightBtnAddr,
 				leftBtnAddrArr = leftBtnAddr.split('/'),
@@ -40,6 +40,10 @@ export class ButtonArea extends React.Component {
 			this.props.dispatch(actions.changeLeftBtnName(leftBtn));
 			this.props.dispatch(actions.changeTitle(title));
 			this.props.dispatch(actions.changePhotoArea(photoArea));
+			this.props.dispatch(actions.changeBtnAddr(rightBtnAddr, leftBtnAddr))
+		} else if (rightBtn === '' && title === 'Write A Story') {
+			leftBtnAddrArr = '/';
+
 			this.props.dispatch(actions.changeBtnAddr(rightBtnAddr, leftBtnAddr))
 		}
 
@@ -64,7 +68,16 @@ export class ButtonArea extends React.Component {
 			rightBtn = this.props.rightBtn,
 			photoArea = this.props.photoArea;
 
-		if (rightBtn === 'Write') {
+		if (title === 'Write A Story') {
+			title = 'Quick Story',
+			photoArea = 'Click on Get Random Photo button to begin!';
+
+			this.props.dispatch(actions.changeTitle(title));
+			this.props.dispatch(actions.changePhotoArea(photoArea));
+		} else if (title === 'Edit Your Story') {
+			title = 'Your Story',
+			photoArea = 'Click on Edit to edit your story, Delete to delete it or get a new random photo!';
+
 			this.props.dispatch(actions.changeTitle(title));
 			this.props.dispatch(actions.changePhotoArea(photoArea));
 		}

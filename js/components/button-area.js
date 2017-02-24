@@ -27,7 +27,7 @@ export class ButtonArea extends React.Component {
 		}
 
 		if (rightBtn === '' && title === 'Your Story') {
-			let leftBtnAddr = this.props.leftBtnAddr,
+			var leftBtnAddr = this.props.leftBtnAddr,
 				rightBtnAddr = this.props.rightBtnAddr,
 				leftBtnAddrArr = leftBtnAddr.split('/'),
 				id = leftBtnAddrArr[3];
@@ -40,10 +40,6 @@ export class ButtonArea extends React.Component {
 			this.props.dispatch(actions.changeLeftBtnName(leftBtn));
 			this.props.dispatch(actions.changeTitle(title));
 			this.props.dispatch(actions.changePhotoArea(photoArea));
-			this.props.dispatch(actions.changeBtnAddr(rightBtnAddr, leftBtnAddr))
-		} else if (rightBtn === '' && title === 'Write A Story') {
-			leftBtnAddrArr = '/';
-
 			this.props.dispatch(actions.changeBtnAddr(rightBtnAddr, leftBtnAddr))
 		}
 

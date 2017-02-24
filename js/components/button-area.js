@@ -17,7 +17,9 @@ export class ButtonArea extends React.Component {
 
 	handleWriteClick(e) {
 		let rightBtn = this.props.rightBtn,
-			leftBtn = this.props.leftBtn;
+			leftBtn = this.props.leftBtn,
+			title = this.props.title,
+			photoArea = this.props.photoArea;
 
 		if (rightBtn === 'Write' || rightBtn === 'Edit') {
 			rightBtn = '';
@@ -25,10 +27,23 @@ export class ButtonArea extends React.Component {
 		}
 
 		if (rightBtn === '') {
+			let leftBtnAddr = this.props.leftBtnAddr,
+				rightBtnAddr = this.props.rightBtnAddr,
+				leftBtnAddrArr = leftBtnAddr.split('/'),
+				id = leftBtnAddrArr[3];
+
+			title = 'Edit Your Story',
+			photoArea = 'Click Save if you wish to keep your changes',
 			leftBtn = 'Back';
+			leftBtnAddr = `/story/${id}`;
 
 			this.props.dispatch(actions.changeLeftBtnName(leftBtn));
+			this.props.dispatch(actions.changeTitle(title));
+			this.props.dispatch(actions.changePhotoArea(photoArea));
+			this.props.dispatch(actions.changeBtnAddr(rightBtnAddr, leftBtnAddr))
 		}
+
+
 	}
 
 	handleMiddleClick(e) {

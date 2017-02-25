@@ -12,6 +12,7 @@ import GeneralContainer from './components/general-container';
 import StoryContainer from './components/story-container';
 import TextAreaContainer from './components/text-area-container';
 import StoriesContainer from './components/stories-container';
+import StoryAreaContainer from './components/story-area-container';
 
 document.addEventListener('DOMContentLoaded', () => {
 	ReactDOM.render(
@@ -21,6 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
 					<IndexRoute component={GeneralContainer} />
 					<Route path='/story' component={StoryContainer}>
 						<Route path='/story/new' component={TextAreaContainer} />
+						<Route path='/story/edit/:id' component={TextAreaContainer} />
+						<Route path='/story/:id' component={StoryAreaContainer} />
 					</Route>
 					<Route path='/stories' component={StoriesContainer} />
 				</Route>

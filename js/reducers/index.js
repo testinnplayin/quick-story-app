@@ -7,8 +7,10 @@ import * as types from '../actions/index';
 const initialState = {
 	title : 'Quick Story',
 	leftBtn: 'Back',
+	leftBtnAddr: '/',
 	photoArea : 'Click on Get Random Photo button to begin!',
 	rightBtn: 'Write',
+	rightBtnAddr: '/story/new',
 	photo : '',
 	photoBtn: 'Get Random Photo',
 	submitBtnName: 'Save',
@@ -18,8 +20,10 @@ const initialState = {
 		firstName: '',
 		lastName: ''
 	},
+	newAuthor: '',
 	stories: [],
-	story: {}
+	story: {},
+	id: ''
 };
 
 export const storyReducer = (state=initialState, action) => {
@@ -109,7 +113,6 @@ export const storyReducer = (state=initialState, action) => {
 			return newState_7;
 		case types.GET_USER_NAME:
 			let author = action.author;
-			console.log(author);
 
 			const newState_8 = update(state, {
 				author: {
@@ -138,7 +141,12 @@ export const storyReducer = (state=initialState, action) => {
 
 			return newState_9;
 		case types.FETCH_STORIES_SUCCESS:
-			let storiesSucc = action.storiesSucc;
+			let storiesSucc = action.storiesSucc,
+				storiesLng = storiesSucc.length;
+
+			if (storiesLng < 1) {
+				throw new Error('Couldn\'t find stories');
+			}
 
 			const newState_10 = update(state, {
 				stories: {
@@ -185,6 +193,102 @@ export const storyReducer = (state=initialState, action) => {
 			console.log(newState_13);
 
 			return newState_13;
+		case types.FETCH_STORY_SUCCESS:
+			let storySucc2 = action.storySucc2,
+				redoAuthor = storySucc2.author.split(', '),
+				firstName = redoAuthor[1],
+				lastName = redoAuthor[0];
+
+			const newState_14 = update(state, {
+				userTitle: {
+					$set: storySucc2.userTitle
+				},
+				photo: {
+					$set: storySucc2.photo
+				},
+				userStory: {
+					$set: storySucc2.userStory
+				},
+				author: {
+					firstName: {
+						$set: firstName,
+					},
+					lastName: {
+						$set: lastName
+					}
+				},
+				newAuthor: {
+					$set: storySucc2.author
+				}
+			});
+
+			console.log(newState_14);
+
+			return newState_14;
+		case types.FETCH_STORY_ERROR:
+			let storyErr2 = action.storyErr2;
+
+			const newState_15 = update(state, {
+				story: {
+					$set: storyErr2
+				}
+			});
+
+			console.log(newState_15);
+
+			return newState_15;
+		case types.CHANGE_BTN_ADDR:
+			let rightBtnAddr = action.rightBtnAddr,
+				leftBtnAddr = action.leftBtnAddr;
+
+			const newState_16 = update(state, {
+				rightBtnAddr: {
+					$set: rightBtnAddr
+				},
+				leftBtnAddr: {
+					$set: leftBtnAddr
+				}
+			});
+
+			console.log(newState_16);
+
+			return newState_16;
+		case types.UPDATE_STORY_SUCCESS:
+			let updateSucc = action.updateSucc;
+
+			const newState_17 = update(state, {
+				story: {
+					$set: updateSucc
+				}
+			});
+
+			console.log(newState_17);
+
+			return newState_17;
+		case types.UPDATE_STORY_ERROR:
+			let updateErr = action.updateErr;
+
+			const newState_18 = update(state, {
+				story: {
+					$set: updateErr
+				}
+			});
+
+			console.log(newState_18);
+
+			return newState_18;
+		case types.CHANGE_ID:
+			let id = action.id;
+
+			const newState_19 = update(state, {
+				id: {
+					$set: id
+				}
+			});
+
+			console.log(newState_19);
+
+			return newState_19;
 		default:
 			return state;
 	}

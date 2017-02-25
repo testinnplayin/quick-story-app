@@ -13,13 +13,16 @@ export class MainContainer extends React.Component {
 	render() {
 		return (
 			<div className="mainContainer">
-				<NavBar />
+				<NavBar title={this.props.title} photoArea={this.props.photoArea} handleHomeClick={this.props.handleHomeClick} />
 				{this.props.children}	
 			</div>
 		);
 	}
 };
 
+const mapStatetoProps = (state, props) => ({
+	title: state.title,
+	photoArea: state.photoArea
+});
 
-
-export default connect()(MainContainer);
+export default connect(mapStatetoProps)(MainContainer);

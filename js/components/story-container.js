@@ -17,7 +17,10 @@ export class StoryContainer extends React.Component {
 	componentDidMount() {
 		let title = this.props.title,
 			photoArea = this.props.photoArea,
-			rightBtn = this.props.rightBtn;
+			rightBtn = this.props.rightBtn,
+			leftBtn = this.props.leftBtn,
+			rightBtnAddr = this.props.rightBtnAddr,
+			leftBtnAddr = this.props.leftBtnAddr;
 
 		if (title === 'Quick Story' && photoArea === 'Click on Get Random Photo button to begin!') {
 			title = 'Write A Story';
@@ -26,7 +29,34 @@ export class StoryContainer extends React.Component {
 			this.props.dispatch(actions.changeTitle(title));
 			this.props.dispatch(actions.getPhoto());
 			this.props.dispatch(actions.changePhotoArea(photoArea));
-		} 
+		} else if (title === 'List of Stories' && photoArea === 'Click on a story below to edit or delete it') {
+			let pathArr = this.props.location.pathname.split('/'),
+				id = pathArr[2];
+				
+			title = 'Your Story',
+			photoArea = 'Click on Edit to edit your story, Delete to delete it or get a new random photo!',
+			rightBtn = 'Edit',
+			leftBtn = 'Delete',
+			rightBtnAddr = `/story/edit/${id}`,
+			leftBtnAddr = `/story/delete/${id}`;
+
+			this.props.dispatch(actions.changeTitle(title));
+			this.props.dispatch(actions.changePhotoArea(photoArea));
+			this.props.dispatch(actions.changeRightBtnName(rightBtn));
+			this.props.dispatch(actions.changeLeftBtnName(leftBtn));
+			this.props.dispatch(actions.changeBtnAddr(rightBtnAddr, leftBtnAddr));
+			this.props.dispatch(actions.changeId(id));
+		} else {
+			title = 'Quick Story',
+			photoArea = 'Click on Get Random Photo button to begin!',
+			rightBtn = 'Write',
+			leftBtn = 'Back';
+
+			this.props.dispatch(actions.changeTitle(title));
+			this.props.dispatch(actions.changePhotoArea(photoArea));
+			this.props.dispatch(actions.changeRightBtnName(rightBtn));
+			this.props.dispatch(actions.changeLeftBtnName(leftBtn));
+		}
 	}
 
 	render() {
@@ -36,8 +66,9 @@ export class StoryContainer extends React.Component {
 				<section className="storyAreaSection">
 					<PhotoAreaContainer photo={this.props.photo} photoArea={this.props.photoArea} />
 					{this.props.children}
-					<ButtonArea photoBtn={this.props.photoBtn} leftBtn={this.props.leftBtn} rightBtn={this.props.rightBtn} handleWriteClick={this.props.handleWriteClick}
-					 handleLeftClick={this.props.handleLeftClick} handleMiddleClick={this.props.handleMiddleClick} title={this.props.title} photoArea={this.props.photoArea} />
+					<ButtonArea photoBtn={this.props.photoBtn} leftBtn={this.props.leftBtn} leftBtnAddr={this.props.leftBtnAddr} rightBtn={this.props.rightBtn} rightBtnAddr={this.props.rightBtnAddr}
+					 handleWriteClick={this.props.handleWriteClick} handleLeftClick={this.props.handleLeftClick} handleMiddleClick={this.props.handleMiddleClick} title={this.props.title} 
+					 photoArea={this.props.photoArea} />
 				</section>
 			</main>
 		);
@@ -47,10 +78,13 @@ export class StoryContainer extends React.Component {
 const mapStateToProps = (state, props) => ({
 	title: state.title,
 	leftBtn: state.leftBtn,
+	leftBtnAddr: state.leftBtnAddr,
 	photoBtn: state.photoBtn,
 	rightBtn: state.rightBtn,
+	rightBtnAddr: state.rightBtnAddr,
 	photoArea: state.photoArea,
-	photo: state.photo
+	photo: state.photo,
+	id: state.id
 });
 
 export default connect(mapStateToProps)(StoryContainer);

@@ -1,20 +1,34 @@
 'use strict';
 
 import React from 'react';
+import {connect} from 'react-redux';
 import {Link} from 'react-router';
 
-export default function StoriesList(props) {
-	const stories = props.stories;
+import * as actions from '../actions/index';
 
-	const story = stories.map((content, i) => {
+export class StoriesList extends React.Component {
+	constructor(props) {
+		super(props);
+
+	}
+
+	render() {
+		const stories = this.props.stories;
+
+		let story = stories.map((content, i) => {
+			return (
+				<li key={i}><Link to={'/story/' + content.id} value={content.id}><img src={content.photo} />Title: {content.userTitle} Author: {content.author}</Link></li>
+			);
+		});
+		
 		return (
-			<li key={i}><Link to={'/story/' + content.id} value={content.id}><img src={content.photo} />Title: {content.userTitle} Author: {content.author}</Link></li>
+			<ul className="storiesList">
+				{story}
+			</ul>
 		);
-	});
+	}
 
-	return (
-		<ul className="storiesList">
-			{story}
-		</ul>
-	);
+	
 };
+
+export default connect()(StoriesList);

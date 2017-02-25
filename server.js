@@ -46,6 +46,26 @@ app.get('/stories', (req, res) => {
 		});
 });
 
+app.get('/story/:id', (req, res) => {
+	if(!req.params.id) {
+		const msg = `Request parameter path ${req.params.id} and request body id ${req.body.id} do not match`;
+
+		res.status(400).json({ message : msg });
+	}
+
+	Story
+		.findById(req.params.id)
+		.exec()
+		.then(function(story) {
+			res.json(story.apiRepr())
+		})
+		.catch(function(err) {
+			console.error(err);
+
+			res.status(500).json({ message : 'Internal server error, cannot fetch story'});
+		});
+});
+
 
 //POST requests
 
@@ -70,10 +90,40 @@ app.post('/story/new', (req, res) => {
 		})
 		.then(function(story) {
 			res.status(201).json(story.apiRepr());
+			// $("window").location.href = '/stories';
 		})
 		.catch(function(err) {
 			console.error(err);
 			res.status(500).json({ message : 'Internal server error, cannot create story' });
+		});
+});
+
+//PUT requests
+
+app.put('/story/:id', (req, res) => {
+	if (!(req.params.id && req.body.id && (req.body.id === req.params.id))) {
+		const msg = `The params id ${req.params.id} and the body id ${req.body.id} do not match`;
+
+		res.status(400).json({ message : msg });
+	}
+
+	const forUpdate = {};
+	const updateFields = ['userTitle', 'userStory', 'author'];
+
+	updateFields.forEach(field => {
+		if(field in req.body) {
+			forUpdate[field] = req.body[field];
+		}
+	});
+
+	Story
+		.findByIdAndUpdate(req.params.id, { $set : forUpdate })
+		.exec()
+		.then(story => {
+			res.status(204).end();
+		})
+		.catch(err => {
+			res.status(500).json({ message : 'Internal server error, could not update story' });
 		});
 });
 

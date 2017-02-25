@@ -97,6 +97,30 @@ describe('setting up an API environment for testing Story', function() {
 		});
 	});
 
+	describe('GET verb at /story/:id', function() {
+		it('should return a specific story', function() {
+			let story = {};
+
+			return Story
+				.findOne()
+				.exec()
+				.then(function(_story) {
+					story.id = _story.id;
+
+					return chai.request(app).get(`/story/${story.id}`);
+				})
+				.then(function(res) {
+					res.should.have.status(200);
+					res.should.be.json;
+					res.body.should.be.a('object');
+					res.body.should.include.keys('id', 'userTitle', 'userStory', 'photo', 'author');
+					res.body.id.should.be.equal(story.id);
+
+					return Story.findById(story.id);
+				});
+		});
+	});
+
 	describe('POST verb at /story/new', function() {
 		it('should create a story with the right fields', function() {
 			let newStory = generateStoryData();
@@ -128,6 +152,32 @@ describe('setting up an API environment for testing Story', function() {
 					story.userStory.should.equal(newStory.userStory);
 					story.author.firstName.should.equal(newStory.author.firstName);
 					story.author.lastName.should.equal(newStory.author.lastName);
+				});
+		});
+	});
+
+	describe('PUT verb at /story/:id', function() {
+		it('should update a story with the right fields', function() {
+			let updatedStory = {
+				userTitle: 'This is the Best Title Ever'
+			};
+
+			return Story
+				.findOne()
+				.exec()
+				.then(function(story) {
+					updatedStory.id = story.id;
+
+					return chai.request(app)
+						.put(`/story/${story.id}`)
+						.send(updatedStory);
+				})
+				.then(function(res) {
+					res.should.have.status(204);
+					return Story.findById(updatedStory.id).exec();
+				})
+				.then(function(story) {
+					story.userTitle.should.equal(updatedStory.userTitle);
 				});
 		});
 	});

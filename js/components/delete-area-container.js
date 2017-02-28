@@ -5,16 +5,30 @@ import {connect} from 'react-redux';
 
 import DeleteAreaButtons from './delete-area-buttons';
 
+import * as actions from '../actions/index';
+
 export class DeleteAreaContainer extends React.Component {
 	constructor(props) {
 		super(props);
+	}
+
+	componentDidMount() {
+		let leftBtnAddr = this.props.leftBtnAddr,
+			rightBtnAddr = this.props.rightBtnAddr,
+			id = this.props.id;
+
+		leftBtnAddr = `story/${id}`,
+		rightBtnAddr = `story/${id}`;
+
+		this.props.dispatch(actions.changeBtnAddr(rightBtnAddr, leftBtnAddr));
 	}
 
 	render() {
 		return (
 			<div className="deleteAreaContainer">
 				<p>Please click below:</p>
-				<DeleteAreaButtons leftBtn={this.props.leftBtn} leftBtnAddr={this.props.leftBtnAddr} rightBtn={this.props.rightBtn} rightBtnAddr={this.props.rightBtnAddr} />
+				<DeleteAreaButtons leftBtnAddr={this.props.leftBtnAddr} rightBtnAddr={this.props.rightBtnAddr} id={this.props.id} title={this.props.title}
+				 photoArea={this.props.photoArea} leftBtn={this.props.leftBtn} rightBtn={this.rightBtn} />
 			</div>
 		);
 	}
@@ -23,7 +37,11 @@ export class DeleteAreaContainer extends React.Component {
 const mapStateToProps = (state, props) => ({
 	leftBtnAddr: state.leftBtnAddr,
 	rightBtnAddr: state.rightBtnAddr,
-	id: state.id
+	id: state.id,
+	title: state.title,
+	photoArea: state.photoArea,
+	leftBtn: state.leftBtn,
+	rightBtn: state.rightBtnAddr
 });
 
 export default connect(mapStateToProps)(DeleteAreaContainer);

@@ -10,18 +10,32 @@ export class DeleteAreaButtons extends React.Component {
 	constructor(props) {
 		super(props);
 
+		this.handleCancelClick = this.handleCancelClick.bind(this);
 		this.handleDeleteClick = this.handleDeleteClick.bind(this);
 	}
 
-	componentDidMount() {
-		let leftBtnAddr = this.props.leftBtnAddr,
+	handleCancelClick(e) {
+		let title = this.props.title,
+			photoArea = this.props.photoArea,
+			leftBtn = this.props.leftBtn,
+			rightBtn = this.props.rightBtn,
+			leftBtnAddr = this.props.leftBtnAddr,
 			rightBtnAddr = this.props.rightBtnAddr,
 			id = this.props.id;
 
-		leftBtnAddr = `story/${id}`,
-		rightBtnAddr = `story/${id}`;
+		title = 'Your Story',
+		photoArea = 'Click on Edit to edit your story, Delete to delete it or get a new random photo!',
+		leftBtn = 'Delete',
+		rightBtn = 'Edit',
+		leftBtnAddr = `/story/delete/${id}`,
+		rightBtnAddr = `/story/edit/${id}`;
 
+		this.props.dispatch(actions.changeTitle(title));
+		this.props.dispatch(actions.changePhotoArea(photoArea));
+		this.props.dispatch(actions.changeLeftBtnName(leftBtn));
+		this.props.dispatch(actions.changeRightBtnName(rightBtn));
 		this.props.dispatch(actions.changeBtnAddr(rightBtnAddr, leftBtnAddr));
+		this.props.dispatch(actions.changeId(id));
 	}
 
 	handleDeleteClick(e) {
@@ -34,7 +48,7 @@ export class DeleteAreaButtons extends React.Component {
 	render() {
 		return (
 			<ul className="deleteAreaButtons">
-				<li className="back-btn"><Link to={this.props.leftBtnAddr}>Cancel</Link></li>
+				<li className="back-btn"><Link to={this.props.leftBtnAddr} onClick={this.handleCancelClick}>Cancel</Link></li>
 				<button className="delete-btn" onClick={this.handleDeleteClick}>Delete</button>
 			</ul>
 		);

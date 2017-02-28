@@ -4,6 +4,8 @@
   "description": "A React template",
   "main": "js/index.js",
   "scripts": {
+    "nodemon": "nodemon ./build/server.js",
+    "build-server": "babel ./server.js --out-file build/server.js",
     "build-css": "node-sass --include-path scss css/index.scss css/index.css",
     "start": "http-server -c-1 build",
     "dev": "run-p watch serve",

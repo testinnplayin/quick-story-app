@@ -8,8 +8,8 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-const {PORT, DATABASE_URL} = require('./config');
-const {Story} = require('./models');
+const {PORT, DATABASE_URL} = require('../config');
+const {Story} = require('../models');
 
 const app = express();
 

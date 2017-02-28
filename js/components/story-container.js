@@ -84,7 +84,7 @@ const mapStateToProps = (state, props) => ({
 	rightBtnAddr: state.rightBtnAddr,
 	photoArea: state.photoArea,
 	photo: state.photo,
-	id: state.id
+	id: state.id,
 });
 
 export default connect(mapStateToProps)(StoryContainer);

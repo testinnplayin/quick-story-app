@@ -63,7 +63,7 @@ export class ButtonArea extends React.Component {
 		let title = this.props.title,
 			rightBtn = this.props.rightBtn,
 			photoArea = this.props.photoArea;
-
+			
 		if (title === 'Write A Story') {
 			title = 'Quick Story',
 			photoArea = 'Click on Get Random Photo button to begin!';

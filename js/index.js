@@ -13,6 +13,7 @@ import StoryContainer from './components/story-container';
 import TextAreaContainer from './components/text-area-container';
 import StoriesContainer from './components/stories-container';
 import StoryAreaContainer from './components/story-area-container';
+import DeleteAreaContainer from './components/delete-area-container';
 
 document.addEventListener('DOMContentLoaded', () => {
 	ReactDOM.render(
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 						<Route path='/story/new' component={TextAreaContainer} />
 						<Route path='/story/edit/:id' component={TextAreaContainer} />
 						<Route path='/story/:id' component={StoryAreaContainer} />
+						<Route path='/story/delete/:id' component={DeleteAreaContainer} />
 					</Route>
 					<Route path='/stories' component={StoriesContainer} />
 				</Route>

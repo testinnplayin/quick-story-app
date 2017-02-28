@@ -181,4 +181,26 @@ describe('setting up an API environment for testing Story', function() {
 				});
 		});
 	});
+
+	describe('DELETE verb at /story/:id', function() {
+		it('should delete a story', function() {
+			let story;
+
+			return Story
+				.findOne()
+				.exec()
+				.then(function(_story) {
+					story = _story;
+					return chai.request(app).delete(`/story/${story.id}`);
+				})
+				.then(function(res) {
+					res.should.have.status(204);
+
+					return Story.findById(story.id).exec();
+				})
+				.then(function(_story) {
+					should.not.exist(_story);
+				});
+		});
+	});
 });

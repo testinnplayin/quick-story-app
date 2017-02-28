@@ -127,6 +127,20 @@ app.put('/story/:id', (req, res) => {
 		});
 });
 
+//DELETE requests
+
+app.delete('/story/:id', (req, res) => {
+
+	Story
+		.findByIdAndRemove(req.params.id)
+		.exec()
+		.then(story => res.status(204).end())
+		.catch(err => {
+			console.error(err);
+			res.send(500).json({ message : 'Internal server error, could not delete story' });
+		});
+});
+
 //Generic requests
 
 app.use('*', (req, res) => {

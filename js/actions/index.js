@@ -262,7 +262,48 @@ export const updateStory = (updateStory, id) => dispatch => {
 		return response;
 	})
 	.then(response => response.json())
-	.then(data => {console.log(data); dispatch(updateStorySuccess(data.story))})
+	.then(data => dispatch(updateStorySuccess(data.story)))
 	.catch(updateErr => dispatch(updateStoryError(updateErr)));
 
+};
+
+export const DELETE_STORY_SUCCESS = 'DELETE_STORY_SUCCESS';
+export const deleteStorySuccess = (deleteSucc) => ({
+	type: DELETE_STORY_SUCCESS,
+	deleteSucc
+});
+
+export const DELETE_STORY_ERR = 'DELETE_STORY_ERR';
+export const deleteStoryErr = (deleteErr) => ({
+	type: DELETE_STORY_ERR,
+	deleteErr
+});
+
+export const deleteStory = (deleteStory, deleteId) => dispatch => {
+	let endpnt = `story/${deleteId}`,
+		reqOptions = {
+			method: 'DELETE',
+			headers: {
+				'Content-Type' : 'application/json'
+			},
+			body: JSON.stringify({
+				id: deleteId
+			})
+		},
+		postReq = new Request(endpnt, reqOptions);
+
+	fetch(postReq)
+	.then(response => {
+		if(!response.ok) {
+			const error = new Error(response.statusText);
+			error.response = response;
+
+			throw error;
+		}
+
+		return response;
+	})
+	.then(response => response.json())
+	.then(data => { console.log(data); dispatch(deleteStorySuccess(data)) })
+	.catch(deleteErr => dispatch(deleteStoryErr(deleteErr)));
 };

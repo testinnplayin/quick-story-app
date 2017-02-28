@@ -289,6 +289,50 @@ export const storyReducer = (state=initialState, action) => {
 			console.log(newState_19);
 
 			return newState_19;
+		case types.DELETE_STORY_SUCCESS:
+			let deleteSucc = action.deleteSucc,
+				deleteId = action.deleteId,
+				emptyStory = {
+					userTitle: '',
+					userStory: '',
+					author: {
+						firstName: '',
+						lastName: ''
+					}
+				},
+				storiesArr = state.stories;
+
+			storiesArr.re
+
+			const newState_20 = update(state, {
+				story: {
+					$set: emptyStory
+				},
+				userTitle: {
+					$set: ''
+				},
+				userStory: {
+					$set: ''
+				},
+				author: {
+					firstName: {
+						$set: ''
+					},
+					lastName: {
+						$set: ''
+					}
+				},
+				newAuthor: {
+					$set: ''
+				},
+				id: {
+					$set: ''
+				}
+			});
+
+			console.log(newState_20);
+
+			return newState_20;
 		default:
 			return state;
 	}

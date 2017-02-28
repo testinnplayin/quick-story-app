@@ -268,9 +268,10 @@ export const updateStory = (updateStory, id) => dispatch => {
 };
 
 export const DELETE_STORY_SUCCESS = 'DELETE_STORY_SUCCESS';
-export const deleteStorySuccess = (deleteSucc) => ({
+export const deleteStorySuccess = (deleteSucc, deleteId) => ({
 	type: DELETE_STORY_SUCCESS,
-	deleteSucc
+	deleteSucc,
+	deleteId
 });
 
 export const DELETE_STORY_ERR = 'DELETE_STORY_ERR';

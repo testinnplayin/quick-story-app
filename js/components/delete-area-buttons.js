@@ -34,8 +34,8 @@ export class DeleteAreaButtons extends React.Component {
 	render() {
 		return (
 			<ul className="deleteAreaButtons">
-				<li className="back-btn"><Link to={this.props.leftBtnAddr}>{this.props.leftBtn}</Link></li>
-				<button className="delete-btn" onClick={this.handleDeleteClick}>{this.props.rightBtn}</button>
+				<li className="back-btn"><Link to={this.props.leftBtnAddr}>Cancel</Link></li>
+				<button className="delete-btn" onClick={this.handleDeleteClick}>Delete</button>
 			</ul>
 		);
 	}

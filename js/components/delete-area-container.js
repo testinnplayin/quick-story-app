@@ -22,9 +22,7 @@ export class DeleteAreaContainer extends React.Component {
 
 const mapStateToProps = (state, props) => ({
 	leftBtnAddr: state.leftBtnAddr,
-	leftBtn: state.leftBtn,
 	rightBtnAddr: state.rightBtnAddr,
-	rightBtn: state.rightBtn,
 	id: state.id
 });
 

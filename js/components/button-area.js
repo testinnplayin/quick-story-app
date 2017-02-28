@@ -63,7 +63,7 @@ export class ButtonArea extends React.Component {
 		let title = this.props.title,
 			rightBtn = this.props.rightBtn,
 			photoArea = this.props.photoArea;
-			
+
 		if (title === 'Write A Story') {
 			title = 'Quick Story',
 			photoArea = 'Click on Get Random Photo button to begin!';
@@ -76,6 +76,19 @@ export class ButtonArea extends React.Component {
 
 			this.props.dispatch(actions.changeTitle(title));
 			this.props.dispatch(actions.changePhotoArea(photoArea));
+		} else if (title = 'Your Story') {
+			let leftBtn = this.props.leftBtn,
+				rightBtn = this.props.rightBtn;
+
+			title = 'Delete Your Story',
+			photoArea = '',
+			leftBtn = '',
+			rightBtn = '';
+
+			this.props.dispatch(actions.changeTitle(title));
+			this.props.dispatch(actions.changePhotoArea(photoArea));
+			this.props.dispatch(actions.changeLeftBtnName(leftBtn));
+			this.props.dispatch(actions.changeRightBtnName(rightBtn));
 		}
 	}
 

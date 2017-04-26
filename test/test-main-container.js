@@ -6,7 +6,7 @@ import chai from 'chai';
 
 const should = chai.should();
 
-import {MainContainer} from '../js/components/main-container';
+import {MainContainer} from '../js/containers/main-container';
 
 describe('MainContainer component', function() {
 	it('should render an element that contains a navbar and a div', function() {

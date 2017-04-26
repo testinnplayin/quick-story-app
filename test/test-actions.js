@@ -5,7 +5,6 @@ import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import chai from 'chai';
 import chaiHTTP from 'chai-http';
-import nock from 'nock';
 
 const should = chai.should();
 chai.use(chaiHTTP);

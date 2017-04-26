@@ -81,7 +81,7 @@ export const storyReducer = (state=initialState, action) => {
 			const newState_5 = update(state, {
 				rightBtn: {
 					$set: rightBtn
-				} 
+				}
 			});
 
 			console.log(newState_5);
@@ -337,4 +337,3 @@ export const storyReducer = (state=initialState, action) => {
 			return state;
 	}
 };
-

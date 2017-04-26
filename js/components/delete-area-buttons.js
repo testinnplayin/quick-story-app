@@ -27,8 +27,8 @@ export class DeleteAreaButtons extends React.Component {
 		photoArea = 'Click on Edit to edit your story, Delete to delete it or get a new random photo!',
 		leftBtn = 'Delete',
 		rightBtn = 'Edit',
-		leftBtnAddr = `/story/delete/${id}`,
-		rightBtnAddr = `/story/edit/${id}`;
+		leftBtnAddr = `story/delete/${id}`,
+		rightBtnAddr = `story/edit/${id}`;
 
 		this.props.dispatch(actions.changeTitle(title));
 		this.props.dispatch(actions.changePhotoArea(photoArea));

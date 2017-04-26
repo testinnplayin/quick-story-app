@@ -17,8 +17,8 @@ export class DeleteAreaContainer extends React.Component {
 			rightBtnAddr = this.props.rightBtnAddr,
 			id = this.props.id;
 
-		leftBtnAddr = `story/${id}`,
-		rightBtnAddr = `story/${id}`;
+		leftBtnAddr = `/story/${id}`,
+		rightBtnAddr = `/story/${id}`;
 
 		this.props.dispatch(actions.changeBtnAddr(rightBtnAddr, leftBtnAddr));
 	}

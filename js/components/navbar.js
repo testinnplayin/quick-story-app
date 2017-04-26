@@ -22,7 +22,7 @@ export class NavBar extends React.Component {
 
 		this.props.dispatch(actions.changeTitle(title));
 		this.props.dispatch(actions.changePhotoArea(photoArea));
-		
+
 	}
 
 	render() {

@@ -35,7 +35,7 @@ export class ButtonArea extends React.Component {
 			title = 'Edit Your Story',
 			photoArea = 'Click Save if you wish to keep your changes',
 			leftBtn = 'Back';
-			leftBtnAddr = `/story/${id}`;
+			leftBtnAddr = `story/${id}`;
 
 			this.props.dispatch(actions.changeLeftBtnName(leftBtn));
 			this.props.dispatch(actions.changeTitle(title));

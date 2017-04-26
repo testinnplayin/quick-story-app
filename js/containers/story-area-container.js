@@ -15,14 +15,18 @@ export class StoryAreaContainer extends React.Component {
 	componentDidMount() {
 		let pathArr = (this.props.location.pathname).split('/'),
 			id = pathArr[2];
-
+		console.log(pathArr);
 		this.props.dispatch(actions.fetchStory(id));
 	}
 
 	render() {
 		return (
 			<div className="storyAreaContainer container-fluid">
-				<StoryArea userTitle={this.props.userTitle} userStory={this.props.userStory} newAuthor={this.props.newAuthor} story={this.props.story} />
+				<StoryArea
+					userTitle={this.props.userTitle}
+					userStory={this.props.userStory}
+					newAuthor={this.props.newAuthor}
+					story={this.props.story} />
 			</div>
 		);
 	}

@@ -17,10 +17,10 @@ export class StoriesList extends React.Component {
 
 		let story = stories.map((content, i) => {
 			return (
-				<li key={i}><Link to={'/story/' + content.id} value={content.id}><img src={content.photo} />Title: {content.userTitle} Author: {content.author}</Link></li>
+				<li key={i}><Link to={`/story/${content.id}`} value={content.id}><img src={content.photo} />Title: {content.userTitle} Author: {content.author}</Link></li>
 			);
 		});
-		
+
 		return (
 			<ul className="storiesList">
 				{story}
@@ -28,7 +28,7 @@ export class StoriesList extends React.Component {
 		);
 	}
 
-	
+
 };
 
 export default connect()(StoriesList);

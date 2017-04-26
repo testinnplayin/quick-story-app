@@ -10,23 +10,7 @@ const mongoose = require('mongoose');
 
 const {Story} = require('../models/stories.js');
 
-router.get('/stories', (req, res) => {
-	Story
-		.find()
-		.limit(5)
-		.exec()
-		.then(stories => {
-			res.json({
-				stories: stories.map((story) => story.apiRepr())
-			});
-		})
-		.catch(err => {
-			console.error(err);
-			res.status(500).json({ message : 'Internal server error, cannot fetch stories' });
-		});
-});
-
-router.get('/story/:id', (req, res) => {
+router.get('/:id', (req, res) => {
 	if(!req.params.id) {
 		const msg = `Request parameter path ${req.params.id} and request body id ${req.body.id} do not match`;
 
@@ -49,7 +33,7 @@ router.get('/story/:id', (req, res) => {
 
 //POST requests
 
-router.post('/story/new', (req, res) => {
+router.post('/new', jsonParser, (req, res) => {
 	const requiredFields = ['userTitle', 'photo', 'userStory', 'author'];
 
 	requiredFields.forEach(function(field) {
@@ -80,7 +64,7 @@ router.post('/story/new', (req, res) => {
 
 //PUT requests
 
-router.put('/story/:id', (req, res) => {
+router.put('/:id', jsonParser, (req, res) => {
 	if (!(req.params.id && req.body.id && (req.body.id === req.params.id))) {
 		const msg = `The params id ${req.params.id} and the body id ${req.body.id} do not match`;
 
@@ -109,7 +93,7 @@ router.put('/story/:id', (req, res) => {
 
 //DELETE requests
 
-router.delete('/story/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
 
 	Story
 		.findByIdAndRemove(req.params.id)

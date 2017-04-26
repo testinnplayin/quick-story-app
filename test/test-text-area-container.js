@@ -6,7 +6,7 @@ import chai from 'chai';
 
 const should = chai.should();
 
-import {TextAreaContainer} from '../js/components/text-area-container';
+import {TextAreaContainer} from '../js/containers/text-area-container';
 
 describe('TextAreaContainer component', function() {
 	it('should draw a component that will contain the actual text area', function() {

@@ -6,7 +6,7 @@ import chai from 'chai';
 
 const should = chai.should();
 
-import {GeneralContainer} from '../js/components/general-container';
+import {GeneralContainer} from '../js/containers/general-container';
 
 describe('GeneralContainer component', function() {
 	it('should draw a component that contains a main with a section', function() {
@@ -16,7 +16,7 @@ describe('GeneralContainer component', function() {
 		const result = renderer.getRenderOutput();
 		result.type.should.equal('main');
 		result.props.className.should.equal('generalContainer container-fluid');
-		
+
 		const mainArr = result.props.children;
 		mainArr.should.be.a('array');
 		mainArr.should.have.lengthOf(2);

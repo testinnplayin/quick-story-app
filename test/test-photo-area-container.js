@@ -6,7 +6,7 @@ import chai from 'chai';
 
 const should = chai.should();
 
-import {PhotoAreaContainer} from '../js/components/photo-area-container';
+import {PhotoAreaContainer} from '../js/containers/photo-area-container';
 
 describe('PhotoAreaContainer component', function() {
 	it('should have an area in which PhotoArea component is rendered', function() {
@@ -16,7 +16,7 @@ describe('PhotoAreaContainer component', function() {
 		const result = renderer.getRenderOutput();
 		result.type.should.equal('section');
 		result.props.className.should.equal('photoAreaContainer');
-		
+
 		let sectionArr = result.props.children;
 		sectionArr.should.be.a('array');
 		sectionArr.should.have.lengthOf(2);
@@ -31,6 +31,6 @@ describe('PhotoAreaContainer component', function() {
 		let funkKey = Object.keys(funkObj.props);
 
 		funkKey[0].should.equal(key);
-		
+
 	});
 });

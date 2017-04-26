@@ -6,7 +6,7 @@ import chai from 'chai';
 
 const should = chai.should();
 
-import {StoryContainer} from '../js/components/story-container';
+import {StoryContainer} from '../js/containers/story-container';
 
 describe('StoryContainer component', function() {
 
@@ -44,9 +44,9 @@ describe('StoryContainer component', function() {
 
 		const funk1 = sectionArr[0],
 			expectedKeys1 = ['photo', 'photoArea'];
-			
+
 		iterator(funk1, expectedKeys1);
-		
+
 		const funk2 = sectionArr[2],
 			expectedKeys2 = ['photoBtn', 'leftBtn', 'leftBtnAddr', 'rightBtn', 'rightBtnAddr', 'handleWriteClick', 'handleLeftClick', 'handleMiddleClick', 'title', 'photoArea'];
 

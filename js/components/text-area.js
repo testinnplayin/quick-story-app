@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import {browserHistory} from 'react-router';
+import {hashHistory} from 'react-router';
 
 import * as actions from '../actions/index';
 
@@ -54,9 +54,9 @@ export class TextArea extends React.Component {
 			title = this.props.title,
 			id = this.props.id;
 
-		(title === 'Write A Story') ? this.props.dispatch(actions.saveStory(story)) : this.props.dispatch(actions.updateStory(story, id));			
+		(title === 'Write A Story') ? this.props.dispatch(actions.saveStory(story)) : this.props.dispatch(actions.updateStory(story, id));
 
-		browserHistory.push('/stories');
+		hashHistory.push('/stories');
 	}
 
 	render() {

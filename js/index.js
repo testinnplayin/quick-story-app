@@ -2,7 +2,7 @@ require('babel-polyfill');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Route, IndexRoute, browserHistory} from 'react-router';
+import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 import {Provider} from 'react-redux';
 
 import store from './store';
@@ -18,7 +18,7 @@ import DeleteAreaContainer from './containers/delete-area-container';
 document.addEventListener('DOMContentLoaded', () => {
 	ReactDOM.render(
 		<Provider store={store}>
-			<Router history={browserHistory}>
+			<Router history={hashHistory}>
 				<Route path='/' component={MainContainer}>
 					<IndexRoute component={GeneralContainer} />
 					<Route path='/story' component={StoryContainer}>

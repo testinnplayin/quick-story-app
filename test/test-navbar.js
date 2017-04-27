@@ -1,40 +1,41 @@
 'use strict';
 
+import {shallow} from 'enzyme';
 import React from 'react';
-import TestUtils from 'react-addons-test-utils';
 import chai from 'chai';
+import sinon from 'sinon';
+import sinonChai from 'sinon-chai';
 
 const should = chai.should();
+chai.use(sinonChai);
 
 import {NavBar} from '../js/components/navbar';
+import * as actions from '../js/actions/index';
 
 describe('Navbar component', function() {
 	it('should draw a navbar with two links', function() {
-		const renderer = TestUtils.createRenderer();
-		renderer.render(<NavBar />);
+		const wrapper = shallow(<NavBar />);
 
-		const result = renderer.getRenderOutput();
-		result.type.should.equal('header');
-		result.props.className.should.equal('navBar');
+		const header = wrapper.find('header');
+		header.node.type.should.equal('header');
+		header.node.props.className.should.equal('navBar');
 
-		let nav = result.props.children;
+		const nav = header.node.props.children;
 		nav.type.should.equal('nav');
 
-		let div = nav.props.children;
-		div.type.should.equal('div');
-		div.props.className.should.equal('container-fluid');
+		const ulArr = nav.props.children.props.children.props.children;
+		ulArr.should.be.a('array');
+		ulArr.should.have.lengthOf(2)
+	});
 
-		let ul = div.props.children;
-		ul.type.should.equal('ul');
+	it('should have a home click that takes the user back to the index page', function() {
+		const handleHomeClick = sinon.spy(),
+			dispatch = sinon.spy();
 
-		let liArr = ul.props.children;
-		liArr.should.be.a('array');
-		liArr.should.have.lengthOf(2);
-
-		liArr[0].type.should.equal('li');
-		liArr[0].props.className.should.equal('homeButton');
-
-		liArr[1].type.should.equal('li');
-		liArr[1].props.className.should.equal('storiesButton');
+		const wrapper = shallow(<NavBar onClick={handleHomeClick} dispatch={dispatch} />);
+		wrapper.find('#navbarHomeClick').simulate('click', function() {
+			handleHomeClick.should.be.called;
+			dispatch.should.be.calledWith(actions.changeTitle, actions.changePhotoArea);
+		});
 	});
 });

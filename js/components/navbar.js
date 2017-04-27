@@ -31,7 +31,14 @@ export class NavBar extends React.Component {
 				<nav className="navbar navbar-default" role="navigation">
 					<div className="container-fluid">
 						<ul className="nav navbar-nav nav-pills">
-							<li className="homeButton"><Link to='/' onClick={this.handleHomeClick}>Home</Link></li>
+							<li className="homeButton">
+								<Link
+									id="navbarHomeClick"
+									to='/'
+									onClick={this.handleHomeClick}>
+									Home
+								</Link>
+							</li>
 							<li className="storiesButton"><Link to='/stories'>Stories</Link></li>
 						</ul>
 					</div>

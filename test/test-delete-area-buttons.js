@@ -1,31 +1,59 @@
 'use strict';
 
+import {shallow} from 'enzyme';
 import React from 'react';
-import TestUtils from 'react-addons-test-utils';
 import chai from 'chai';
+import sinon from 'sinon';
+import sinonChai from 'sinon-chai';
 
 const should = chai.should();
+chai.use(sinonChai);
 
 import {DeleteAreaButtons} from '../js/components/delete-area-buttons';
+import * as actions from '../js/actions/index';
 
 describe('DeleteAreaButtons component', function() {
 	it('should render an area with two buttons', function() {
-		const renderer = TestUtils.createRenderer();
-		renderer.render(<DeleteAreaButtons />);
+		const wrapper = shallow(<DeleteAreaButtons />);
+		const ul = wrapper.find('ul');
+		ul.node.type.should.equal('ul');
+		ul.node.props.className.should.equal('deleteAreaButtons');
 
-		const result = renderer.getRenderOutput();
-		result.type.should.equal('ul');
+		const ulArr = ul.node.props.children;
+		ulArr.should.be.a('array');
+		ulArr.should.have.lengthOf(2);
+	});
 
-		result.props.className.should.equal('deleteAreaButtons');
-		result.props.children.should.be.a('array');
-		result.props.children.should.have.lengthOf(2);
+	it('should have a button that allows user to cancel their delete action', function() {
+		const fakeProps = {
+			title : 'The Best Story Evah',
+			photoArea : 'www.example.com/photo.jpg',
+			leftBtn : 'Delete',
+			id : '12345678',
+			rightBtn : 'Edit',
+			leftBtnAddr : `story/delete/12345678`,
+			rightBtn : `story/edit/12345678`
+		},
+			handleCancelClick = sinon.spy(),
+			dispatch = sinon.spy();
 
-		let li = result.props.children[0];
-		li.type.should.equal('li');
-		li.props.className.should.equal('back-btn');
+		const wrapper = shallow(
+			<DeleteAreaButtons
+				props={fakeProps}
+				onClick={this.handleCancelClick}
+				dispatch={dispatch} />
+		);
 
-		let button = result.props.children[1];
-		button.type.should.equal('button');
-		button.props.className.should.equal('delete-btn');
-	})
+		wrapper.find('#deleteAreaCancelBtn').simulate('click', function() {
+			handleCancelClick.should.have.been.called;
+			dispatch.should.have.been.calledWith(
+				actions.changeTitle,
+				actions.changePhotoArea,
+				actions.changeLeftBtnName,
+				actions.changeRightBtnName,
+				actions.changeBtnAddr,
+				actions.changeId
+			);
+		});
+	});
 });

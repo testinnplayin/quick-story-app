@@ -2,7 +2,8 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router';
+// import {Link} from 'react-router';
+import {Button} from 'react-bootstrap';
 
 import * as actions from '../actions/index';
 
@@ -48,8 +49,16 @@ export class DeleteAreaButtons extends React.Component {
 	render() {
 		return (
 			<ul className="deleteAreaButtons">
-				<li className="back-btn"><Link to={this.props.leftBtnAddr} onClick={this.handleCancelClick}>Cancel</Link></li>
-				<button className="delete-btn" onClick={this.handleDeleteClick}>Delete</button>
+				<li
+					className="back-btn">
+					<Button
+						id="deleteAreaCancelBtn"
+						to={this.props.leftBtnAddr}
+						onClick={this.handleCancelClick}>
+						Cancel
+					</Button>
+				</li>
+				<Button className="delete-btn" onClick={this.handleDeleteClick}>Delete</Button>
 			</ul>
 		);
 	}

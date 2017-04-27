@@ -48,7 +48,6 @@ export class ButtonArea extends React.Component {
 
 	handleMiddleClick(e) {
 		let rightBtn = this.props.rightBtn;
-		console.log('handleMiddleClick');
 
 		this.props.dispatch(actions.getPhoto());
 
@@ -107,6 +106,7 @@ export class ButtonArea extends React.Component {
 					</li>
 					<li role="presentation">
 							<Link
+								id="middleBtnButtonArea"
 								className="btn"
 								to='/story'
 								onClick={this.handleMiddleClick}>

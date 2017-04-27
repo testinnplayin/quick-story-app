@@ -91,5 +91,10 @@ describe('ButtonArea component', function() {
 				onClick={handleMiddleClick}
 				dispatch={dispatch} />
 		);
+
+		wrapper.find('#middleBtnButtonArea').simulate('click', function() {
+			handleMiddleClick.should.be.called;
+			dispatch.should.be.calledWith(actions.changeRightBtnName);
+		});
 	});
 });

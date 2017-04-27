@@ -115,6 +115,7 @@ export class ButtonArea extends React.Component {
 					</li>
 					<li role="presentation">
 							<Link
+								id="rightBtnButtonArea"
 								className="btn"
 								to={this.props.rightBtnAddr}
 								onClick={this.handleWriteClick} >

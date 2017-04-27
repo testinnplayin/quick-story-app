@@ -97,4 +97,32 @@ describe('ButtonArea component', function() {
 			dispatch.should.be.calledWith(actions.changeRightBtnName);
 		});
 	});
+
+	it('should have a right button click event', function() {
+		const fakeProps = {
+			rightBtn : '',
+			title : 'Your Story'
+		},
+			handleWriteClick = sinon.spy(),
+			dispatch = sinon.spy();
+
+		const wrapper = shallow(
+			<ButtonArea
+				props={fakeProps}
+				onClick={handleWriteClick}
+				dispatch={dispatch} />
+		);
+
+		if (fakeProps.rightBtn === '' && fakeProps.title === 'Your Story') {
+			wrapper.find('#rightBtnButtonArea').simulate('click', function() {
+				handleWriteClick.should.be.called;
+				dispatch.should.be.calledWith(
+					actions.changeLeftBtnName,
+					actions.changeTitle,
+					actions.changePhotoArea,
+					actions.changeBtnAddr
+				);
+			});
+		}
+	});
 });

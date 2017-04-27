@@ -2,7 +2,6 @@
 
 import {shallow} from 'enzyme';
 import React from 'react';
-import TestUtils from 'react-addons-test-utils';
 import chai from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
@@ -14,26 +13,44 @@ import {ButtonArea} from '../js/components/button-area';
 import * as actions from '../js/actions/index';
 
 describe('ButtonArea component', function() {
-	function iterator(funk, relUrl) {
-		funk.type.should.be.a('function');
-		funk.type.displayName.should.equal('Link');
-		funk.props.to.should.equal(relUrl);
-	}
-
 	it('should have an area in which other components are rendered', function() {
-		const renderer = TestUtils.createRenderer();
-		renderer.render(<ButtonArea />);
+		const fakeProps = {
+			leftBtn : 'Edit',
+			leftBtnAddr : '/www.example.com/123',
+			photoBtn : 'get photo',
+			rightBtn : 'Write',
+			rightBtnAddr : '/www.example.com/456'
+		};
 
-		const result = renderer.getRenderOutput();
-		result.type.should.equal('section');
-		result.props.className.should.equal('buttonArea');
+		const wrapper = shallow(
+			<ButtonArea
+				leftBtn={fakeProps.leftBtn}
+				leftBtnAddr={fakeProps.leftBtnAddr}
+				photoBtn={fakeProps.photoBtn}
+				rightBtn={fakeProps.rightBtn}
+				rightBtnAddr={fakeProps.rightBtnAddr} />
+		);
 
-		const ul = result.props.children;
-		ul.type.should.equal('ul');
+		const section = wrapper.find('section');
+		section.node.type.should.equal('section');
+		section.node.props.className.should.equal('buttonArea');
 
-		const liArr = ul.props.children;
-		liArr.should.be.a('array');
-		liArr.should.have.lengthOf(3);
+		const ul = section.node.props.children;
+		const ulArr = ul.props.children;
+
+		const li1 = ulArr[0],
+			link1 = li1.props.children;
+		link1.props.to.should.equal(fakeProps.leftBtnAddr);
+		link1.props.children.should.equal(fakeProps.leftBtn);
+
+		const li2 = ulArr[1],
+			link2 = li2.props.children;
+		link2.props.children.should.equal(fakeProps.photoBtn);
+
+		const li3 = ulArr[2],
+			link3 = li3.props.children;
+		link3.props.to.should.equal(fakeProps.rightBtnAddr);
+		link3.props.children.should.equal(fakeProps.rightBtn);
 	});
 
 	it('should have a leftButton click event', function() {
@@ -59,6 +76,20 @@ describe('ButtonArea component', function() {
 				dispatch.should.have.been.calledWith(actions.changeTitle, actions.changePhotoArea);
 			});
 		}
+	});
 
+	it('should have a middle button click event', function() {
+		const fakeProps = {
+			rightBtn : ''
+		},
+			handleMiddleClick = sinon.spy(),
+			dispatch = sinon.spy();
+
+		const wrapper = shallow(
+			<ButtonArea
+				props={fakeProps}
+				onClick={handleMiddleClick}
+				dispatch={dispatch} />
+		);
 	});
 });

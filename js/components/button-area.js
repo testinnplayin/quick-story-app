@@ -104,9 +104,23 @@ export class ButtonArea extends React.Component {
 								onClick={this.handleLeftClick}>
 								{this.props.leftBtn}
 							</Link>
-						</li>
-					<li role="presentation"><Link className="btn" to='/story' onClick={this.handleMiddleClick}>{this.props.photoBtn}</Link></li>
-					<li role="presentation"><Link className="btn" to={this.props.rightBtnAddr} onClick={this.handleWriteClick} >{this.props.rightBtn}</Link></li>
+					</li>
+					<li role="presentation">
+							<Link
+								className="btn"
+								to='/story'
+								onClick={this.handleMiddleClick}>
+								{this.props.photoBtn}
+							</Link>
+					</li>
+					<li role="presentation">
+							<Link
+								className="btn"
+								to={this.props.rightBtnAddr}
+								onClick={this.handleWriteClick} >
+								{this.props.rightBtn}
+							</Link>
+					</li>
 				</ul>
 			</section>
 		);

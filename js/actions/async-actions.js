@@ -93,10 +93,7 @@ export const fetchStory = (storyId) => (dispatch) => {
 		fetch(getReq)
 		.then(response => {
 			if (!response.ok) {
-				const error = new Error(response.statusText);
-				error.response = response;
-
-				throw error;
+				throw Error(response.statusText)
 			}
 
 			return response;
@@ -142,10 +139,7 @@ export const saveStory = story => dispatch => {
 	fetch(postReq)
 	.then(response => {
 		if (!response.ok) {
-			const error = new Error(response.statusText);
-			error.response = response;
-
-			throw error;
+			throw Error(response.statusText)
 		}
 
 		return response;
@@ -190,11 +184,8 @@ export const updateStory = (updateStory, id) => dispatch => {
 
 	fetch(postReq)
 	.then(response => {
-		if(!response.ok) {
-			const error = new Error(response.statusText);
-			error.response = response;
-
-			throw error;
+		if (!response.ok) {
+			throw Error(response.statusText)
 		}
 
 		return response;
@@ -233,11 +224,8 @@ export const deleteStory = (deleteStory, deleteId) => dispatch => {
 
 	fetch(postReq)
 	.then(response => {
-		if(!response.ok) {
-			const error = new Error(response.statusText);
-			error.response = response;
-
-			throw error;
+		if (!response.ok) {
+			throw Error(response.statusText)
 		}
 
 		return response;

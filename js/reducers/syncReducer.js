@@ -11,7 +11,6 @@ const initialState = {
 	photoArea : 'Click on Get Random Photo button to begin!',
 	rightBtn: 'Write',
 	rightBtnAddr: '/story/new',
-	photo : '',
 	photoBtn: 'Get Random Photo',
 	submitBtnName: 'Save',
 	userTitle: '',

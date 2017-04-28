@@ -13,9 +13,8 @@ export class TextAreaContainer extends React.Component {
 	render() {
 		return (
 			<div className="textAreaContainer">
-				<TextArea submitBtnName={this.props.submitBtnName} getTitleInput={this.props.getTitleInput} getStoryInput={this.props.getStoryInput}
-				 getUserName={this.props.getUserName} saveStory={this.props.saveStory} userTitle={this.props.userTitle} userStory={this.props.userStory}
-				 author={this.props.author} photo={this.props.photo} newAuthor={this.props.newAuthor} id={this.props.id} />
+				<TextArea
+					{...this.props} />
 			</div>
 		);
 	}
@@ -23,13 +22,13 @@ export class TextAreaContainer extends React.Component {
 };
 
 const mapStateToProps = (state, props) => ({
-	submitBtnName: state.submitBtnName,
-	userTitle: state.userTitle,
-	userStory: state.userStory,
-	author: state.author,
-	photo: state.photo,
-	newAuthor: state.newAuthor,
-	id: state.id
+	submitBtnName: state.syncReducer.submitBtnName,
+	userTitle: state.syncReducer.userTitle,
+	userStory: state.syncReducer.userStory,
+	author: state.syncReducer.author,
+	photo: state.crudReducer.photo,
+	newAuthor: state.syncReducer.newAuthor,
+	id: state.syncReducer.id
 });
 
 export default connect(mapStateToProps)(TextAreaContainer);

@@ -8,7 +8,6 @@ import NavBar from '../components/navbar';
 export class MainContainer extends React.Component {
 	constructor(props) {
 		super(props);
-		// console.log(this.props.title);
 	}
 
 	render() {
@@ -22,8 +21,8 @@ export class MainContainer extends React.Component {
 };
 
 const mapStatetoProps = (state, props) => ({
-	title: state.title,
-	photoArea: state.photoArea
+	title: state.syncReducer.title,
+	photoArea: state.syncReducer.photoArea
 });
 
 export default connect(mapStatetoProps)(MainContainer);

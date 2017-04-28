@@ -26,10 +26,10 @@ export class GeneralContainer extends React.Component {
 };
 
 const mapStateToProps = (state, props) => ({
-	title: state.title,
+	title: state.syncReducer.title,
 	buttonNames: state.buttonNames,
-	photoArea: state.photoArea,
-	photoBtn: state.photoBtn
+	photoArea: state.syncReducer.photoArea,
+	photoBtn: state.syncReducer.photoBtn
 });
 
 export default connect(mapStateToProps)(GeneralContainer);

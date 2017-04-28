@@ -76,15 +76,15 @@ export class StoryContainer extends React.Component {
 };
 
 const mapStateToProps = (state, props) => ({
-	title: state.title,
-	leftBtn: state.leftBtn,
-	leftBtnAddr: state.leftBtnAddr,
-	photoBtn: state.photoBtn,
-	rightBtn: state.rightBtn,
-	rightBtnAddr: state.rightBtnAddr,
-	photoArea: state.photoArea,
-	photo: state.photo,
-	id: state.id,
+	title: state.syncReducer.title,
+	leftBtn: state.syncReducer.leftBtn,
+	leftBtnAddr: state.syncReducer.leftBtnAddr,
+	photoBtn: state.syncReducer.photoBtn,
+	rightBtn: state.syncReducer.rightBtn,
+	rightBtnAddr: state.syncReducer.rightBtnAddr,
+	photoArea: state.syncReducer.photoArea,
+	photo: state.crudReducer.photo,
+	id: state.syncReducer.id,
 });
 
 export default connect(mapStateToProps)(StoryContainer);

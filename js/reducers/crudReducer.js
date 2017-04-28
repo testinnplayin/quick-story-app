@@ -5,6 +5,7 @@ import update from 'immutability-helper';
 import * as types from '../actions/index';
 
 const initialState = {
+  photo : '',
   stories : [],
   story : {
     title : '',

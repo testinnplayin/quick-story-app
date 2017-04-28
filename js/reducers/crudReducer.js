@@ -15,6 +15,7 @@ const initialState = {
       firstName : '',
       lastName : ''
     },
+    id : '',
     authorString : ''
   },
   storyMessage : ''

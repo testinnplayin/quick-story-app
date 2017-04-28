@@ -58,7 +58,11 @@ export class DeleteAreaButtons extends React.Component {
 						Cancel
 					</Button>
 				</li>
-				<Button className="delete-btn" onClick={this.handleDeleteClick}>Delete</Button>
+				<Button
+					className="delete-btn"
+					onClick={this.handleDeleteClick}>
+					Delete
+				</Button>
 			</ul>
 		);
 	}

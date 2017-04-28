@@ -27,21 +27,21 @@ export class DeleteAreaContainer extends React.Component {
 		return (
 			<div className="deleteAreaContainer">
 				<p>Please click below:</p>
-				<DeleteAreaButtons leftBtnAddr={this.props.leftBtnAddr} rightBtnAddr={this.props.rightBtnAddr} id={this.props.id} title={this.props.title}
-				 photoArea={this.props.photoArea} leftBtn={this.props.leftBtn} rightBtn={this.rightBtn} />
+				<DeleteAreaButtons
+					{...this.props} />
 			</div>
 		);
 	}
 };
 
 const mapStateToProps = (state, props) => ({
-	leftBtnAddr: state.leftBtnAddr,
-	rightBtnAddr: state.rightBtnAddr,
-	id: state.id,
-	title: state.title,
-	photoArea: state.photoArea,
-	leftBtn: state.leftBtn,
-	rightBtn: state.rightBtnAddr
+	leftBtnAddr: state.syncReducer.leftBtnAddr,
+	rightBtnAddr: state.syncReducer.rightBtnAddr,
+	id: state.crudReducer.story.id,
+	title: state.syncReducer.title,
+	photoArea: state.syncReducer.photoArea,
+	leftBtn: state.syncReducer.leftBtn,
+	rightBtn: state.syncReducer.ightBtnAddr
 });
 
 export default connect(mapStateToProps)(DeleteAreaContainer);

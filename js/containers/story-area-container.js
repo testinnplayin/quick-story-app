@@ -23,22 +23,17 @@ export class StoryAreaContainer extends React.Component {
 		return (
 			<div className="storyAreaContainer container-fluid">
 				<StoryArea
-					userTitle={this.props.userTitle}
-					userStory={this.props.userStory}
-					newAuthor={this.props.newAuthor}
-					story={this.props.story} />
+					userTitle={this.props.story.title}
+					userStory={this.props.story.userStory}
+					newAuthor={this.props.story.authorString}
+					storyId={this.props.story.id} />
 			</div>
 		);
 	}
 };
 
 const mapStateToProps = (state, props) => ({
-	userTitle: state.userTitle,
-	userStory: state.userStory,
-	author: state.author,
-	story: state.story,
-	newAuthor: state.newAuthor,
-	id: state.id
+	story : state.crudReducer.story
 });
 
 export default connect(mapStateToProps)(StoryAreaContainer);

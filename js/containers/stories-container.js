@@ -33,7 +33,10 @@ export class StoriesContainer extends React.Component {
 				<MainTitle title={this.props.title} />
 				<section className="storyListArea">
 					<p>{this.props.photoArea}</p>
-					<StoriesList stories={this.props.stories} title={this.props.title} photoArea={this.props.photoArea} />
+					<StoriesList
+						stories={this.props.stories}
+						title={this.props.title}
+						photoArea={this.props.photoArea} />
 				</section>
 			</main>
 		);
@@ -41,9 +44,9 @@ export class StoriesContainer extends React.Component {
 };
 
 const mapStateToProps = (state, props) => ({
-	stories: state.stories,
-	title: state.title,
-	photoArea: state.photoArea
+	stories: state.crudReducer.stories,
+	title: state.syncReducer.title,
+	photoArea: state.syncReducer.photoArea
 });
 
 export default connect(mapStateToProps)(StoriesContainer);

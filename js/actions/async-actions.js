@@ -72,15 +72,15 @@ export const fetchStories = stories => dispatch => {
 };
 
 export const FETCH_STORY_SUCCESS = 'FETCH_STORY_SUCCESS';
-export const fetchStorySuccess = (storySucc2) => ({
+export const fetchStorySuccess = (storySucc) => ({
 	type: FETCH_STORY_SUCCESS,
-	storySucc2
+	storySucc
 });
 
 export const FETCH_STORY_ERROR = 'FETCH_STORY_ERROR';
-export const fetchStoryError = (storyErr2) => ({
+export const fetchStoryError = (storyErr) => ({
 	type: FETCH_STORY_ERROR,
-	storyErr2
+	storyErr
 });
 
 export const fetchStory = (storyId) => (dispatch) => {

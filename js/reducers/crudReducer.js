@@ -80,9 +80,15 @@ export default function crudReducer(state=initialState, action) {
 
 			const newState_5 = update(state, {
         story : {
-          title : action.storySucc.userTitle,
-          photo : action.storySucc.user,
-          userStory : action.storySucc.userStory,
+          title : {
+            $set : action.storySucc.userTitle
+          },
+          photo : {
+            $set : action.storySucc.user
+          },
+          userStory : {
+            $set : action.storySucc.userStory
+          },
           author : {
             firstName : {
               $set : firstName
@@ -95,12 +101,13 @@ export default function crudReducer(state=initialState, action) {
             $set : action.storySucc.id
           },
           authorString : {
-            $set : action.storySucc.authorString
+            $set : action.storySucc.author
           }
         }
 			});
 			return newState_5;
 		case types.FETCH_STORY_ERROR:
+      console.log('error triggered');
 			const newState_6 = update(state, {
 				storyMessage: {
 					$set: action.storyErr

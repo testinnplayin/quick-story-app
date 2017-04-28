@@ -99,8 +99,8 @@ export const fetchStory = (storyId) => (dispatch) => {
 			return response;
 		})
 		.then(response => response.json())
-		.then(data => {console.log(data); dispatch(fetchStorySuccess(data))})
-		.catch(storyErr2 => dispatch(fetchStoryError(storyErr2)));
+		.then(data => {console.log(data, 'success branch'); dispatch(fetchStorySuccess(data))})
+		.catch(err => {console.log(err, 'error branch'); dispatch(fetchStoryError(err))});
 };
 
 //POST actions

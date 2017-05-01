@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router'
+import {Button} from 'react-bootstrap'
 
 export class InitTextAreaContainer extends React.Component {
 	constructor(props) {
@@ -13,7 +13,11 @@ export class InitTextAreaContainer extends React.Component {
 	render() {
 		return (
 			<div className="initTextAreaContainer">
-				<Link to='/story' className="init-photo-btn">{this.props.photoBtn}</Link>
+				<Button
+					href='/story'
+					className="initPhotoBtn">
+					{this.props.photoBtn}
+				</Button>
 			</div>
 		);
 	}

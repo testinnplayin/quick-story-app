@@ -1,7 +1,16 @@
 @import '../_mix-n-var';
 
+.mainNav {
+	background-color: map-get($col, d-g);
+	.container {
+		#navbarHomeClick {
+			font-weight: map-get($t, t-b);
+			color: map-get($col, l-gb);
+		}
+ 	}
+}
+
 .navbar-default {
-	background: transparent;
 	.navbar-nav {
 		li {
 			a {

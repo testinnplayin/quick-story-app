@@ -2,4 +2,5 @@
 
 .mainContainer {
 	@include h-w($full, $full);
+	background-color: map-get($col, l-gb);
 }

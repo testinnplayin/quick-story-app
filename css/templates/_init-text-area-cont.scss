@@ -1,15 +1,15 @@
 @import '../_mix-n-var';
 
 .initTextAreaContainer {
-	// margin: $marg-2;
-	// width: $dim-4;
-	.init-photo-btn {
-		@include link-btn(map-get($t, t-cent), $bor-rule-1, $p-norm, $b-rad, transparent, map-get($col, l-gb));
+	background-color: transparent;
+	padding-top: 200px;
+	.initPhotoBtn {
+		@include link-btn(map-get($t, t-cent), $bor-rule-3, $p-norm, $b-rad%, transparent, map-get($col, l-gb));
 		display: block;
-		// @media screen and (min-width: $break-small) {
-		// 	padding: $pad-3;
-		// 	width: $dim-5;
-		// 	margin: $m-auto;
-		// }
+		width: 50%;
+		margin: $m-auto;
+		@media screen and (min-width: $break-small) {
+			width: 30%;
+		}
 	}
 }

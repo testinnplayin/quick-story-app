@@ -7,7 +7,7 @@
 @import "templates/_photo-area-container";
 @import "templates/_button-area";
 
-html, body {
+html, body, #app {
 	@include h-w($full, $full);
 }
 

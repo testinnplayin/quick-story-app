@@ -1,9 +1,9 @@
 @import '../_mix-n-var';
 
-// .photoAreaContainer {
-// 	padding: $pad-2;
-//
-// 	.image {
-//
-// 	}
-// }
+.photoAreaContainer {
+  @include h-w(550px, $full);
+  background-color: map-get($col, d-g);
+  @media screen and (min-width: $break-small) {
+    @include h-w(900px, $full);
+  }
+}

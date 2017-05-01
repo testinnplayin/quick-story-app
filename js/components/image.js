@@ -3,6 +3,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import InitTextAreaContainer from '../containers/init-text-area-container';
+
 export class Image extends React.Component {
 	constructor(props) {
 		super(props);
@@ -14,7 +16,7 @@ export class Image extends React.Component {
 			height : '100%',
 			backgroundImage : `url('${this.props.photo}')`,
 			backgroundSize : "cover",
-			backgroundColor : '#444',
+			backgroundColor : '#1e1e1e',
 			backgroundPosition : 'center',
 			backgroundAttachment : 'fixed',
 			overflow : 'hidden'
@@ -22,7 +24,8 @@ export class Image extends React.Component {
 
 		return (
 			<div className="image" style={imageStyles}>
-
+				<InitTextAreaContainer
+					photoBtn={this.props.photoBtn} />
 			</div>
 		);
 	}

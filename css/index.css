@@ -1,26 +1,57 @@
-.navbar-default {
-  background: transparent; }
-  .navbar-default .navbar-nav li a {
+.mainNav {
+  background-color: #1e1e1e; }
+  .mainNav .container #navbarHomeClick {
     font-weight: bold;
     color: #b1d0ca; }
 
+.navbar-default .navbar-nav li a {
+  font-weight: bold;
+  color: #b1d0ca; }
+
 .mainContainer {
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  background-color: #b1d0ca; }
 
-.initTextAreaContainer .init-photo-btn {
-  text-align: center;
-  border: solid 1px #eee;
-  padding: 15px;
-  border-radius: 5px;
-  background: transparent;
-  color: #b1d0ca;
-  display: block; }
+.generalContainer {
+  height: 700px;
+  width: 100%;
+  background-color: #1e1e1e; }
+  @media screen and (min-width: 750px) {
+    .generalContainer {
+      height: 1050px;
+      width: 100%; } }
+
+.initTextAreaContainer {
+  background-color: transparent;
+  padding-top: 200px; }
+  .initTextAreaContainer .initPhotoBtn {
+    text-align: center;
+    border: solid 3px #e70000;
+    padding: 15px;
+    border-radius: 100%;
+    background: transparent;
+    color: #b1d0ca;
+    display: block;
+    width: 50%;
+    margin: 0 auto; }
+    @media screen and (min-width: 750px) {
+      .initTextAreaContainer .initPhotoBtn {
+        width: 30%; } }
+
+.photoAreaContainer {
+  height: 550px;
+  width: 100%;
+  background-color: #1e1e1e; }
+  @media screen and (min-width: 750px) {
+    .photoAreaContainer {
+      height: 900px;
+      width: 100%; } }
 
 .buttonArea {
   width: 100%; }
 
-body {
+html, body, #app {
   height: 100%;
   width: 100%; }
 

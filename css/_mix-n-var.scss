@@ -9,13 +9,15 @@
 
 @mixin h-w($h, $w) {
 	height: $h;
-	width: $h;
+	width: $w;
 }
 
 $nrm: 16px;
 
 $bor-rule-1: solid 1px #eee;
 $bor-rule-2: solid 1px #555;
+$bor-rule-3: solid 3px #e70000;
+
 $b-rad: 5px;
 
 $full: 100%;
@@ -32,6 +34,7 @@ $break-med: 1000px;
 $col : (
 	y: #ffc82e,
 	l-gb: #b1d0ca,
+	d-g: #1e1e1e
 );
 
 $t : (

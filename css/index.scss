@@ -7,20 +7,22 @@
 @import "templates/_photo-area-container";
 @import "templates/_button-area";
 
+html, body {
+	@include h-w($full, $full);
+}
+
 h1, p {
-	text-align: $t-center;
-	color: $t-2-color;
+	text-align: map-get($t, t-cent);
+	color: map-get($col, l-gb);
 }
 
 h1 {
-	font-weight: $t-weight;
-	font-size: 40px;
+	font {
+		size : map-get($t, t-s-b);
+		weight : map-get($t, t-b);
+	}
 }
 
 p {
-	font-size: $normal-size;
-}
-
-.mainTitle {
-	margin-bottom: $marg-1;
+	font-size: map-get($t, t-s-n);
 }

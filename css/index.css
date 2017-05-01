@@ -1,74 +1,36 @@
 .navbar-default {
-  background: #555; }
+  background: transparent; }
   .navbar-default .navbar-nav li a {
     font-weight: bold;
-    color: #eee; }
+    color: #b1d0ca; }
 
 .mainContainer {
-  background: #faa;
-  height: 900px;
-  margin-bottom: 15px; }
+  height: 100%;
+  width: 100%; }
 
-.generalContainer .generalArea {
-  background: #eee;
-  height: 450px;
-  width: 80%;
-  margin: 0 auto; }
-  .generalContainer .generalArea .initPhotoAreaContainer {
-    padding: 15px 0 0; }
-
-.storyContainer .storyAreaSection {
-  background: #eee;
-  height: auto;
-  width: 95%;
-  margin: 0 auto; }
-
-.initTextAreaContainer {
-  margin: 20px auto;
-  width: 70%; }
-  .initTextAreaContainer .init-photo-btn {
-    text-align: center;
-    border: solid 1px #eee;
-    padding: 10px 0;
-    border-radius: 5px;
-    background: #faa;
-    color: #eee;
-    display: block; }
-    @media screen and (min-width: 750px) {
-      .initTextAreaContainer .init-photo-btn {
-        padding: 10px 15px;
-        width: 25%;
-        margin: 0 auto; } }
-
-.photoAreaContainer {
-  padding: 15px 0 0; }
-  .photoAreaContainer .image {
-    width: 95%;
-    margin: 0 auto; }
-    .photoAreaContainer .image img {
-      width: 100%; }
+.initTextAreaContainer .init-photo-btn {
+  text-align: center;
+  border: solid 1px #eee;
+  padding: 15px;
+  border-radius: 5px;
+  background: transparent;
+  color: #b1d0ca;
+  display: block; }
 
 .buttonArea {
-  margin: 20px 0;
   width: 100%; }
-  .buttonArea ul li a {
-    text-align: center;
-    border: solid 1px #eee;
-    padding: 10px 0;
-    border-radius: 5px;
-    background: #faa;
-    color: #eee; }
+
+body {
+  height: 100%;
+  width: 100%; }
 
 h1, p {
   text-align: center;
-  color: #555; }
+  color: #b1d0ca; }
 
-h1 {
-  font-weight: bold;
-  font-size: 40px; }
+h1 font {
+  size: 16px;
+  weight: bold; }
 
 p {
   font-size: 16px; }
-
-.mainTitle {
-  margin-bottom: 15px; }

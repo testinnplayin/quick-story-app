@@ -1,7 +1,5 @@
 @import '../_mix-n-var';
 
 .mainContainer {
-	background: $bckgrd-2-color;
-	height: $dim-1;
-	margin-bottom: $marg-1;
+	@include h-w($full, $full);
 }

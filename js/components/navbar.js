@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router';
+import {Navbar, NavItem, Nav} from 'react-bootstrap';
 
 import * as actions from '../actions/index';
 
@@ -28,21 +28,28 @@ export class NavBar extends React.Component {
 	render() {
 		return (
 			<header className="navBar">
-				<nav className="navbar navbar-default" role="navigation">
-					<div className="container-fluid">
-						<ul className="nav navbar-nav nav-pills">
-							<li className="homeButton">
-								<Link
-									id="navbarHomeClick"
-									to='/'
-									onClick={this.handleHomeClick}>
-									Home
-								</Link>
-							</li>
-							<li className="storiesButton"><Link to='/stories'>Stories</Link></li>
-						</ul>
-					</div>
-				</nav>
+				<Navbar className="mainNav" role="navigation">
+					<Navbar .Brand>
+						<a
+							eventKey={1}
+							id="navbarHomeClick"
+							href="/"
+							onClick={this.handleHomeClick}>
+							Home
+						</a>
+					</Navbar .Brand>
+					<Navbar .Toggle />
+					<Navbar .Collapse>
+						<Nav>
+							<NavItem
+								eventKey={2}
+								href='/stories'
+								className="storiesButton">
+								Stories
+							</NavItem>
+						</Nav>
+					</Navbar .Collapse>
+				</Navbar>
 			</header>
 		);
 	}

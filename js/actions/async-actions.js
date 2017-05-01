@@ -16,7 +16,7 @@ export const getPhotoError = (photoErr) => ({
 	photoErr
 });
 
-export const getPhoto = photo => dispatch => {
+export const getPhoto = () => dispatch => {
 	let endpnt = '/random-photo',
 		reqOptions = {
 			method: 'GET'

@@ -5,7 +5,7 @@ import update from 'immutability-helper';
 import * as types from '../actions/index';
 
 const initialState = {
-  photo : '',
+  photo : './assets/images/LSEG_banner_CreativeIndustries_0.jpg',
   stories : [],
   story : {
     title : '',

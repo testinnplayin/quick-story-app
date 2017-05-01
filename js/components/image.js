@@ -9,9 +9,20 @@ export class Image extends React.Component {
 	}
 
 	render() {
+		const imageStyles = {
+			width : '100%',
+			height : '100%',
+			backgroundImage : `url('${this.props.photo}')`,
+			backgroundSize : "cover",
+			backgroundColor : '#444',
+			backgroundPosition : 'center',
+			backgroundAttachment : 'fixed',
+			overflow : 'hidden'
+		};
+
 		return (
-			<div className="image">
-				<img src={this.props.photo} className="image-responsive" alt='placeholder alt' />
+			<div className="image" style={imageStyles}>
+
 			</div>
 		);
 	}

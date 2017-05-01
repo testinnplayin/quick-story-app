@@ -1,12 +1,12 @@
 @import '../_mix-n-var';
 
 .navbar-default {
-	background: $bckgrd-1-color;
+	background: transparent;
 	.navbar-nav {
 		li {
 			a {
-				font-weight: $t-weight;
-				color: $t-1-color;
+				font-weight: map-get($t, t-b);
+				color: map-get($col, l-gb);
 			}
 		}
 	}

@@ -31,7 +31,6 @@ export class NavBar extends React.Component {
 				<Navbar className="mainNav" role="navigation">
 					<Navbar .Brand>
 						<a
-							eventKey={1}
 							id="navbarHomeClick"
 							href="/"
 							onClick={this.handleHomeClick}>
@@ -42,7 +41,7 @@ export class NavBar extends React.Component {
 					<Navbar .Collapse>
 						<Nav>
 							<NavItem
-								eventKey={2}
+								eventKey={1}
 								href='/stories'
 								className="storiesButton">
 								Stories

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router';
+import {Button, ButtonToolbar} from 'react-bootstrap';
 
 import * as actions from '../actions/index';
 
@@ -94,35 +94,29 @@ export class ButtonArea extends React.Component {
 	render() {
 		return (
 			<section className="buttonArea">
-				<ul className="nav nav-pills btn-group btn-group-justified" role="group">
-					<li role="presentation">
-							<Link
-								id="leftBtnButtonArea"
-								className="btn"
-								to={this.props.leftBtnAddr}
-								onClick={this.handleLeftClick}>
-								{this.props.leftBtn}
-							</Link>
-					</li>
-					<li role="presentation">
-							<Link
-								id="middleBtnButtonArea"
-								className="btn"
-								to='/story'
-								onClick={this.handleMiddleClick}>
-								{this.props.photoBtn}
-							</Link>
-					</li>
-					<li role="presentation">
-							<Link
-								id="rightBtnButtonArea"
-								className="btn"
-								to={this.props.rightBtnAddr}
-								onClick={this.handleWriteClick} >
-								{this.props.rightBtn}
-							</Link>
-					</li>
-				</ul>
+				<ButtonToolbar>
+					<Button
+						id="leftBtnButtonArea"
+						className="leftBtn"
+						href={this.props.leftBtnAddr}
+						onClick={this.handleLeftClick}>
+						{this.props.leftBtn}
+					</Button>
+					<Button
+						id="middleBtnButtonArea"
+						className="middleBtn"
+						href='/story'
+						onClick={this.handleMiddleClick}>
+						{this.props.photoBtn}
+					</Button>
+					<Button
+						id="rightBtnButtonArea"
+						className="rightBtn"
+						href={this.props.rightBtnAddr}
+						onClick={this.handleWriteClick}>
+						{this.props.rightBtn}
+					</Button>
+				</ButtonToolbar>
 			</section>
 		);
 	}

@@ -38,19 +38,16 @@ describe('ButtonArea component', function() {
 		const ul = section.node.props.children;
 		const ulArr = ul.props.children;
 
-		const li1 = ulArr[0],
-			link1 = li1.props.children;
-		link1.props.href.should.equal(fakeProps.leftBtnAddr);
-		link1.props.children.should.equal(fakeProps.leftBtn);
+		const li1 = ulArr[0];
+		li1.props.href.should.equal(fakeProps.leftBtnAddr);
+		li1.props.children.should.equal(fakeProps.leftBtn);
 
-		const li2 = ulArr[1],
-			link2 = li2.props.children;
-		link2.props.children.should.equal(fakeProps.photoBtn);
+		const li2 = ulArr[1];
+		li2.props.children.should.equal(fakeProps.photoBtn);
 
-		const li3 = ulArr[2],
-			link3 = li3.props.children;
-		link3.props.href.should.equal(fakeProps.rightBtnAddr);
-		link3.props.children.should.equal(fakeProps.rightBtn);
+		const li3 = ulArr[2];
+		li3.props.href.should.equal(fakeProps.rightBtnAddr);
+		li3.props.children.should.equal(fakeProps.rightBtn);
 	});
 
 	it('should have a leftButton click event', function() {

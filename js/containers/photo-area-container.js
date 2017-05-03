@@ -2,13 +2,27 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-// import Spinner from 'react-spinkit';
 
 import Image from '../components/image';
+import * as actions from '../actions/index';
 
 export class PhotoAreaContainer extends React.Component {
 	constructor(props) {
 		super(props);
+	}
+
+	componentDidMount() {
+		const photoIsLoading = this.props.photoIsLoading;
+
+		this.props.dispatch(actions.togglePhotoLoading(photoIsLoading));
+	}
+
+	componentDidUpdate(prevProps, prevState) {
+		const photoIsLoading = this.props.photoIsLoading;
+
+		if (this.props.photoIsLoading) {
+			this.props.dispatch(actions.togglePhotoLoading(photoIsLoading));
+		}
 	}
 
 	render() {

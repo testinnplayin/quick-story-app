@@ -40,7 +40,7 @@ describe('ButtonArea component', function() {
 
 		const li1 = ulArr[0],
 			link1 = li1.props.children;
-		link1.props.to.should.equal(fakeProps.leftBtnAddr);
+		link1.props.href.should.equal(fakeProps.leftBtnAddr);
 		link1.props.children.should.equal(fakeProps.leftBtn);
 
 		const li2 = ulArr[1],
@@ -49,7 +49,7 @@ describe('ButtonArea component', function() {
 
 		const li3 = ulArr[2],
 			link3 = li3.props.children;
-		link3.props.to.should.equal(fakeProps.rightBtnAddr);
+		link3.props.href.should.equal(fakeProps.rightBtnAddr);
 		link3.props.children.should.equal(fakeProps.rightBtn);
 	});
 

@@ -4,7 +4,7 @@
 	background-color: transparent;
 	padding-top: 200px;
 	.initPhotoBtn {
-		@include link-btn(map-get($t, t-cent), $bor-rule-3, $p-norm, $b-rad%, transparent, map-get($col, l-gb));
+		@include link-btn(map-get($t, t-cent), $bor-rule-3, $p-norm, $b-rad, transparent, map-get($col, l-gb));
 		display: block;
 		width: 50%;
 		margin: $m-auto;

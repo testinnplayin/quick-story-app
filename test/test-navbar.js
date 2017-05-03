@@ -20,12 +20,12 @@ describe('Navbar component', function() {
 		header.node.type.should.equal('header');
 		header.node.props.className.should.equal('navBar');
 
-		const nav = header.node.props.children;
-		// nav.type.should.equal('nav');
+		const navbar = header.node.props.children;
+		navbar.props.className.should.equal('mainNav');
 
-		const ulArr = nav.props.children.props.children.props.children;
-		ulArr.should.be.a('array');
-		ulArr.should.have.lengthOf(2)
+		const navbarArr = navbar.props.children;
+		navbarArr.should.be.a('array');
+		navbarArr.should.have.lengthOf(3);
 	});
 
 	it('should have a home click that takes the user back to the index page', function() {

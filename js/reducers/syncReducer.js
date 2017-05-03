@@ -21,7 +21,7 @@ const initialState = {
 	title : 'Quick Story',
 	userStory: '',
 	userTitle: '',
-	photoIsLoading : true	
+	photoIsLoading : true
 };
 
 export default function syncReducer(state=initialState, action) {
@@ -99,6 +99,13 @@ export default function syncReducer(state=initialState, action) {
 				}
 			});
 			return newState_9;
+		case types.TOGGLE_PHOTO_LOADING:
+			const newState_10 = update(state, {
+				photoIsLoading : {
+					$set : !(action.photoIsLoading)
+				}
+			});
+			return newState_10;
 		default:
 			return state;
 	}

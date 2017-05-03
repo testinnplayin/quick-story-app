@@ -35,7 +35,7 @@ describe('GeneralContainer component', function() {
 		mainTitle.props.title.should.equal(fakeProps.title);
 
 		const section = wrapper.find('.generalArea');
-		section.hasClass('generalArea');
+		section.props.className('generalArea');
 
 		const sectionArr = section.node.props.children;
 		sectionArr.should.be.a('array');

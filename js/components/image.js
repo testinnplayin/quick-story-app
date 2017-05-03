@@ -4,6 +4,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import InitTextAreaContainer from '../containers/init-text-area-container';
+import TextAreaContainer from '../containers/text-area-container';
 
 export class Image extends React.Component {
 	constructor(props) {
@@ -22,12 +23,20 @@ export class Image extends React.Component {
 			overflow : 'hidden'
 		};
 
-		return (
-			<div className="image" style={imageStyles}>
-				<InitTextAreaContainer
-					photoBtn={this.props.photoBtn} />
-			</div>
-		);
+		if (this.props.showInitTextCont) {
+			return (
+				<div className="image" style={imageStyles}>
+					<InitTextAreaContainer
+						photoBtn={this.props.photoBtn} />
+				</div>
+			);
+		} else {
+			return (
+				<div className="image" style={imageStyles}>
+					<TextAreaContainer />
+				</div>
+			);
+		}
 	}
 };
 

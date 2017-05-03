@@ -19,11 +19,14 @@ export class ButtonArea extends React.Component {
 		let rightBtn = this.props.rightBtn,
 			leftBtn = this.props.leftBtn,
 			title = this.props.title,
-			photoArea = this.props.photoArea;
+			photoArea = this.props.photoArea,
+			showInitTextCont = this.props.showInitTextCont;
 
 		if (rightBtn === 'Write' || rightBtn === 'Edit') {
-			rightBtn = '';
+			rightBtn = '',
+			showInitTextCont = false;
 			this.props.dispatch(actions.changeRightBtnName(rightBtn));
+			this.props.dispatch(actions.toggleShowInitTextCont(showInitTextCont));
 		}
 
 		if (rightBtn === '' && title === 'Your Story') {

@@ -20,7 +20,9 @@ export class StoryContainer extends React.Component {
 			rightBtn = this.props.rightBtn,
 			leftBtn = this.props.leftBtn,
 			rightBtnAddr = this.props.rightBtnAddr,
-			leftBtnAddr = this.props.leftBtnAddr;
+			leftBtnAddr = this.props.leftBtnAddr,
+			showInitTextCont = this.props.showInitTextCont;
+
 
 		if (title === 'Quick Story' && photoArea === 'Click on Get Random Photo button to begin!') {
 			title = 'Write A Story';
@@ -66,7 +68,8 @@ export class StoryContainer extends React.Component {
 				<section className="storyAreaSection">
 					<PhotoAreaContainer
 						photo={this.props.photo}
-						photoArea={this.props.photoArea} />
+						photoArea={this.props.photoArea}
+						showInitTextCont={this.props.showInitTextCont} />
 					{this.props.children}
 					<ButtonArea
 						{...this.props}
@@ -88,6 +91,7 @@ const mapStateToProps = (state, props) => ({
 	photoBtn: state.syncReducer.photoBtn,
 	rightBtn: state.syncReducer.rightBtn,
 	rightBtnAddr: state.syncReducer.rightBtnAddr,
+	showInitTextCont: state.syncReducer.showInitTextCont,
 	title: state.syncReducer.title
 });
 

@@ -15,13 +15,14 @@ const initialState = {
 	newAuthor: '',
 	photoArea : 'Click on Get Random Photo button to begin!',
 	photoBtn: 'Get Random Photo',
+	photoIsLoading : true,
 	rightBtn: 'Write',
 	rightBtnAddr: '/story/new',
+	showInitTextCont : true,
 	submitBtnName: 'Save',
 	title : 'Quick Story',
 	userStory: '',
 	userTitle: '',
-	photoIsLoading : true
 };
 
 export default function syncReducer(state=initialState, action) {
@@ -106,6 +107,13 @@ export default function syncReducer(state=initialState, action) {
 				}
 			});
 			return newState_10;
+		case types.TOGGLE_SHOW_INIT_TEXT_CONT:
+			const newState_11 = update(state, {
+				showInitTextCont : {
+					$set : action.showInitTextCont
+				}
+			});
+			return newState_11;
 		default:
 			return state;
 	}

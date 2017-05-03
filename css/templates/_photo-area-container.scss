@@ -3,6 +3,15 @@
 .photoAreaContainer {
   @include h-w(550px, $full);
   background-color: map-get($col, d-g);
+  color: map-get($col, l-gb);
+  text-align: map-get($t, t-cent);
+  h3 {
+    font-weight: map-get($t, t-b);
+    text-transform : map-get($t, t-cap);
+    text-transform: map-get($t, t-up);
+    padding: 20px 0;
+    margin: 20px 0;
+  }
   @media screen and (min-width: $break-small) {
     @include h-w(900px, $full);
   }

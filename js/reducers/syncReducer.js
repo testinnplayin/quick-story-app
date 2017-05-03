@@ -20,7 +20,8 @@ const initialState = {
 	submitBtnName: 'Save',
 	title : 'Quick Story',
 	userStory: '',
-	userTitle: ''	
+	userTitle: '',
+	photoIsLoading : true	
 };
 
 export default function syncReducer(state=initialState, action) {

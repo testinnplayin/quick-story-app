@@ -34,7 +34,13 @@ describe('StoryContainer component', function() {
 			rightBtnAddr : '/elsewhere',
 			title : 'Supercallafradgulisticespyallagoshiss'
 		},
-			wrapper = shallow(<StoryContainer />),
+			wrapper = shallow(
+				<StoryContainer
+					photo={fakeProps.photo}
+					photoArea={fakeProps.photoArea}
+					props={fakeProps}
+					title={fakeProps.title} />
+			),
 			main = wrapper.find('main');
 
 		main.node.type.should.equal('main');
@@ -45,10 +51,9 @@ describe('StoryContainer component', function() {
 		mainArr.should.have.lengthOf(2);
 
 		const mainTitle = mainArr[0];
-		console.log(mainTitle);
-		// mainTitle.props.props.this.props..should.equal(fakeProps.title);
+		mainTitle.props.title.should.equal(fakeProps.title);
 
-		const section = mainArr[2];
+		const section = mainArr[1];
 		section.type.should.equal('section');
 		section.props.className.should.equal('storyAreaSection');
 
@@ -57,6 +62,10 @@ describe('StoryContainer component', function() {
 		sectionArr.should.have.lengthOf(3);
 
 		const photoAreaContainer = sectionArr[0];
-		// photoAreaContainer.props.
+		photoAreaContainer.props.photo.should.equal(fakeProps.photo);
+		photoAreaContainer.props.photoArea.should.equal(fakeProps.photoArea);
+
+		const buttonArea = sectionArr[2];
+		buttonArea.props.props.should.equal(fakeProps);
 	});
 });

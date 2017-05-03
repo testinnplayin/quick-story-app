@@ -13,13 +13,15 @@ describe('GeneralContainer component', function() {
 		const fakeProps = {
 			title : 'Amazing Story',
 			buttonNames : ['Edit', 'Write'],
-			photoArea : 'www.example.com/photo.jpg',
+			photo : 'www.example.com/photo.jpg',
+			photoArea : 'Blah blah blah',
 			photoBtn : 'Get Photo'
 		},
 			wrapper = shallow(
 				<GeneralContainer
 					title={fakeProps.title}
 					buttonNames={fakeProps.buttonNames}
+					photo={fakeProps.photo}
 					photoArea={fakeProps.photoArea}
 					photoBtn={fakeProps.photoBtn} />
 			);
@@ -34,17 +36,9 @@ describe('GeneralContainer component', function() {
 		const mainTitle = mainArr[0];
 		mainTitle.props.title.should.equal(fakeProps.title);
 
-		const section = wrapper.find('.generalArea');
-		section.props.className('generalArea');
-
-		const sectionArr = section.node.props.children;
-		sectionArr.should.be.a('array');
-		sectionArr.should.have.lengthOf(2);
-
-		const initPhotoAreaContainer = sectionArr[0];
-		initPhotoAreaContainer.props.photoArea.should.equal(fakeProps.photoArea);
-
-		const initTextAreaContainer = sectionArr[1];
-		initTextAreaContainer.props.photoBtn.should.equal(fakeProps.photoBtn);
+		const photoAreaContainer = mainArr[1];
+		photoAreaContainer.props.photo.should.equal(fakeProps.photo);
+		photoAreaContainer.props.photoArea.should.equal(fakeProps.photoArea);
+		photoAreaContainer.props.photoBtn.should.equal(fakeProps.photoBtn);
 	});
 });

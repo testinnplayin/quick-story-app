@@ -100,4 +100,14 @@ describe('sync actions', function() {
 
 		actions.changeBtnAddr(rightBtnAddr, leftBtnAddr).should.be.eql(whatExp);
 	});
+
+	it('should create an action to toggle loading for photos', function() {
+		const photoIsLoading = true,
+			expectedAction = {
+				type : actions.TOGGLE_PHOTO_LOADING,
+				photoIsLoading
+			};
+
+		actions.togglePhotoLoading(photoIsLoading).should.eql(expectedAction);
+	});
 });

@@ -13,6 +13,7 @@ export const GET_STORY_INPUT = 'GET_STORY_INPUT';
 export const CHANGE_TITLE = 'CHANGE_TITLE';
 export const GET_TITLE_INPUT = 'GET_TITLE_INPUT';
 export const GET_USER_NAME = 'GET_USER_NAME';
+export const TOGGLE_PHOTO_LOADING = 'TOGGLE_PHOTO_LOADING';
 
 
 export const changeBtnAddr = (rightBtnAddr, leftBtnAddr) => ({
@@ -59,4 +60,9 @@ export const getTitleInput = (userTitle) => ({
 export const getUserName = (author) => ({
 	type: GET_USER_NAME,
 	author
+});
+
+export const togglePhotoLoading = (photoIsLoading) => ({
+	type : TOGGLE_PHOTO_LOADING,
+	photoIsLoading
 });

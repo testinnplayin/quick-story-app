@@ -1,7 +1,7 @@
 'use strict';
 
+import {shallow} from 'enzyme';
 import React from 'react';
-import TestUtils from 'react-addons-test-utils';
 import chai from 'chai';
 
 const should = chai.should();
@@ -23,18 +23,32 @@ describe('StoryContainer component', function() {
 	}
 
 	it('should have an area in which other components are rendered', function() {
-		const renderer = TestUtils.createRenderer();
-		renderer.render(<StoryContainer />);
+		const fakeProps = {
+			id : '123456789',
+			leftBtn : 'Hai',
+			leftBtnAddr : '/somewhere',
+			photo : 'www.example.com/photo.jpg',
+			photoArea : 'blah blah blah',
+			photoBtn : 'Press Here',
+			rightBtn : 'Bai',
+			rightBtnAddr : '/elsewhere',
+			title : 'Supercallafradgulisticespyallagoshiss'
+		},
+			wrapper = shallow(<StoryContainer />),
+			main = wrapper.find('main');
 
-		const result = renderer.getRenderOutput();
-		result.type.should.equal('main');
-		result.props.className.should.equal('storyContainer container-fluid');
+		main.node.type.should.equal('main');
+		main.node.props.className.should.equal('storyContainer container-fluid');
 
-		const mainArr = result.props.children;
+		const mainArr = main.node.props.children;
 		mainArr.should.be.a('array');
 		mainArr.should.have.lengthOf(2);
 
-		const section = mainArr[1];
+		const mainTitle = mainArr[0];
+		console.log(mainTitle);
+		// mainTitle.props.props.this.props..should.equal(fakeProps.title);
+
+		const section = mainArr[2];
 		section.type.should.equal('section');
 		section.props.className.should.equal('storyAreaSection');
 
@@ -42,14 +56,7 @@ describe('StoryContainer component', function() {
 		sectionArr.should.be.a('array');
 		sectionArr.should.have.lengthOf(3);
 
-		const funk1 = sectionArr[0],
-			expectedKeys1 = ['photo', 'photoArea'];
-
-		iterator(funk1, expectedKeys1);
-
-		const funk2 = sectionArr[2],
-			expectedKeys2 = ['photoBtn', 'leftBtn', 'leftBtnAddr', 'rightBtn', 'rightBtnAddr', 'handleWriteClick', 'handleLeftClick', 'handleMiddleClick', 'title', 'photoArea'];
-
-		iterator(funk2, expectedKeys2);
+		const photoAreaContainer = sectionArr[0];
+		// photoAreaContainer.props.
 	});
 });

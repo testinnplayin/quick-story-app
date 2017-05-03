@@ -5,22 +5,22 @@ import update from 'immutability-helper';
 import * as types from '../actions/index';
 
 const initialState = {
-	title : 'Quick Story',
-	leftBtn: 'Back',
-	leftBtnAddr: '/',
-	photoArea : 'Click on Get Random Photo button to begin!',
-	rightBtn: 'Write',
-	rightBtnAddr: '/story/new',
-	photoBtn: 'Get Random Photo',
-	submitBtnName: 'Save',
-	userTitle: '',
-	userStory: '',
 	author: {
 		firstName: '',
 		lastName: ''
 	},
+	id: '',
+	leftBtn: 'Back',
+	leftBtnAddr: '/',
 	newAuthor: '',
-	id: ''
+	photoArea : 'Click on Get Random Photo button to begin!',
+	photoBtn: 'Get Random Photo',
+	rightBtn: 'Write',
+	rightBtnAddr: '/story/new',
+	submitBtnName: 'Save',
+	title : 'Quick Story',
+	userStory: '',
+	userTitle: ''	
 };
 
 export default function syncReducer(state=initialState, action) {

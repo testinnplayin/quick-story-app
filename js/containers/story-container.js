@@ -64,11 +64,15 @@ export class StoryContainer extends React.Component {
 			<main className="storyContainer container-fluid">
 				<MainTitle title={this.props.title} />
 				<section className="storyAreaSection">
-					<PhotoAreaContainer photo={this.props.photo} photoArea={this.props.photoArea} />
+					<PhotoAreaContainer
+						photo={this.props.photo}
+						photoArea={this.props.photoArea} />
 					{this.props.children}
-					<ButtonArea photoBtn={this.props.photoBtn} leftBtn={this.props.leftBtn} leftBtnAddr={this.props.leftBtnAddr} rightBtn={this.props.rightBtn} rightBtnAddr={this.props.rightBtnAddr}
-					 handleWriteClick={this.props.handleWriteClick} handleLeftClick={this.props.handleLeftClick} handleMiddleClick={this.props.handleMiddleClick} title={this.props.title}
-					 photoArea={this.props.photoArea} />
+					<ButtonArea
+						{...this.props}
+						handleLeftClick={this.props.handleLeftClick}
+						handleMiddleClick={this.props.handleMiddleClick}
+						handleWriteClick={this.props.handleWriteClick} />
 				</section>
 			</main>
 		);
@@ -76,15 +80,15 @@ export class StoryContainer extends React.Component {
 };
 
 const mapStateToProps = (state, props) => ({
-	title: state.syncReducer.title,
+	id: state.syncReducer.id,
 	leftBtn: state.syncReducer.leftBtn,
 	leftBtnAddr: state.syncReducer.leftBtnAddr,
+	photo: state.crudReducer.photo,
+	photoArea: state.syncReducer.photoArea,
 	photoBtn: state.syncReducer.photoBtn,
 	rightBtn: state.syncReducer.rightBtn,
 	rightBtnAddr: state.syncReducer.rightBtnAddr,
-	photoArea: state.syncReducer.photoArea,
-	photo: state.crudReducer.photo,
-	id: state.syncReducer.id,
+	title: state.syncReducer.title
 });
 
 export default connect(mapStateToProps)(StoryContainer);

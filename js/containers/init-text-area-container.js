@@ -14,7 +14,7 @@ export class InitTextAreaContainer extends React.Component {
 		return (
 			<div className="initTextAreaContainer">
 				<Button
-					href='/story'
+					href='#/story'
 					className="initPhotoBtn">
 					{this.props.photoBtn}
 				</Button>

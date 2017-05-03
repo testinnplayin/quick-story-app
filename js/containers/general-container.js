@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 
 import MainTitle from '../components/main-title';
 import PhotoAreaContainer from './photo-area-container';
-// import InitTextAreaContainer from './init-text-area-container';
 
 export class GeneralContainer extends React.Component {
 	constructor(props) {

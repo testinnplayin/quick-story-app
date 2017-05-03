@@ -1,6 +1,6 @@
 'use strict';
 
-import {mount} from 'enzyme';
+import {shallow} from 'enzyme';
 import React from 'react';
 import chai from 'chai';
 
@@ -22,7 +22,13 @@ describe('TextAreaContainer component', function() {
 			newAuthor : 'John Smith',
 			id : '123456'
 		},
-			wrapper = mount(<TextAreaContainer props={fakeProps} />);
-		console.log(wrapper);
+			wrapper = shallow(<TextAreaContainer props={fakeProps} />),
+			div = wrapper.find('div');
+
+		div.node.type.should.equal('div');
+		div.node.props.className.should.equal('textAreaContainer');
+
+		const textArea = div.node.props.children;
+		textArea.props.props.should.equal(fakeProps);
 	});
 });

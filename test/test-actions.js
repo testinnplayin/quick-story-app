@@ -119,4 +119,13 @@ describe('sync actions', function() {
 			};
 		actions.toggleShowInitTextCont(showInitTextCont).should.eql(expectedAction);
 	});
+
+	it('should create an action to toggle showing the text area form', function() {
+		const showTextAreaForm = false,
+			expectedAction = {
+				type : actions.TOGGLE_SHOW_TEXT_AREA_FORM,
+				showTextAreaForm
+			};
+		actions.toggleShowTextAreaForm(showTextAreaForm).should.eql(expectedAction);
+	});
 });

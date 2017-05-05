@@ -17,6 +17,17 @@ const initialState = {
 	photoBtn: 'Get Random Photo',
 	rightBtn: 'Write',
 	rightBtnAddr: '/story/new',
+	stuff : {
+		id: '',
+		leftBtn: 'Back',
+		leftBtnAddr: '/',
+		photoArea : 'Click on Get Random Photo button to begin!',
+		photoBtn: 'Get Random Photo',
+		rightBtn: 'Write',
+		rightBtnAddr: '/story/new',
+		submitBtnName: 'Save',
+		title : 'Quick Story',
+	},
 	submitBtnName: 'Save',
 	title : 'Quick Story',
 	userStory: '',
@@ -113,11 +124,17 @@ export default function syncReducer(state=initialState, action) {
 					photoArea : {
 						$set : stuff.photoArea
 					},
+					photoBtn : {
+						$set : stuff.photoBtn
+					},
 					rightBtn : {
 						$set : stuff.rightBtn
 					},
 					rightBtnAddr : {
 						$set : stuff.rightBtnAddr
+					},
+					submitBtnName : {
+						$set : stuff.submitBtnName
 					},
 					title : {
 						$set : stuff.title

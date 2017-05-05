@@ -21,16 +21,8 @@ export class StoryContainer extends React.Component {
 			leftBtn = this.props.leftBtn,
 			rightBtnAddr = this.props.rightBtnAddr,
 			leftBtnAddr = this.props.leftBtnAddr,
-			showInitTextCont = this.props.showInitTextCont;
-
-		const stuff = {
-			leftBtn : this.props.leftBtn,
-			leftBtnAddr : this.props.leftBtnAddr,
-			photoArea : this.props.photoArea,
-			rightBtn : this.props.rightBtn,
-			rightBtnAddr : this.props.rightBtnAddr,
-			title : this.props.title
-		}
+			showInitTextCont = this.props.showInitTextCont,
+			stuff = this.props.stuff;
 
 		if (showInitTextCont) {
 			showInitTextCont = false;
@@ -46,22 +38,24 @@ export class StoryContainer extends React.Component {
 			// this.props.dispatch(actions.getPhoto());
 			// this.props.dispatch(actions.changePhotoArea(photoArea));
 		} else if (title === 'List of Stories' && photoArea === 'Click on a story below to edit or delete it') {
-			let pathArr = this.props.location.pathname.split('/'),
-				id = pathArr[2];
+			let pathArr = this.props.location.pathname.split('/');
 
-			title = 'Your Story',
-			photoArea = 'Click on Edit to edit your story, Delete to delete it or get a new random photo!',
-			rightBtn = 'Edit',
-			leftBtn = 'Delete',
-			rightBtnAddr = `/story/edit/${id}`,
-			leftBtnAddr = `/story/delete/${id}`;
+			stuff.id = pathArr[2];
+			stuff.title = 'Your Story',
+			stuff.photoArea = 'Click on Edit to edit your story, Delete to delete it or get a new random photo!',
+			stuff.rightBtn = 'Edit',
+			stuff.leftBtn = 'Delete',
+			stuff.rightBtnAddr = `/story/edit/${id}`,
+			stuff.leftBtnAddr = `/story/delete/${id}`;
 
-			this.props.dispatch(actions.changeTitle(title));
-			this.props.dispatch(actions.changePhotoArea(photoArea));
-			this.props.dispatch(actions.changeRightBtnName(rightBtn));
-			this.props.dispatch(actions.changeLeftBtnName(leftBtn));
-			this.props.dispatch(actions.changeBtnAddr(rightBtnAddr, leftBtnAddr));
-			this.props.dispatch(actions.changeId(id));
+
+
+			// this.props.dispatch(actions.changeTitle(title));
+			// this.props.dispatch(actions.changePhotoArea(photoArea));
+			// this.props.dispatch(actions.changeRightBtnName(rightBtn));
+			// this.props.dispatch(actions.changeLeftBtnName(leftBtn));
+			// this.props.dispatch(actions.changeBtnAddr(rightBtnAddr, leftBtnAddr));
+			// this.props.dispatch(actions.changeId(id));
 		} else {
 			title = 'Quick Story',
 			photoArea = 'Click on Get Random Photo button to begin!',
@@ -106,6 +100,7 @@ const mapStateToProps = (state, props) => ({
 	rightBtn: state.syncReducer.rightBtn,
 	rightBtnAddr: state.syncReducer.rightBtnAddr,
 	showInitTextCont: state.toggleReducer.showInitTextCont,
+	stuff : state.syncReducer.stuff,
 	title: state.syncReducer.title
 });
 

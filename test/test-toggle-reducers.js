@@ -58,4 +58,17 @@ describe('toggleReducer', function() {
       showTextAreaForm : true
     });
   });
+
+  it('should toggle showStoryArea when action is toggleShowStoryArea', function() {
+    const fakeState = {
+      showStoryArea : false
+    },
+      toggleShowStoryArea = {
+        type : actions.TOGGLE_SHOW_STORY_AREA,
+        showStoryArea : false
+      };
+    toggleReducer(fakeState, toggleShowStoryArea).should.eql({
+      showStoryArea : false
+    });
+  });
 });

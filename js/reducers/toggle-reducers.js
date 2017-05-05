@@ -34,6 +34,13 @@ export default function toggleReducer(state=initialState, action) {
           }
         });
         return newState_3;
+      case types.TOGGLE_SHOW_STORY_AREA:
+        const newState_4 = update(state, {
+          showStoryArea : {
+            $set : action.showStoryArea
+          }
+        });
+        return newState_4;
       default:
         return state;
     }

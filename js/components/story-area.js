@@ -18,6 +18,6 @@ export class StoryArea extends React.Component {
 			</div>
 		);
 	}
-};
+}
 
 export default connect()(StoryArea);

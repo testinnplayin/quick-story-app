@@ -13,7 +13,7 @@ export class NavBar extends React.Component {
 		this.handleHomeClick = this.handleHomeClick.bind(this);
 	}
 
-	handleHomeClick(e) {
+	handleHomeClick() {
 		let title = this.props.title,
 			photoArea = this.props.photoArea;
 
@@ -52,6 +52,6 @@ export class NavBar extends React.Component {
 			</header>
 		);
 	}
-};
+}
 
 export default connect()(NavBar);

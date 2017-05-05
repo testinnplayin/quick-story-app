@@ -2,7 +2,8 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import {Button, ButtonToolbar} from 'react-bootstrap';
+import {Link} from 'react-router';
+import {ButtonToolbar} from 'react-bootstrap';
 
 import * as actions from '../actions/index';
 
@@ -98,27 +99,27 @@ export class ButtonArea extends React.Component {
 		return (
 			<section className="buttonArea">
 				<ButtonToolbar>
-					<Button
+					<Link
 						id="leftBtnButtonArea"
-						className="leftBtn"
-						href={this.props.leftBtnAddr}
+						className="leftBtn btn btn-default"
+						to={this.props.leftBtnAddr}
 						onClick={this.handleLeftClick}>
 						{this.props.leftBtn}
-					</Button>
-					<Button
+					</Link>
+					<Link
 						id="middleBtnButtonArea"
-						className="middleBtn"
-						href='/story'
+						className="middleBtn btn btn-default"
+						to='/story'
 						onClick={this.handleMiddleClick}>
 						{this.props.photoBtn}
-					</Button>
-					<Button
+					</Link>
+					<Link
 						id="rightBtnButtonArea"
-						className="rightBtn"
-						href={this.props.rightBtnAddr}
+						className="rightBtn btn btn-default"
+						to={this.props.rightBtnAddr}
 						onClick={this.handleWriteClick}>
 						{this.props.rightBtn}
-					</Button>
+					</Link>
 				</ButtonToolbar>
 			</section>
 		);

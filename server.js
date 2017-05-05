@@ -24,7 +24,7 @@ app.use(morgan('common'));
 
 //express routers
 
-app.use('/story', storyRouter);
+app.use('/api/story', storyRouter);
 
 //GET requests
 

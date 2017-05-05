@@ -10,7 +10,7 @@ import store from './store';
 import MainContainer from './containers/main-container';
 import GeneralContainer from './containers/general-container';
 import StoryContainer from './containers/story-container';
-import TextAreaContainer from './containers/text-area-container';
+import PhotoAreaContainer from './containers/photo-area-container';
 import StoriesContainer from './containers/stories-container';
 import StoryAreaContainer from './containers/story-area-container';
 import DeleteAreaContainer from './containers/delete-area-container';
@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
 				<Route path='/' component={MainContainer}>
 					<IndexRoute component={GeneralContainer} />
 					<Route path='/story' component={StoryContainer}>
-						<Route path='/story/new' component={TextAreaContainer} />
-						<Route path='/story/edit/:id' component={TextAreaContainer} />
+						<Route path='/story/new' component={PhotoAreaContainer} />
+						<Route path='/story/edit/:id' component={PhotoAreaContainer} />
 						<Route path='/story/:id' component={StoryAreaContainer} />
 						<Route path='/story/delete/:id' component={DeleteAreaContainer} />
 					</Route>

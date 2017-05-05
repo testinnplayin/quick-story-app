@@ -33,7 +33,7 @@ router.get('/:id', (req, res) => {
 
 //POST requests
 
-router.post('/new', jsonParser, (req, res) => {
+router.post('/', jsonParser, (req, res) => {
 	const requiredFields = ['userTitle', 'photo', 'userStory', 'author'];
 
 	requiredFields.forEach(function(field) {

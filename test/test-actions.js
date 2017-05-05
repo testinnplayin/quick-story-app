@@ -110,4 +110,13 @@ describe('sync actions', function() {
 
 		actions.togglePhotoLoading(photoIsLoading).should.eql(expectedAction);
 	});
+
+	it('should create an action to toggle showing the initial text container', function() {
+		const showInitTextCont = true,
+			expectedAction = {
+				type : actions.TOGGLE_SHOW_INIT_TEXT_CONT,
+				showInitTextCont
+			};
+		actions.toggleShowInitTextCont(showInitTextCont).should.eql(expectedAction);
+	});
 });

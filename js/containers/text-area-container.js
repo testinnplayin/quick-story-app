@@ -11,24 +11,33 @@ export class TextAreaContainer extends React.Component {
 	}
 
 	render() {
-		return (
-			<div className="textAreaContainer">
-				<TextArea
-					{...this.props} />
-			</div>
-		);
+		if (this.props.showTextAreaForm) {
+			return (
+				<div className="textAreaContainer">
+					<TextArea
+						{...this.props} />
+				</div>
+			);
+		} else {
+			return (
+				<div className="textAreaContainer">
+
+				</div>
+			);
+		}
 	}
 
 };
 
 const mapStateToProps = (state, props) => ({
-	submitBtnName: state.syncReducer.submitBtnName,
-	userTitle: state.syncReducer.userTitle,
-	userStory: state.syncReducer.userStory,
 	author: state.syncReducer.author,
-	photo: state.crudReducer.photo,
+	id: state.syncReducer.id,
 	newAuthor: state.syncReducer.newAuthor,
-	id: state.syncReducer.id
+	photo: state.crudReducer.photo,
+	showTextAreaForm: state.toggleReducer.showTextAreaForm,
+	submitBtnName: state.syncReducer.submitBtnName,
+	userStory: state.syncReducer.userStory,
+	userTitle: state.syncReducer.userTitle
 });
 
 export default connect(mapStateToProps)(TextAreaContainer);

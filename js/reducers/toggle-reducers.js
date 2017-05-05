@@ -6,7 +6,8 @@ import * as types from '../actions/index';
 
 const initialState = {
   photoIsLoading : true,
-  showInitTextCont : true
+  showInitTextCont : true,
+  showTextAreaForm : false
 };
 
 export default function toggleReducer(state=initialState, action) {
@@ -25,6 +26,11 @@ export default function toggleReducer(state=initialState, action) {
   				}
   			});
   			return newState_2;
+      case types.TOGGLE_SHOW_TEXT_AREA_FORM:
+        const newState_3 = update(state, {
+          $set : action.showTextAreaForm
+        });
+        return newState_3;
       default:
         return state;
     }

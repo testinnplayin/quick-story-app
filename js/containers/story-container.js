@@ -52,6 +52,7 @@ export class StoryContainer extends React.Component {
 			this.props.dispatch(actions.changeLeftBtnName(leftBtn));
 			this.props.dispatch(actions.changeBtnAddr(rightBtnAddr, leftBtnAddr));
 			this.props.dispatch(actions.changeId(id));
+			this.props.dispatch(actions.toggleShowStoryArea(showStoryArea));
 		} else {
 			title = 'Quick Story',
 			photoArea = 'Click on Get Random Photo button to begin!',

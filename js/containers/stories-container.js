@@ -22,8 +22,6 @@ export class StoriesContainer extends React.Component {
 
 		this.props.dispatch(actions.changeTitle(title));
 		this.props.dispatch(actions.changePhotoArea(photoArea));
-
-
 		this.props.dispatch(actions.fetchStories());
 	}
 

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router';
 import {Navbar, NavItem, Nav} from 'react-bootstrap';
 
 import * as actions from '../actions/index';
@@ -39,14 +40,13 @@ export class NavBar extends React.Component {
 					</Navbar .Brand>
 					<Navbar .Toggle />
 					<Navbar .Collapse>
-						<Nav>
-							<NavItem
-								eventKey={1}
-								href='/stories'
-								className="storiesButton">
+						<ul>
+							<Link
+								to='/stories'
+								className="storiesButton btn btn-default">
 								Stories
-							</NavItem>
-						</Nav>
+							</Link>
+						</ul>
 					</Navbar .Collapse>
 				</Navbar>
 			</header>

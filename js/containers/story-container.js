@@ -15,14 +15,14 @@ export class StoryContainer extends React.Component {
 	}
 
 	componentDidMount() {
-		let title = this.props.title,
-			photoArea = this.props.photoArea,
-			rightBtn = this.props.rightBtn,
-			leftBtn = this.props.leftBtn,
-			rightBtnAddr = this.props.rightBtnAddr,
-			leftBtnAddr = this.props.leftBtnAddr,
-			showInitTextCont = this.props.showInitTextCont,
-			stuff = this.props.stuff;
+		// let title = this.props.title,
+		// 	photoArea = this.props.photoArea,
+		// 	rightBtn = this.props.rightBtn,
+		// 	leftBtn = this.props.leftBtn,
+		// 	rightBtnAddr = this.props.rightBtnAddr,
+		// 	leftBtnAddr = this.props.leftBtnAddr,
+		let showInitTextCont = this.props.showInitTextCont;
+		const	stuff = this.props.stuff;
 
 		if (showInitTextCont) {
 			showInitTextCont = false;
@@ -45,10 +45,10 @@ export class StoryContainer extends React.Component {
 			stuff.photoArea = 'Click on Edit to edit your story, Delete to delete it or get a new random photo!',
 			stuff.rightBtn = 'Edit',
 			stuff.leftBtn = 'Delete',
-			stuff.rightBtnAddr = `/story/edit/${id}`,
-			stuff.leftBtnAddr = `/story/delete/${id}`;
+			stuff.rightBtnAddr = `/story/edit/${stuff.id}`,
+			stuff.leftBtnAddr = `/story/delete/${stuff.id}`;
 
-
+			this.props.dispatch(actions.changeStuff(stuff));
 
 			// this.props.dispatch(actions.changeTitle(title));
 			// this.props.dispatch(actions.changePhotoArea(photoArea));
@@ -57,15 +57,17 @@ export class StoryContainer extends React.Component {
 			// this.props.dispatch(actions.changeBtnAddr(rightBtnAddr, leftBtnAddr));
 			// this.props.dispatch(actions.changeId(id));
 		} else {
-			title = 'Quick Story',
-			photoArea = 'Click on Get Random Photo button to begin!',
-			rightBtn = 'Write',
-			leftBtn = 'Back';
+			stuff.leftBtn = 'Back',
+			stuff.photoArea = 'Click on Get Random Photo button to begin!',
+			stuff.rightBtn = 'Write',
+			stuff.title = 'Quick Story';
 
-			this.props.dispatch(actions.changeTitle(title));
-			this.props.dispatch(actions.changePhotoArea(photoArea));
-			this.props.dispatch(actions.changeRightBtnName(rightBtn));
-			this.props.dispatch(actions.changeLeftBtnName(leftBtn));
+			this.props.dispatch(actions.changeStuff(stuff));
+
+			// this.props.dispatch(actions.changeTitle(title));
+			// this.props.dispatch(actions.changePhotoArea(photoArea));
+			// this.props.dispatch(actions.changeRightBtnName(rightBtn));
+			// this.props.dispatch(actions.changeLeftBtnName(leftBtn));
 		}
 	}
 
@@ -91,17 +93,17 @@ export class StoryContainer extends React.Component {
 };
 
 const mapStateToProps = (state, props) => ({
-	id: state.syncReducer.id,
-	leftBtn: state.syncReducer.leftBtn,
-	leftBtnAddr: state.syncReducer.leftBtnAddr,
+	id: state.syncReducer.stuff.id,
+	leftBtn: state.syncReducer.stuff.leftBtn,
+	leftBtnAddr: state.syncReducer.stuff.leftBtnAddr,
 	photo: state.crudReducer.photo,
-	photoArea: state.syncReducer.photoArea,
-	photoBtn: state.syncReducer.photoBtn,
-	rightBtn: state.syncReducer.rightBtn,
-	rightBtnAddr: state.syncReducer.rightBtnAddr,
+	photoArea: state.syncReducer.stuff.photoArea,
+	photoBtn: state.syncReducer.stuff.photoBtn,
+	rightBtn: state.syncReducer.stuff.rightBtn,
+	rightBtnAddr: state.syncReducer.stuff.rightBtnAddr,
 	showInitTextCont: state.toggleReducer.showInitTextCont,
 	stuff : state.syncReducer.stuff,
-	title: state.syncReducer.title
+	title: state.syncReducer.stuff.title
 });
 
 export default connect(mapStateToProps)(StoryContainer);

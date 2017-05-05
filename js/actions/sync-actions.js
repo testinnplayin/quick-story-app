@@ -1,7 +1,5 @@
 'use strict';
 
-'use strict';
-
 import 'isomorphic-fetch';
 
 export const CHANGE_BTN_ADDR = 'CHANGE_BTN_ADDR';
@@ -13,9 +11,6 @@ export const GET_STORY_INPUT = 'GET_STORY_INPUT';
 export const CHANGE_TITLE = 'CHANGE_TITLE';
 export const GET_TITLE_INPUT = 'GET_TITLE_INPUT';
 export const GET_USER_NAME = 'GET_USER_NAME';
-export const TOGGLE_PHOTO_LOADING = 'TOGGLE_PHOTO_LOADING';
-export const TOGGLE_SHOW_INIT_TEXT_CONT = 'TOGGLE_SHOW_INIT_TEXT_CONT';
-
 
 export const changeBtnAddr = (rightBtnAddr, leftBtnAddr) => ({
 	type: CHANGE_BTN_ADDR,
@@ -61,14 +56,4 @@ export const getTitleInput = (userTitle) => ({
 export const getUserName = (author) => ({
 	type: GET_USER_NAME,
 	author
-});
-
-export const togglePhotoLoading = (photoIsLoading) => ({
-	type : TOGGLE_PHOTO_LOADING,
-	photoIsLoading
-});
-
-export const toggleShowInitTextCont = showInitTextCont => ({
-	type : TOGGLE_SHOW_INIT_TEXT_CONT,
-	showInitTextCont
 });

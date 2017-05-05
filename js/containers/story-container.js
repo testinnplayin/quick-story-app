@@ -95,7 +95,7 @@ const mapStateToProps = (state, props) => ({
 	photoBtn: state.syncReducer.photoBtn,
 	rightBtn: state.syncReducer.rightBtn,
 	rightBtnAddr: state.syncReducer.rightBtnAddr,
-	showInitTextCont: state.syncReducer.showInitTextCont,
+	showInitTextCont: state.toggleReducer.showInitTextCont,
 	title: state.syncReducer.title
 });
 

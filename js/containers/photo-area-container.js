@@ -47,7 +47,7 @@ export class PhotoAreaContainer extends React.Component {
 };
 
 const mapStateToProps = (state, props) => ({
-	photoIsLoading : state.syncReducer.photoIsLoading
+	photoIsLoading : state.toggleReducer.photoIsLoading
 });
 
 export default connect(mapStateToProps)(PhotoAreaContainer);

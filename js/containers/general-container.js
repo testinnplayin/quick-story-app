@@ -31,7 +31,7 @@ const mapStateToProps = (state, props) => ({
 	photo : state.crudReducer.photo,
 	photoArea: state.syncReducer.photoArea,
 	photoBtn: state.syncReducer.photoBtn,
-	showInitTextCont: state.syncReducer.showInitTextCont
+	showInitTextCont: state.toggleReducer.showInitTextCont
 });
 
 export default connect(mapStateToProps)(GeneralContainer);

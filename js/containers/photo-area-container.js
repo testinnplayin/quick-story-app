@@ -3,7 +3,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import ImageContainer from '../components/image';
+import ImageContainer from '../containers/image-container';
 import * as actions from '../actions/index';
 
 export class PhotoAreaContainer extends React.Component {

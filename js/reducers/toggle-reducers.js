@@ -7,6 +7,7 @@ import * as types from '../actions/index';
 const initialState = {
   photoIsLoading : true,
   showInitTextCont : true,
+  showStoryArea : false,
   showTextAreaForm : false
 };
 

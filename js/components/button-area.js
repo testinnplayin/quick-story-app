@@ -17,17 +17,21 @@ export class ButtonArea extends React.Component {
 	}
 
 	handleWriteClick(e) {
+		e.preventDefault();
 		let rightBtn = this.props.rightBtn,
 			leftBtn = this.props.leftBtn,
 			title = this.props.title,
 			photoArea = this.props.photoArea,
-			showInitTextCont = this.props.showInitTextCont;
+			showInitTextCont = this.props.showInitTextCont,
+			showTextAreaForm = this.props.showTextAreaForm;
 
 		if (rightBtn === 'Write' || rightBtn === 'Edit') {
 			rightBtn = '',
-			showInitTextCont = false;
+			showInitTextCont = false,
+			showTextAreaForm = true;
 			this.props.dispatch(actions.changeRightBtnName(rightBtn));
 			this.props.dispatch(actions.toggleShowInitTextCont(showInitTextCont));
+			this.props.dispatch(actions.toggleShowTextAreaForm(showTextAreaForm));
 		}
 
 		if (rightBtn === '' && title === 'Your Story') {
@@ -46,8 +50,6 @@ export class ButtonArea extends React.Component {
 			this.props.dispatch(actions.changePhotoArea(photoArea));
 			this.props.dispatch(actions.changeBtnAddr(rightBtnAddr, leftBtnAddr))
 		}
-
-
 	}
 
 	handleMiddleClick(e) {
@@ -63,6 +65,8 @@ export class ButtonArea extends React.Component {
 	}
 
 	handleLeftClick(e) {
+		e.preventDefault();
+		
 		let title = this.props.title,
 			rightBtn = this.props.rightBtn,
 			photoArea = this.props.photoArea;
@@ -124,6 +128,6 @@ export class ButtonArea extends React.Component {
 			</section>
 		);
 	}
-};
+}
 
 export default connect()(ButtonArea);

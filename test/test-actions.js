@@ -128,4 +128,13 @@ describe('sync actions', function() {
 			};
 		actions.toggleShowTextAreaForm(showTextAreaForm).should.eql(expectedAction);
 	});
+
+	it('should create an action to toggle showing the story area', function() {
+		const showStoryArea = false,
+			expectedAction = {
+				type : actions.TOGGLE_SHOW_STORY_AREA,
+				showStoryArea
+			};
+		actions.toggleShowStoryArea(showStoryArea).should.eql(expectedAction);
+	});
 });

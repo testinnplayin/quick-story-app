@@ -6,7 +6,7 @@ import chai from 'chai';
 
 const should = chai.should();
 
-import {ImageContainer} from '../js/components/image';
+import {ImageContainer} from '../js/containers/image-container';
 
 describe('ImageContainer component', function() {
 	it('should render an image', function() {

@@ -20,15 +20,21 @@ export class StoryAreaContainer extends React.Component {
 	}
 
 	render() {
-		return (
-			<div className="storyAreaContainer container-fluid">
-				<StoryArea
-					userTitle={this.props.story.title}
-					userStory={this.props.story.userStory}
-					newAuthor={this.props.story.authorString}
-					storyId={this.props.story.id} />
-			</div>
-		);
+		if (this.props.showStoryArea) {
+			return (
+				<div className="storyAreaContainer container-fluid">
+					<StoryArea
+						userTitle={this.props.story.title}
+						userStory={this.props.story.userStory}
+						newAuthor={this.props.story.authorString}
+						storyId={this.props.story.id} />
+				</div>
+			);
+		} else {
+			return (
+				<div className="storyAreaContainer container-fluid"></div>
+			);
+		}
 	}
 };
 

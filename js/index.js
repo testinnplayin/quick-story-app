@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
 				<Route path='/' component={MainContainer}>
 					<IndexRoute component={GeneralContainer} />
 					<Route path='/story' component={StoryContainer}>
-						<Route path='/story/new' component={PhotoAreaContainer} />
 						<Route path='/story/edit/:id' component={PhotoAreaContainer} />
 						<Route path='/story/:id' component={StoryAreaContainer} />
 						<Route path='/story/delete/:id' component={DeleteAreaContainer} />
@@ -33,3 +32,5 @@ document.addEventListener('DOMContentLoaded', () => {
 		</Provider>,
 		document.getElementById('app'));
 });
+
+// <Route path='/story/new' component={PhotoAreaContainer} />

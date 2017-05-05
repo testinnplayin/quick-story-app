@@ -14,9 +14,11 @@ export class StoryAreaContainer extends React.Component {
 
 	componentDidMount() {
 		let pathArr = (this.props.location.pathname).split('/'),
-			id = pathArr[2];
-		console.log(pathArr);
+			id = pathArr[2],
+			showStoryArea = this.props.showStoryArea;
+		showStoryArea = true;
 		this.props.dispatch(actions.fetchStory(id));
+		this.props.dispatch(actions.toggleShowStoryArea(showStoryArea));
 	}
 
 	render() {
@@ -39,6 +41,7 @@ export class StoryAreaContainer extends React.Component {
 };
 
 const mapStateToProps = (state, props) => ({
+	showStoryArea : state.toggleReducer.showStoryArea,
 	story : state.crudReducer.story
 });
 

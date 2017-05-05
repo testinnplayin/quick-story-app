@@ -23,18 +23,28 @@ export class StoryContainer extends React.Component {
 			leftBtnAddr = this.props.leftBtnAddr,
 			showInitTextCont = this.props.showInitTextCont;
 
+		const stuff = {
+			leftBtn : this.props.leftBtn,
+			leftBtnAddr : this.props.leftBtnAddr,
+			photoArea : this.props.photoArea,
+			rightBtn : this.props.rightBtn,
+			rightBtnAddr : this.props.rightBtnAddr,
+			title : this.props.title
+		}
+
 		if (showInitTextCont) {
 			showInitTextCont = false;
 			this.props.dispatch(actions.toggleShowInitTextCont(showInitTextCont))
 		}
 
-		if (title === 'Quick Story' && photoArea === 'Click on Get Random Photo button to begin!') {
-			title = 'Write A Story';
-			photoArea = 'Click on Write to begin writing or click on Get New Photo to get a new random photo';
+		if (stuff.title === 'Quick Story' && stuff.photoArea === 'Click on Get Random Photo button to begin!') {
+			stuff.title = 'Write A Story';
+			stuff.photoArea = 'Click on Write to begin writing or click on Get New Photo to get a new random photo';
 
-			this.props.dispatch(actions.changeTitle(title));
-			this.props.dispatch(actions.getPhoto());
-			this.props.dispatch(actions.changePhotoArea(photoArea));
+			this.props.dispatch(actions.changeStuff(stuff));
+			// this.props.dispatch(actions.changeTitle(title));
+			// this.props.dispatch(actions.getPhoto());
+			// this.props.dispatch(actions.changePhotoArea(photoArea));
 		} else if (title === 'List of Stories' && photoArea === 'Click on a story below to edit or delete it') {
 			let pathArr = this.props.location.pathname.split('/'),
 				id = pathArr[2];
@@ -52,7 +62,6 @@ export class StoryContainer extends React.Component {
 			this.props.dispatch(actions.changeLeftBtnName(leftBtn));
 			this.props.dispatch(actions.changeBtnAddr(rightBtnAddr, leftBtnAddr));
 			this.props.dispatch(actions.changeId(id));
-			this.props.dispatch(actions.toggleShowStoryArea(showStoryArea));
 		} else {
 			title = 'Quick Story',
 			photoArea = 'Click on Get Random Photo button to begin!',

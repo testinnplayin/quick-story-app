@@ -98,6 +98,32 @@ export default function syncReducer(state=initialState, action) {
 				}
 			});
 			return newState_9;
+		case types.CHANGE_STUFF:
+			const stuff = action.stuff,
+				newState_10 = update(state, {
+					id : {
+						$set : stuff.id
+					},
+					leftBtn : {
+						$set : stuff.leftBtn
+					},
+					leftBtnAddr : {
+						$set : stuff.leftBtnAddr
+					},
+					photoArea : {
+						$set : stuff.photoArea
+					},
+					rightBtn : {
+						$set : stuff.rightBtn
+					},
+					rightBtnAddr : {
+						$set : stuff.rightBtnAddr
+					},
+					title : {
+						$set : stuff.title
+					}
+				});
+				return newState_10;
 		default:
 			return state;
 	}

@@ -7,10 +7,13 @@ export const CHANGE_ID = 'CHANGE_ID';
 export const CHANGE_LEFT_BTN_NAME = 'CHANGE_LEFT_BTN_NAME';
 export const CHANGE_PHOTO_AREA = 'CHANGE_PHOTO_AREA';
 export const CHANGE_RIGHT_BTN_NAME = 'CHANGE_RIGHT_BTN_NAME';
-export const GET_STORY_INPUT = 'GET_STORY_INPUT';
 export const CHANGE_TITLE = 'CHANGE_TITLE';
+export const GET_STORY_INPUT = 'GET_STORY_INPUT';
 export const GET_TITLE_INPUT = 'GET_TITLE_INPUT';
 export const GET_USER_NAME = 'GET_USER_NAME';
+
+export const CHANGE_STUFF = 'CHANGE_STUFF';
+
 
 export const changeBtnAddr = (rightBtnAddr, leftBtnAddr) => ({
 	type: CHANGE_BTN_ADDR,
@@ -38,14 +41,19 @@ export const changeRightBtnName = (rightBtn) => ({
 	rightBtn
 });
 
-export const getStoryInput = (userStory) => ({
-	type: GET_STORY_INPUT,
-	userStory
+export const changeStuff = stuff => ({
+	type : CHANGE_STUFF,
+	stuff
 });
 
 export const changeTitle = (title) => ({
 	type: CHANGE_TITLE,
 	title
+});
+
+export const getStoryInput = (userStory) => ({
+	type: GET_STORY_INPUT,
+	userStory
 });
 
 export const getTitleInput = (userTitle) => ({

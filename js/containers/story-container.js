@@ -23,6 +23,10 @@ export class StoryContainer extends React.Component {
 			leftBtnAddr = this.props.leftBtnAddr,
 			showInitTextCont = this.props.showInitTextCont;
 
+		if (showInitTextCont) {
+			showInitTextCont = false;
+			this.props.dispatch(actions.toggleShowInitTextCont(showInitTextCont))
+		}
 
 		if (title === 'Quick Story' && photoArea === 'Click on Get Random Photo button to begin!') {
 			title = 'Write A Story';

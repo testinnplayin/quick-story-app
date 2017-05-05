@@ -41,7 +41,6 @@ describe('PhotoAreaContainer component', function() {
 			sectionArr.should.have.lengthOf(2);
 
 			const image = sectionArr[1];
-			console.log(image);
 			image.props.photo.should.equal(fakeProps.photo);
 			image.props.photoBtn.should.equal(fakeProps.photoBtn);
 		}

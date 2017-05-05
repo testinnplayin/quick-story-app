@@ -28,7 +28,9 @@ export default function toggleReducer(state=initialState, action) {
   			return newState_2;
       case types.TOGGLE_SHOW_TEXT_AREA_FORM:
         const newState_3 = update(state, {
-          $set : action.showTextAreaForm
+          showTextAreaForm : {
+            $set : action.showTextAreaForm
+          }
         });
         return newState_3;
       default:

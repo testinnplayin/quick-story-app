@@ -128,16 +128,4 @@ describe('syncReducer', function() {
 		syncReducer(fakeState, changeBtnAddrActn).should.eql({ rightBtnAddr : '/nowhere', leftBtnAddr : '/nowhere/else' });
 	});
 
-  it('should toggle photoIsLoading when action is togglePhotoLoading', function() {
-    const fakeState = {
-      photoIsLoading : true
-    },
-      togglePhotoLoading = {
-        type : actions.TOGGLE_PHOTO_LOADING,
-        photoIsLoading : true
-      };
-    syncReducer(fakeState, togglePhotoLoading).should.eql({
-      photoIsLoading : false
-    });
-  });
 });

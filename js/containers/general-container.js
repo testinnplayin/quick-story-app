@@ -18,7 +18,8 @@ export class GeneralContainer extends React.Component {
 				<PhotoAreaContainer
 					photo={this.props.photo}
 					photoArea={this.props.photoArea}
-					photoBtn={this.props.photoBtn} />
+					photoBtn={this.props.photoBtn}
+					showInitTextCont={this.props.showInitTextCont} />
 			</main>
 		);
 	}
@@ -29,7 +30,8 @@ const mapStateToProps = (state, props) => ({
 	buttonNames: state.buttonNames,
 	photo : state.crudReducer.photo,
 	photoArea: state.syncReducer.photoArea,
-	photoBtn: state.syncReducer.photoBtn
+	photoBtn: state.syncReducer.photoBtn,
+	showInitTextCont: state.syncReducer.showInitTextCont
 });
 
 export default connect(mapStateToProps)(GeneralContainer);

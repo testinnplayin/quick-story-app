@@ -3,7 +3,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import Image from '../components/image';
+import ImageContainer from '../components/image';
 import * as actions from '../actions/index';
 
 export class PhotoAreaContainer extends React.Component {
@@ -36,7 +36,7 @@ export class PhotoAreaContainer extends React.Component {
 			return (
 				<section className="photoAreaContainer">
 					<p>{this.props.photoArea}</p>
-					<Image
+					<ImageContainer
 						photo={this.props.photo}
 						photoBtn={this.props.photoBtn}
 						showInitTextCont={this.props.showInitTextCont}/>

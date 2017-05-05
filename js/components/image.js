@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import InitTextAreaContainer from '../containers/init-text-area-container';
 import TextAreaContainer from '../containers/text-area-container';
 
-export class Image extends React.Component {
+export class ImageContainer extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -40,4 +40,4 @@ export class Image extends React.Component {
 	}
 };
 
-export default connect()(Image);
+export default connect()(ImageContainer);

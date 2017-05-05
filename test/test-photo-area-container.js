@@ -9,7 +9,7 @@ const should = chai.should();
 import {PhotoAreaContainer} from '../js/containers/photo-area-container';
 
 describe('PhotoAreaContainer component', function() {
-	it('should have an area in which the Image component is shown as loading if photoIsLoading is true', function() {
+	it('should have an area in which the ImageContainer component is shown as loading if photoIsLoading is true', function() {
 		const fakeProps = {
 			photoIsLoading : true
 		},

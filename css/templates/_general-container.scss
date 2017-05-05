@@ -1,6 +1,7 @@
 @import '../_mix-n-var';
 
-.generalContainer {
+.generalContainer,
+.storyContainer {
   @include h-w(700px, $full);
   background-color: map-get($col, d-g);
   @media screen and (min-width: $break-small) {

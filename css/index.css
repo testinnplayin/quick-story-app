@@ -13,12 +13,14 @@
   width: 100%;
   background-color: #b1d0ca; }
 
-.generalContainer {
+.generalContainer,
+.storyContainer {
   height: 700px;
   width: 100%;
   background-color: #1e1e1e; }
   @media screen and (min-width: 750px) {
-    .generalContainer {
+    .generalContainer,
+    .storyContainer {
       height: 1050px;
       width: 100%; } }
 

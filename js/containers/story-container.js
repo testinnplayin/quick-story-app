@@ -44,6 +44,7 @@ export class StoryContainer extends React.Component {
 			stuff.id = pathArr[2];
 			stuff.title = 'Your Story',
 			stuff.photoArea = 'Click on Edit to edit your story, Delete to delete it or get a new random photo!',
+			stuff.photoBtn = 'Get Random Photo',
 			stuff.rightBtn = 'Edit',
 			stuff.leftBtn = 'Delete',
 			stuff.rightBtnAddr = `/story/edit/${stuff.id}`,
@@ -66,7 +67,7 @@ export class StoryContainer extends React.Component {
 				<MainTitle title={this.props.stuff.title} />
 				<section className="storyAreaSection">
 					<PhotoAreaContainer
-						photo={this.props.stuff.photo}
+						photo={this.props.photo}
 						photoArea={this.props.stuff.photoArea}
 						showInitTextCont={this.props.showInitTextCont} />
 					{this.props.children}

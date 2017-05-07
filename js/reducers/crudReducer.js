@@ -72,7 +72,6 @@ export default function crudReducer(state=initialState, action) {
 			});
 			return newState_4;
 		case types.FETCH_STORY_SUCCESS:
-      console.log(action.storySucc);
 			let storySucc2 = action.storySucc,
 				redoAuthor = storySucc2.author.split(', '),
 				firstName = redoAuthor[1],

@@ -51,15 +51,22 @@ export class ButtonArea extends React.Component {
 				id = leftBtnAddrArr[3],
 				stuff = {
 					id : id,
+					leftBtn : this.props.leftBtn,
 					leftBtnAddr : leftBtnAddr,
-					rightBtnAddr : this.props.rightBtnAddr
+					photoArea : this.props.photoArea,
+					photoBtn : this.props.photoBtn,
+					rightBtn : this.props.rightBtn,
+					rightBtnAddr : this.props.rightBtnAddr,
+					submitBtnName : this.props.submitBtnName,
+					title : this.props.title
 				};
-			console.log(stuff);
+
 			stuff.title = 'Edit Your Story',
 			stuff.photoArea = 'Click Save if you wish to keep your changes',
 			stuff.leftBtn = 'Back';
 			stuff.leftBtnAddr = `story/${id}`;
-
+			stuff.submitBtnName = 'Save';
+			console.log(stuff);
 			this.props.dispatch(actions.changeStuff(stuff));
 		}
 	}
@@ -82,7 +89,7 @@ export class ButtonArea extends React.Component {
 		this.props.dispatch(actions.getPhoto());
 
 		if (stuff.rightBtn === '') {
-			showTextAreaForm = false,
+			showTextAreaForm = false;
 			showWriteButton = true;
 			stuff.rightBtn = 'Write';
 			this.props.dispatch(actions.changeStuff(stuff));

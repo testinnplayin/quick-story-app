@@ -65,23 +65,29 @@ export class ButtonArea extends React.Component {
 	}
 
 	handleMiddleClick() {
-		let stuff = {
-			id : this.props.id,
-			leftBtn : this.props.leftBtn,
-			leftBtnAddr : this.props.leftBtnAddr,
-			photoArea : this.props.photoArea,
-			photoBtn : this.props.photoBtn,
-			rightBtn : this.props.rightBtn,
-			rightBtnAddr : this.props.rightBtnAddr,
-			submitBtnName : this.props.submitBtnName,
-			title : this.props.title
-		};
+		let showTextAreaForm = this.props.showTextAreaForm,
+			showWriteButton = this.props.showWriteButton,
+			stuff = {
+				id : this.props.id,
+				leftBtn : this.props.leftBtn,
+				leftBtnAddr : this.props.leftBtnAddr,
+				photoArea : this.props.photoArea,
+				photoBtn : this.props.photoBtn,
+				rightBtn : this.props.rightBtn,
+				rightBtnAddr : this.props.rightBtnAddr,
+				submitBtnName : this.props.submitBtnName,
+				title : this.props.title
+			};
 
 		this.props.dispatch(actions.getPhoto());
 
 		if (stuff.rightBtn === '') {
+			showTextAreaForm = false,
+			showWriteButton = true;
 			stuff.rightBtn = 'Write';
 			this.props.dispatch(actions.changeStuff(stuff));
+			this.props.dispatch(actions.toggleShowTextAreaForm(showTextAreaForm));
+			this.props.dispatch(actions.toggleShowWriteButton(showWriteButton));
 		}
 
 	}

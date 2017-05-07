@@ -49,7 +49,7 @@ export const fetchStoriesError = (storiesErr) => ({
 });
 
 export const fetchStories = stories => dispatch => {
-	let endpnt = '/stories',
+	let endpnt = '/api/stories',
 		reqOptions = {
 			method: 'GET'
 		},
@@ -84,7 +84,7 @@ export const fetchStoryError = (storyErr) => ({
 });
 
 export const fetchStory = (storyId) => (dispatch) => {
-	let endpnt = `/story/${storyId}`,
+	let endpnt = `/api/story/${storyId}`,
 		reqOptions = {
 			method: 'GET'
 		},
@@ -100,7 +100,10 @@ export const fetchStory = (storyId) => (dispatch) => {
 		})
 		.then(response => response.json())
 		.then(data => {console.log(data, 'success branch'); dispatch(fetchStorySuccess(data))})
-		.catch(err => {console.log(err, 'error branch'); dispatch(fetchStoryError(err))});
+		.catch(err => {
+			console.error(err, 'error branch');
+			dispatch(fetchStoryError(err));
+		});
 };
 
 //POST actions
@@ -118,7 +121,7 @@ export const saveStoryError = (storyErr) => ({
 });
 
 export const saveStory = story => dispatch => {
-	let endpnt = '/story/new',
+	let endpnt = '/api/story/new',
 		reqOptions = {
 			method: 'POST',
 			headers: {
@@ -164,7 +167,7 @@ export const updateStoryError = (updateErr) => ({
 });
 
 export const updateStory = (updateStory, id) => dispatch => {
-	let endpnt = `/story/${id}`,
+	let endpnt = `/api/story/${id}`,
 		reqOptions = {
 			method: 'PUT',
 			headers: {
@@ -210,7 +213,7 @@ export const deleteStoryErr = (deleteErr) => ({
 });
 
 export const deleteStory = (deleteStory, deleteId) => dispatch => {
-	let endpnt = `story/${deleteId}`,
+	let endpnt = `api/story/${deleteId}`,
 		reqOptions = {
 			method: 'DELETE',
 			headers: {

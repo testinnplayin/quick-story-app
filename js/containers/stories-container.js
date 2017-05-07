@@ -14,27 +14,35 @@ export class StoriesContainer extends React.Component {
 	}
 
 	componentDidMount() {
-		let title = this.props.title,
-			photoArea = this.props.photoArea;
+		let stuff = {
+			id : this.props.id,
+			leftBtn : this.props.leftBtn,
+			leftBtnAddr : this.props.leftBtnAddr,
+			photoArea : this.props.photoArea,
+			photoBtn : this.props.photoBtn,
+			rightBtn : this.props.rightBtn,
+			rightBtnAddr : this.props.rightBtnAddr,
+			submitBtnName : this.props.submitBtnName,
+			title : this.props.title
+		};
 
-		title = 'List of Stories';
-		photoArea = 'Click on a story below to edit or delete it';
+		stuff.title = 'List of Stories';
+		stuff.photoArea = 'Click on a story below to edit or delete it';
 
-		this.props.dispatch(actions.changeTitle(title));
-		this.props.dispatch(actions.changePhotoArea(photoArea));
+		this.props.dispatch(actions.changeStuff(stuff));
 		this.props.dispatch(actions.fetchStories());
 	}
 
 	render() {
 		return (
 			<main className="storiesContainer">
-				<MainTitle title={this.props.title} />
+				<MainTitle title={this.props.stuff.title} />
 				<section className="storyListArea">
-					<p>{this.props.photoArea}</p>
+					<p>{this.props.stuff.photoArea}</p>
 					<StoriesList
 						stories={this.props.stories}
-						title={this.props.title}
-						photoArea={this.props.photoArea} />
+						title={this.props.stuff.title}
+						photoArea={this.props.stuff.photoArea} />
 				</section>
 			</main>
 		);
@@ -43,8 +51,7 @@ export class StoriesContainer extends React.Component {
 
 const mapStateToProps = (state, props) => ({
 	stories: state.crudReducer.stories,
-	title: state.syncReducer.title,
-	photoArea: state.syncReducer.photoArea
+	stuff : state.syncReducer.stuff
 });
 
 export default connect(mapStateToProps)(StoriesContainer);

@@ -15,8 +15,18 @@ export class StoryContainer extends React.Component {
 	}
 
 	componentDidMount() {
-		let showInitTextCont = this.props.showInitTextCont;
-		const	stuff = this.props.stuff;
+		let showInitTextCont = this.props.showInitTextCont,
+			stuff = {
+				id : this.props.stuff.id,
+				leftBtn : this.props.stuff.leftBtn,
+				leftBtnAddr : this.props.stuff.leftBtnAddr,
+				photoArea : this.props.stuff.photoArea,
+				photoBtn : this.props.stuff.photoBtn,
+				rightBtn : this.props.stuff.rightBtn,
+				rightBtnAddr : this.props.stuff.rightBtnAddr,
+				submitBtnName : this.props.stuff.submitBtnName,
+				title : this.props.stuff.title
+			};
 
 		if (showInitTextCont) {
 			showInitTextCont = false;
@@ -28,7 +38,7 @@ export class StoryContainer extends React.Component {
 			stuff.photoArea = 'Click on Write to begin writing or click on Get New Photo to get a new random photo';
 
 			this.props.dispatch(actions.changeStuff(stuff));
-		} else if (title === 'List of Stories' && photoArea === 'Click on a story below to edit or delete it') {
+		} else if (stuff.title === 'List of Stories' && stuff.photoArea === 'Click on a story below to edit or delete it') {
 			let pathArr = this.props.location.pathname.split('/');
 
 			stuff.id = pathArr[2];
@@ -53,11 +63,11 @@ export class StoryContainer extends React.Component {
 	render() {
 		return (
 			<main className="storyContainer container-fluid">
-				<MainTitle title={this.props.title} />
+				<MainTitle title={this.props.stuff.title} />
 				<section className="storyAreaSection">
 					<PhotoAreaContainer
-						photo={this.props.photo}
-						photoArea={this.props.photoArea}
+						photo={this.props.stuff.photo}
+						photoArea={this.props.stuff.photoArea}
 						showInitTextCont={this.props.showInitTextCont} />
 					{this.props.children}
 					<ButtonArea
@@ -83,8 +93,8 @@ const mapStateToProps = (state, props) => ({
 	showInitTextCont: state.toggleReducer.showInitTextCont,
 	showTextAreaForm : state.toggleReducer.showTextAreaForm,
 	showWriteButton : state.toggleReducer.showWriteButton,
+	submitBtnName: state.syncReducer.stuff.submitBtnName,
 	stuff : state.syncReducer.stuff,
-	submitBtnName : state.syncReducer.stuff.submitBtnName,
 	title: state.syncReducer.stuff.title
 });
 

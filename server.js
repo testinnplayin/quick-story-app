@@ -36,7 +36,7 @@ app.get('/random-photo', (req, res) => {
 	res.json({photo: 'http://www.freedigitalphotos.net/images/img/homepage/394230.jpg'});
 });
 
-app.get('/stories', (req, res) => {
+app.get('/api/stories', (req, res) => {
 	Story
 		.find()
 		.limit(5)

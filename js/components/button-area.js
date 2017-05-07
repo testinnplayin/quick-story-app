@@ -18,84 +18,87 @@ export class ButtonArea extends React.Component {
 
 	handleWriteClick(e) {
 		e.preventDefault();
-		let rightBtn = this.props.rightBtn,
-			leftBtn = this.props.leftBtn,
-			title = this.props.title,
-			photoArea = this.props.photoArea,
+		let stuff = {
+				leftBtn : this.props.leftBtn,
+				photoArea : this.props.photoArea,
+				rightBtn : this.props.rightBtn,
+				title : this.props.title
+			},
 			showInitTextCont = this.props.showInitTextCont,
 			showTextAreaForm = this.props.showTextAreaForm;
 
-		if (rightBtn === 'Write' || rightBtn === 'Edit') {
-			rightBtn = '',
-			showInitTextCont = false,
+		if (stuff.rightBtn === 'Write' || stuff.rightBtn === 'Edit') {
+			stuff.rightBtn = '';
+			showInitTextCont = false;
 			showTextAreaForm = true;
-			this.props.dispatch(actions.changeRightBtnName(rightBtn));
+			console.log(stuff);
+			this.props.dispatch(actions.changeStuff(stuff));
 			this.props.dispatch(actions.toggleShowInitTextCont(showInitTextCont));
 			this.props.dispatch(actions.toggleShowTextAreaForm(showTextAreaForm));
 		}
 
-		if (rightBtn === '' && title === 'Your Story') {
-			var leftBtnAddr = this.props.leftBtnAddr,
-				rightBtnAddr = this.props.rightBtnAddr,
+		if (stuff.rightBtn === '' && stuff.title === 'Your Story') {
+			let leftBtnAddr = this.props.leftBtnAddr,
 				leftBtnAddrArr = leftBtnAddr.split('/'),
-				id = leftBtnAddrArr[3];
+				id = leftBtnAddrArr[3],
+				stuff = {
+					id : id,
+					leftBtnAddr : leftBtnAddr,
+					rightBtnAddr : this.props.rightBtnAddr
+				};
 
-			title = 'Edit Your Story',
-			photoArea = 'Click Save if you wish to keep your changes',
-			leftBtn = 'Back';
-			leftBtnAddr = `story/${id}`;
+			stuff.title = 'Edit Your Story',
+			stuff.photoArea = 'Click Save if you wish to keep your changes',
+			stuff.leftBtn = 'Back';
+			stuff.leftBtnAddr = `story/${id}`;
 
-			this.props.dispatch(actions.changeLeftBtnName(leftBtn));
-			this.props.dispatch(actions.changeTitle(title));
-			this.props.dispatch(actions.changePhotoArea(photoArea));
-			this.props.dispatch(actions.changeBtnAddr(rightBtnAddr, leftBtnAddr))
+			this.props.dispatch(actions.changeStuff(stuff));
 		}
 	}
 
-	handleMiddleClick(e) {
-		let rightBtn = this.props.rightBtn;
+	handleMiddleClick() {
+		let stuff = {
+			rightBtn : this.props.rightBtn
+		};
 
 		this.props.dispatch(actions.getPhoto());
 
-		if (rightBtn === '') {
-			rightBtn = 'Write';
-			this.props.dispatch(actions.changeRightBtnName(rightBtn));
+		if (stuff.rightBtn === '') {
+			stuff.rightBtn = 'Write';
+			this.props.dispatch(actions.changeStuff(stuff));
 		}
 
 	}
 
 	handleLeftClick(e) {
 		e.preventDefault();
-		
-		let title = this.props.title,
-			rightBtn = this.props.rightBtn,
-			photoArea = this.props.photoArea;
 
-		if (title === 'Write A Story') {
-			title = 'Quick Story',
-			photoArea = 'Click on Get Random Photo button to begin!';
+		let stuff = {
+			photoArea : this.props.photoArea,
+			rightBtn : this.props.rightBtn,
+			title : this.props.title
+		};
 
-			this.props.dispatch(actions.changeTitle(title));
-			this.props.dispatch(actions.changePhotoArea(photoArea));
-		} else if (title === 'Edit Your Story') {
-			title = 'Your Story',
-			photoArea = 'Click on Edit to edit your story, Delete to delete it or get a new random photo!';
+		if (stuff.title === 'Write A Story') {
+			stuff.title = 'Quick Story',
+			stuff.photoArea = 'Click on Get Random Photo button to begin!';
 
-			this.props.dispatch(actions.changeTitle(title));
-			this.props.dispatch(actions.changePhotoArea(photoArea));
-		} else if (title = 'Your Story') {
-			let leftBtn = this.props.leftBtn,
-				rightBtn = this.props.rightBtn;
+			this.props.dispatch(actions.changeStuff(stuff));
+		} else if (stuff.title === 'Edit Your Story') {
+			stuff.title = 'Your Story',
+			stuff.photoArea = 'Click on Edit to edit your story, Delete to delete it or get a new random photo!';
 
-			title = 'Delete Your Story',
-			photoArea = '',
-			leftBtn = '',
-			rightBtn = '';
+			this.props.dispatch(actions.changeStuff(stuff));
+		} else if (stuff.title = 'Your Story') {
+			stuff.leftBtn = this.props.leftBtn,
+			stuff.rightBtn = this.props.rightBtn;
 
-			this.props.dispatch(actions.changeTitle(title));
-			this.props.dispatch(actions.changePhotoArea(photoArea));
-			this.props.dispatch(actions.changeLeftBtnName(leftBtn));
-			this.props.dispatch(actions.changeRightBtnName(rightBtn));
+			stuff.title = 'Delete Your Story',
+			stuff.photoArea = '',
+			stuff.leftBtn = '',
+			stuff.rightBtn = '';
+
+			this.props.dispatch(actions.changeStuff(stuff));
 		}
 	}
 

@@ -9,14 +9,7 @@ const initialState = {
 		firstName: '',
 		lastName: ''
 	},
-	id: '',
-	leftBtn: 'Back',
-	leftBtnAddr: '/',
 	newAuthor: '',
-	photoArea : 'Click on Get Random Photo button to begin!',
-	photoBtn: 'Get Random Photo',
-	rightBtn: 'Write',
-	rightBtnAddr: '/story/new',
 	stuff : {
 		id: '',
 		leftBtn: 'Back',
@@ -28,35 +21,12 @@ const initialState = {
 		submitBtnName: 'Save',
 		title : 'Quick Story',
 	},
-	submitBtnName: 'Save',
-	title : 'Quick Story',
 	userStory: '',
 	userTitle: '',
 };
 
 export default function syncReducer(state=initialState, action) {
 	switch(action.type) {
-		case types.CHANGE_TITLE:
-			const newState_1 = update(state, {
-				title: {
-					$set: action.title
-				}
-			});
-			return newState_1;
-		case types.CHANGE_PHOTO_AREA:
-			const newState_2 = update(state, {
-				photoArea: {
-					$set: action.photoArea
-				}
-			});
-			return newState_2;
-		case types.CHANGE_RIGHT_BTN_NAME:
-			const newState_3 = update(state, {
-				rightBtn: {
-					$set: action.rightBtn
-				}
-			});
-			return newState_3;
 		case types.GET_TITLE_INPUT:
 			const newState_4 = update(state, {
 				userTitle: {
@@ -85,61 +55,42 @@ export default function syncReducer(state=initialState, action) {
 				}
 			});
 			return newState_6;
-		case types.CHANGE_LEFT_BTN_NAME:
-			const newState_7 = update(state, {
-				leftBtn: {
-					$set: action.leftBtn
-				}
-			});
-			return newState_7;
-		case types.CHANGE_BTN_ADDR:
-			const newState_8 = update(state, {
-				rightBtnAddr: {
-					$set: action.rightBtnAddr
-				},
-				leftBtnAddr: {
-					$set: action.leftBtnAddr
-				}
-			});
-			return newState_8;
-		case types.CHANGE_ID:
-			const newState_9 = update(state, {
-				id: {
-					$set: action.id
-				}
-			});
-			return newState_9;
 		case types.CHANGE_STUFF:
-			const stuff = action.stuff,
-				newState_10 = update(state, {
-					id : {
-						$set : stuff.id
-					},
-					leftBtn : {
-						$set : stuff.leftBtn
-					},
-					leftBtnAddr : {
-						$set : stuff.leftBtnAddr
-					},
-					photoArea : {
-						$set : stuff.photoArea
-					},
-					photoBtn : {
-						$set : stuff.photoBtn
-					},
-					rightBtn : {
-						$set : stuff.rightBtn
-					},
-					rightBtnAddr : {
-						$set : stuff.rightBtnAddr
-					},
-					submitBtnName : {
-						$set : stuff.submitBtnName
-					},
-					title : {
-						$set : stuff.title
+			const stuff = action.stuff;
+			console.log(stuff);
+
+			const newState_10 = update(state, {
+					stuff : {
+						id : {
+							$set : stuff.id
+						},
+						leftBtn : {
+							$set : stuff.leftBtn
+						},
+						leftBtnAddr : {
+							$set : stuff.leftBtnAddr
+						},
+						photoArea : {
+							$set : stuff.photoArea
+						},
+						photoBtn : {
+							$set : stuff.photoBtn
+						},
+						rightBtn : {
+							$set : stuff.rightBtn
+						},
+						rightBtnAddr : {
+							$set : stuff.rightBtnAddr
+						},
+						submitBtnName : {
+							$set : stuff.submitBtnName
+						},
+						title : {
+							$set : stuff.title
+						}
 					}
 				});
+				console.log(newState_10);
 				return newState_10;
 		default:
 			return state;

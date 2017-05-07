@@ -15,12 +15,6 @@ export class StoryContainer extends React.Component {
 	}
 
 	componentDidMount() {
-		// let title = this.props.title,
-		// 	photoArea = this.props.photoArea,
-		// 	rightBtn = this.props.rightBtn,
-		// 	leftBtn = this.props.leftBtn,
-		// 	rightBtnAddr = this.props.rightBtnAddr,
-		// 	leftBtnAddr = this.props.leftBtnAddr,
 		let showInitTextCont = this.props.showInitTextCont;
 		const	stuff = this.props.stuff;
 
@@ -34,9 +28,6 @@ export class StoryContainer extends React.Component {
 			stuff.photoArea = 'Click on Write to begin writing or click on Get New Photo to get a new random photo';
 
 			this.props.dispatch(actions.changeStuff(stuff));
-			// this.props.dispatch(actions.changeTitle(title));
-			// this.props.dispatch(actions.getPhoto());
-			// this.props.dispatch(actions.changePhotoArea(photoArea));
 		} else if (title === 'List of Stories' && photoArea === 'Click on a story below to edit or delete it') {
 			let pathArr = this.props.location.pathname.split('/');
 
@@ -49,13 +40,6 @@ export class StoryContainer extends React.Component {
 			stuff.leftBtnAddr = `/story/delete/${stuff.id}`;
 
 			this.props.dispatch(actions.changeStuff(stuff));
-
-			// this.props.dispatch(actions.changeTitle(title));
-			// this.props.dispatch(actions.changePhotoArea(photoArea));
-			// this.props.dispatch(actions.changeRightBtnName(rightBtn));
-			// this.props.dispatch(actions.changeLeftBtnName(leftBtn));
-			// this.props.dispatch(actions.changeBtnAddr(rightBtnAddr, leftBtnAddr));
-			// this.props.dispatch(actions.changeId(id));
 		} else {
 			stuff.leftBtn = 'Back',
 			stuff.photoArea = 'Click on Get Random Photo button to begin!',
@@ -63,11 +47,6 @@ export class StoryContainer extends React.Component {
 			stuff.title = 'Quick Story';
 
 			this.props.dispatch(actions.changeStuff(stuff));
-
-			// this.props.dispatch(actions.changeTitle(title));
-			// this.props.dispatch(actions.changePhotoArea(photoArea));
-			// this.props.dispatch(actions.changeRightBtnName(rightBtn));
-			// this.props.dispatch(actions.changeLeftBtnName(leftBtn));
 		}
 	}
 

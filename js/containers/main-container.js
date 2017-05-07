@@ -13,7 +13,10 @@ export class MainContainer extends React.Component {
 	render() {
 		return (
 			<div className="mainContainer">
-				<NavBar title={this.props.title} photoArea={this.props.photoArea} handleHomeClick={this.props.handleHomeClick} />
+				<NavBar
+					title={this.props.title}
+					photoArea={this.props.photoArea}
+					handleHomeClick={this.props.handleHomeClick} />
 				{this.props.children}
 			</div>
 		);
@@ -21,8 +24,8 @@ export class MainContainer extends React.Component {
 };
 
 const mapStatetoProps = (state, props) => ({
-	title: state.syncReducer.title,
-	photoArea: state.syncReducer.photoArea
+	title: state.syncReducer.stuff.title,
+	photoArea: state.syncReducer.stuff.photoArea
 });
 
 export default connect(mapStatetoProps)(MainContainer);

@@ -31,11 +31,11 @@ export class TextAreaContainer extends React.Component {
 
 const mapStateToProps = (state, props) => ({
 	author: state.syncReducer.author,
-	id: state.syncReducer.id,
+	id: state.syncReducer.stuff.id,
 	newAuthor: state.syncReducer.newAuthor,
 	photo: state.crudReducer.photo,
 	showTextAreaForm: state.toggleReducer.showTextAreaForm,
-	submitBtnName: state.syncReducer.submitBtnName,
+	submitBtnName: state.syncReducer.stuff.submitBtnName,
 	userStory: state.syncReducer.userStory,
 	userTitle: state.syncReducer.userTitle
 });

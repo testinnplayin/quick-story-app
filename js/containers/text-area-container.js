@@ -4,10 +4,15 @@ import React from 'react';
 import {connect} from 'react-redux'
 
 import TextArea from '../components/text-area';
+import * as actions from '../actions/index';
 
 export class TextAreaContainer extends React.Component {
 	constructor(props) {
 		super(props);
+	}
+
+	componentDidMount() {
+		this.props.dispatch(actions.getPhoto());
 	}
 
 	render() {

@@ -28,23 +28,23 @@ const initialState = {
 export default function syncReducer(state=initialState, action) {
 	switch(action.type) {
 		case types.GET_TITLE_INPUT:
-			const newState_4 = update(state, {
+			const newState_1 = update(state, {
 				userTitle: {
 					$set: action.userTitle
 				}
 			});
-			return newState_4;
+			return newState_1;
 		case types.GET_STORY_INPUT:
-			const newState_5 = update(state, {
+			const newState_2 = update(state, {
 				userStory: {
 					$set: action.userStory
 				}
 			});
-			return newState_5;
+			return newState_2;
 		case types.GET_USER_NAME:
 			let author = action.author;
 
-			const newState_6 = update(state, {
+			const newState_3 = update(state, {
 				author: {
 					firstName: {
 						$set: author.firstName
@@ -54,12 +54,10 @@ export default function syncReducer(state=initialState, action) {
 					}
 				}
 			});
-			return newState_6;
+			return newState_3;
 		case types.CHANGE_STUFF:
-			const stuff = action.stuff;
-			console.log(stuff);
-
-			const newState_10 = update(state, {
+			const stuff = action.stuff,
+				newState_4 = update(state, {
 					stuff : {
 						id : {
 							$set : stuff.id
@@ -90,8 +88,7 @@ export default function syncReducer(state=initialState, action) {
 						}
 					}
 				});
-				console.log(newState_10);
-				return newState_10;
+				return newState_4;
 		default:
 			return state;
 	}

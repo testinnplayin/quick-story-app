@@ -8,7 +8,8 @@ const initialState = {
   photoIsLoading : true,
   showInitTextCont : true,
   showStoryArea : false,
-  showTextAreaForm : false
+  showTextAreaForm : false,
+  showWriteButton : true
 };
 
 export default function toggleReducer(state=initialState, action) {
@@ -41,6 +42,13 @@ export default function toggleReducer(state=initialState, action) {
           }
         });
         return newState_4;
+      case types.TOGGLE_SHOW_WRITE_BUTTON:
+        const newState_5 = update(state, {
+          showWriteButton : {
+            $set : action.showWriteButton
+          }
+        });
+        return newState_5;
       default:
         return state;
     }

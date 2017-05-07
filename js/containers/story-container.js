@@ -81,7 +81,10 @@ const mapStateToProps = (state, props) => ({
 	rightBtn: state.syncReducer.stuff.rightBtn,
 	rightBtnAddr: state.syncReducer.stuff.rightBtnAddr,
 	showInitTextCont: state.toggleReducer.showInitTextCont,
+	showTextAreaForm : state.toggleReducer.showTextAreaForm,
+	showWriteButton : state.toggleReducer.showWriteButton,
 	stuff : state.syncReducer.stuff,
+	submitBtnName : state.syncReducer.stuff.submitBtnName,
 	title: state.syncReducer.stuff.title
 });
 

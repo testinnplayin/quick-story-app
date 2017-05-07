@@ -7,6 +7,7 @@ export const TOGGLE_PHOTO_LOADING = 'TOGGLE_PHOTO_LOADING';
 export const TOGGLE_SHOW_INIT_TEXT_CONT = 'TOGGLE_SHOW_INIT_TEXT_CONT';
 export const TOGGLE_SHOW_STORY_AREA = 'TOGGLE_SHOW_STORY_AREA';
 export const TOGGLE_SHOW_TEXT_AREA_FORM = 'TOGGLE_SHOW_TEXT_AREA_FORM';
+export const TOGGLE_SHOW_WRITE_BUTTON = 'TOGGLE_SHOW_WRITE_BUTTON';
 
 export const togglePhotoLoading = (photoIsLoading) => ({
 	type : TOGGLE_PHOTO_LOADING,
@@ -26,4 +27,9 @@ export const toggleShowStoryArea = showStoryArea => ({
 export const toggleShowTextAreaForm = showTextAreaForm => ({
   type : TOGGLE_SHOW_TEXT_AREA_FORM,
   showTextAreaForm
+});
+
+export const toggleShowWriteButton = showWriteButton => ({
+	type : TOGGLE_SHOW_WRITE_BUTTON,
+	showWriteButton
 });
